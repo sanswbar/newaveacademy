@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"/Users/sansw/Claude Code/NEWAVE Landing Page\" && [ -n \"$(git status --porcelain)\" ] && git add -A && git commit -m \"auto: update\" && git push || true"
+          }
+        ]
+      }
+    ]
+  }
+}
