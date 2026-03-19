@@ -14,10 +14,29 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  background: var(--black);
-  color: var(--white);
+  background: #f2f1ef;
+  color: var(--black);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ─── WATERMARK ─── */
+.page-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  width: 70vw;
+  max-width: 900px;
+  color: #c8c7c5;
+  opacity: 0.35;
+}
+
+.page-watermark svg {
+  width: 100%;
+  height: 100%;
 }
 
 /* ─── TYPOGRAPHY HELPERS ─── */
@@ -281,9 +300,11 @@ body {
 
 /* ─── STATEMENT ─── */
 .statement {
-  background: var(--white);
+  background: rgba(255,255,255,0.7);
   padding: 3.5rem 3rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .statement p {
@@ -332,8 +353,8 @@ body {
 .strip-item:nth-child(4) { background: #1a1e26; }
 
 /* ─── SHARED SECTION STRUCTURE ─── */
-.section-light { background: var(--white); }
-.section-dark  { background: var(--black); }
+.section-light { background: rgba(255,255,255,0.75); position: relative; z-index: 1; }
+.section-dark  { background: rgba(20,24,30,0.92); position: relative; z-index: 1; }
 
 .section-inner {
   max-width: 1100px;
@@ -593,7 +614,7 @@ body {
 
 /* ─── FOOTER ─── */
 .footer {
-  background: #0c0f13;
+  background: rgba(12,15,19,0.93);
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
