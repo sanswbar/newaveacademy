@@ -122,13 +122,15 @@ body {
 .why-item h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
 .why-item p { color: var(--gray); font-size: 0.88rem; line-height: 1.65; }
 
-/* LIFESTYLE */
-.lifestyle-feature { display: grid; grid-template-columns: 1fr 1fr; min-height: 340px; max-height: 380px; overflow: hidden; }
-.lifestyle-photo { position: relative; overflow: hidden; background: #1a1e26; }
-.lifestyle-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-.lifestyle-text { background: var(--black); padding: 3.5rem 4rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; border-left: 1px solid rgba(255,255,255,0.06); }
-.lifestyle-text h2 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
-.lifestyle-text p { color: var(--gray); font-size: 0.98rem; line-height: 1.75; max-width: 420px; }
+/* PROCESS */
+.process-section { background: var(--black); border-top: 1px solid rgba(255,255,255,0.07); }
+.process-inner { max-width: 680px; margin: 0 auto; padding: 5rem 3rem; }
+.process-steps { display: flex; flex-direction: column; }
+.process-step { display: flex; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.07); }
+.process-step:first-child { border-top: none; padding-top: 0; }
+.process-step .item-num { min-width: 2rem; margin-top: 0.15rem; }
+.step-content h3 { color: var(--white); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+.step-content p { color: var(--gray); font-size: 0.88rem; line-height: 1.65; }
 
 /* B2C */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -165,9 +167,7 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .lifestyle-feature { grid-template-columns: 1fr; min-height: auto; }
-  .lifestyle-photo { height: 420px; }
-  .lifestyle-text { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 3rem; }
+  .process-inner { padding: 4rem 2rem; }
 }
 @media (max-width: 900px) {
   .nav { padding: 1.2rem 1.5rem; }
@@ -182,8 +182,7 @@ body {
   .split { grid-template-columns: 1fr; gap: 3rem; }
   .three-col { grid-template-columns: 1fr; gap: 1.8rem; }
   .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .lifestyle-photo { height: 320px; }
-  .lifestyle-text { padding: 3rem 1.5rem; }
+  .process-inner { padding: 3.5rem 1.5rem; }
   .footer-top { flex-direction: column; gap: 2.5rem; }
   .footer-links { gap: 2.5rem; }
 }
