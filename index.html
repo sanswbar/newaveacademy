@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
 
@@ -16,11 +16,12 @@
     <a href="/" class="logo"><img src="images/logo.png" alt="NEWAVƎ" class="logo-img" /></a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#professionals">Professionals</a>
-        <a href="#companies">Companies</a>
-        <a href="#contact">Contact</a>
+        <a href="#professionals" data-i18n="nav.professionals">Professionals</a>
+        <a href="#companies" data-i18n="nav.companies">Companies</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </div>
-      <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="nav-cta">Join</a>
+      <button class="lang-toggle" id="langToggle">ES</button>
+      <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav.join">Join</a>
     </div>
   </nav>
 
@@ -28,29 +29,29 @@
   <section class="hero">
     <div class="hero-glow"></div>
     <div class="hero-content">
-<h1>Remote careers for professionals.<br><span class="h1-accent">Elite talent for companies.</span></h1>
-      <p class="hero-sub">We open the global job market to professionals across LATAM — and connect companies with exceptional remote talent.</p>
+      <h1 data-i18n-html="hero.h1">Remote careers for professionals.<br><span class="h1-accent">Elite talent for companies.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">We open the global job market to professionals across LATAM — and connect companies with exceptional remote talent.</p>
       <div class="hero-actions">
-        <a href="#professionals" class="btn-primary">I'm a professional</a>
-        <a href="#companies" class="btn-ghost">I'm hiring</a>
+        <a href="#professionals" class="btn-primary" data-i18n="hero.cta1">I'm a professional</a>
+        <a href="#companies" class="btn-ghost" data-i18n="hero.cta2">I'm hiring</a>
       </div>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
         <span class="stat-num">+500</span>
-        <span class="stat-label">Professionals in community</span>
+        <span class="stat-label" data-i18n="hero.stat1">Professionals in community</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
         <span class="stat-num">Mexico & LATAM</span>
-        <span class="stat-label">Talent sourcing region</span>
+        <span class="stat-label" data-i18n="hero.stat2">Talent sourcing region</span>
       </div>
     </div>
   </section>
 
   <!-- STATEMENT -->
   <section class="statement">
-    <p>Work should adapt to your life.<br><em>Not the other way around.</em></p>
+    <p data-i18n-html="statement">Work should adapt to your life.<br><em>Not the other way around.</em></p>
   </section>
 
   <!-- PHOTO STRIP -->
@@ -73,66 +74,66 @@
   <section id="companies" class="section-dark">
     <div class="section-inner">
       <div class="section-label light">
-        <span class="mono">For Companies</span>
+        <span class="mono" data-i18n="b2b.label">For Companies</span>
       </div>
-      <h2 class="light">Qualified remote talent from LATAM for your team.</h2>
-      <p class="section-desc light">We are your strategic partner for hiring remote professionals. We recruit from our own verified talent community — people we've trained, vetted, and know personally.</p>
+      <h2 class="light" data-i18n="b2b.h2">Qualified remote talent from LATAM for your team.</h2>
+      <p class="section-desc light" data-i18n="b2b.desc">We are your strategic partner for hiring remote professionals. We recruit from our own verified talent community — people we've trained, vetted, and know personally.</p>
 
       <div class="three-col">
         <div class="col-item">
           <span class="item-num">01</span>
-          <h3>Rigorous vetting</h3>
-          <p>Only verified candidates with proven skills, strong English, and an international mindset.</p>
+          <h3 data-i18n="b2b.feat1.title">Rigorous vetting</h3>
+          <p data-i18n="b2b.feat1.desc">Only verified candidates with proven skills, strong English, and an international mindset.</p>
         </div>
         <div class="col-item">
           <span class="item-num">02</span>
-          <h3>Global-ready talent</h3>
-          <p>Professionals trained for distributed, cross-cultural teams — ready to contribute from day one.</p>
+          <h3 data-i18n="b2b.feat2.title">Global-ready talent</h3>
+          <p data-i18n="b2b.feat2.desc">Professionals trained for distributed, cross-cultural teams — ready to contribute from day one.</p>
         </div>
         <div class="col-item">
           <span class="item-num">03</span>
-          <h3>Fast process</h3>
-          <p>From brief to shortlist in days, not weeks. Transparent communication at every step.</p>
+          <h3 data-i18n="b2b.feat3.title">Fast process</h3>
+          <p data-i18n="b2b.feat3.desc">From brief to shortlist in days, not weeks. Transparent communication at every step.</p>
         </div>
       </div>
 
       <div class="b2b-divider"></div>
 
       <div class="b2b-roles">
-        <span class="mono" style="color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; display:block;">ROLES WE FILL</span>
+        <span class="mono" style="color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; display:block;" data-i18n="b2b.rolesLabel">ROLES WE FILL</span>
         <div class="roles-grid">
           <span class="role-tag">Marketing</span>
-          <span class="role-tag">Sales</span>
-          <span class="role-tag">Customer Success</span>
-          <span class="role-tag">Operations</span>
-          <span class="role-tag">Project Management</span>
-          <span class="role-tag">Finance & Accounting</span>
-          <span class="role-tag">Executive Assistants</span>
-          <span class="role-tag">HR & Recruiting</span>
+          <span class="role-tag" data-i18n="b2b.role.sales">Sales</span>
+          <span class="role-tag" data-i18n="b2b.role.cs">Customer Success</span>
+          <span class="role-tag" data-i18n="b2b.role.ops">Operations</span>
+          <span class="role-tag" data-i18n="b2b.role.pm">Project Management</span>
+          <span class="role-tag" data-i18n="b2b.role.finance">Finance & Accounting</span>
+          <span class="role-tag" data-i18n="b2b.role.ea">Executive Assistants</span>
+          <span class="role-tag" data-i18n="b2b.role.hr">HR & Recruiting</span>
         </div>
       </div>
 
       <div class="b2b-divider"></div>
 
       <div class="b2b-why">
-        <span class="mono" style="color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; display:block;">WHY LATAM</span>
+        <span class="mono" style="color: rgba(255,255,255,0.3); margin-bottom: 1.5rem; display:block;" data-i18n="b2b.whyLabel">WHY LATAM</span>
         <div class="why-grid">
           <div class="why-item">
-            <h4>Time zone aligned</h4>
-            <p>LATAM professionals work in US time zones — no async delays, real collaboration.</p>
+            <h4 data-i18n="b2b.why1.title">Time zone aligned</h4>
+            <p data-i18n="b2b.why1.desc">LATAM professionals work in US time zones — no async delays, real collaboration.</p>
           </div>
           <div class="why-item">
-            <h4>Highly educated</h4>
-            <p>Strong academic backgrounds, bilingual professionals with global ambitions.</p>
+            <h4 data-i18n="b2b.why2.title">Highly educated</h4>
+            <p data-i18n="b2b.why2.desc">Strong academic backgrounds, bilingual professionals with global ambitions.</p>
           </div>
           <div class="why-item">
-            <h4>Cost-effective</h4>
-            <p>World-class talent at competitive rates — without compromising on quality.</p>
+            <h4 data-i18n="b2b.why3.title">Cost-effective</h4>
+            <p data-i18n="b2b.why3.desc">World-class talent at competitive rates — without compromising on quality.</p>
           </div>
         </div>
       </div>
 
-      <a href="hire.html" target="_blank" rel="noopener" class="btn-orange">Hire talent</a>
+      <a href="hire.html" target="_blank" rel="noopener" class="btn-orange" data-i18n="b2b.cta">Hire talent</a>
     </div>
   </section>
 
@@ -142,9 +143,9 @@
       <img src="images/hero-4.png" alt="Work from anywhere lifestyle" />
     </div>
     <div class="lifestyle-text">
-      <span class="mono">THE NEWAVE WAY</span>
-      <h2>Freedom is not a destination.<br>It's a decision.</h2>
-      <p>The new wave of professionals doesn't ask for permission to live fully. They build careers that make room for life — and they do it on their own terms.</p>
+      <span class="mono" data-i18n="lifestyle.label">THE NEWAVE WAY</span>
+      <h2 data-i18n-html="lifestyle.h2">Freedom is not a destination.<br>It's a decision.</h2>
+      <p data-i18n="lifestyle.desc">The new wave of professionals doesn't ask for permission to live fully. They build careers that make room for life — and they do it on their own terms.</p>
     </div>
   </section>
 
@@ -152,29 +153,29 @@
   <section id="professionals" class="section-light">
     <div class="section-inner">
       <div class="section-label">
-        <span class="mono">For Professionals</span>
+        <span class="mono" data-i18n="b2c.label">For Professionals</span>
       </div>
       <div class="split">
         <div class="split-text">
-          <h2>Your next Monday could be from anywhere in the world.</h2>
-          <p>A course and community for professionals ready to take the next step: landing an international remote job paid in USD, without losing who they are.</p>
+          <h2 data-i18n="b2c.h2">Your next Monday could be from anywhere in the world.</h2>
+          <p data-i18n="b2c.desc">A course and community for professionals ready to take the next step: landing an international remote job paid in USD, without losing who they are.</p>
           <ul class="list">
-            <li>Training in globally in-demand skills</li>
-            <li>Resume, LinkedIn, and interview preparation</li>
-            <li>Active community + live mentorship sessions</li>
+            <li data-i18n="b2c.li1">Training in globally in-demand skills</li>
+            <li data-i18n="b2c.li2">Resume, LinkedIn, and interview preparation</li>
+            <li data-i18n="b2c.li3">Active community + live mentorship sessions</li>
           </ul>
-          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-dark">Join the community</a>
-          <p class="skool-note">Hosted on <strong>Skool</strong> — courses, community, and live sessions in one place.</p>
+          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-dark" data-i18n="b2c.cta">Join the community</a>
+          <p class="skool-note" data-i18n-html="b2c.skoolNote">Hosted on <strong>Skool</strong> — courses, community, and live sessions in one place.</p>
         </div>
         <div class="split-visual">
           <div class="visual-card">
             <span class="mono small">COMMUNITY</span>
             <p class="big-num">+500</p>
-            <p class="card-sub">professionals riding the wave</p>
+            <p class="card-sub" data-i18n="b2c.cardSub">professionals riding the wave</p>
           </div>
           <div class="visual-card accent">
             <span class="mono small">OUTCOME</span>
-            <p class="card-quote">Life on your own terms.</p>
+            <p class="card-quote" data-i18n="b2c.cardQuote">Life on your own terms.</p>
           </div>
         </div>
       </div>
@@ -187,21 +188,21 @@
       <div class="footer-top">
         <div class="footer-brand">
           <img src="images/logo negro.png" alt="NEWAVƎ" class="footer-logo-img" />
-          <p class="footer-tag">Remote careers. Global talent.</p>
+          <p class="footer-tag" data-i18n="footer.tag">Remote careers. Global talent.</p>
         </div>
         <div class="footer-links">
           <div class="footer-col">
-            <span class="mono footer-col-label">Contact</span>
+            <span class="mono footer-col-label" data-i18n="footer.contact">Contact</span>
             <a href="mailto:hello@nwave.co" class="footer-email">hello@nwave.co</a>
           </div>
           <div class="footer-col">
-            <span class="mono footer-col-label">Follow</span>
+            <span class="mono footer-col-label" data-i18n="footer.follow">Follow</span>
             <a href="https://instagram.com/newave.academy" target="_blank" rel="noopener" class="footer-social">@newave.academy</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="copyright">© 2026 NEWAVƎ. All rights reserved.</p>
+        <p class="copyright" data-i18n="footer.copy">© 2026 NEWAVƎ. All rights reserved.</p>
         <div class="footer-iso">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-isotipo">
             <rect x="44" y="0"  width="12" height="44" fill="currentColor"/>
@@ -217,6 +218,146 @@
   </footer>
 
   <script>
+    /* ── TRANSLATIONS ── */
+    const t = {
+      en: {
+        'nav.professionals': 'Professionals',
+        'nav.companies': 'Companies',
+        'nav.contact': 'Contact',
+        'nav.join': 'Join',
+        'hero.h1': 'Remote careers for professionals.<br><span class="h1-accent">Elite talent for companies.</span>',
+        'hero.sub': 'We open the global job market to professionals across LATAM — and connect companies with exceptional remote talent.',
+        'hero.cta1': "I'm a professional",
+        'hero.cta2': "I'm hiring",
+        'hero.stat1': 'Professionals in community',
+        'hero.stat2': 'Talent sourcing region',
+        'statement': 'Work should adapt to your life.<br><em>Not the other way around.</em>',
+        'b2b.label': 'For Companies',
+        'b2b.h2': 'Qualified remote talent from LATAM for your team.',
+        'b2b.desc': "We are your strategic partner for hiring remote professionals. We recruit from our own verified talent community — people we've trained, vetted, and know personally.",
+        'b2b.feat1.title': 'Rigorous vetting',
+        'b2b.feat1.desc': 'Only verified candidates with proven skills, strong English, and an international mindset.',
+        'b2b.feat2.title': 'Global-ready talent',
+        'b2b.feat2.desc': 'Professionals trained for distributed, cross-cultural teams — ready to contribute from day one.',
+        'b2b.feat3.title': 'Fast process',
+        'b2b.feat3.desc': 'From brief to shortlist in days, not weeks. Transparent communication at every step.',
+        'b2b.rolesLabel': 'ROLES WE FILL',
+        'b2b.role.sales': 'Sales',
+        'b2b.role.cs': 'Customer Success',
+        'b2b.role.ops': 'Operations',
+        'b2b.role.pm': 'Project Management',
+        'b2b.role.finance': 'Finance & Accounting',
+        'b2b.role.ea': 'Executive Assistants',
+        'b2b.role.hr': 'HR & Recruiting',
+        'b2b.whyLabel': 'WHY LATAM',
+        'b2b.why1.title': 'Time zone aligned',
+        'b2b.why1.desc': 'LATAM professionals work in US time zones — no async delays, real collaboration.',
+        'b2b.why2.title': 'Highly educated',
+        'b2b.why2.desc': 'Strong academic backgrounds, bilingual professionals with global ambitions.',
+        'b2b.why3.title': 'Cost-effective',
+        'b2b.why3.desc': 'World-class talent at competitive rates — without compromising on quality.',
+        'b2b.cta': 'Hire talent',
+        'lifestyle.label': 'THE NEWAVE WAY',
+        'lifestyle.h2': "Freedom is not a destination.<br>It's a decision.",
+        'lifestyle.desc': "The new wave of professionals doesn't ask for permission to live fully. They build careers that make room for life — and they do it on their own terms.",
+        'b2c.label': 'For Professionals',
+        'b2c.h2': 'Your next Monday could be from anywhere in the world.',
+        'b2c.desc': 'A course and community for professionals ready to take the next step: landing an international remote job paid in USD, without losing who they are.',
+        'b2c.li1': 'Training in globally in-demand skills',
+        'b2c.li2': 'Resume, LinkedIn, and interview preparation',
+        'b2c.li3': 'Active community + live mentorship sessions',
+        'b2c.cta': 'Join the community',
+        'b2c.skoolNote': 'Hosted on <strong>Skool</strong> — courses, community, and live sessions in one place.',
+        'b2c.cardSub': 'professionals riding the wave',
+        'b2c.cardQuote': 'Life on your own terms.',
+        'footer.tag': 'Remote careers. Global talent.',
+        'footer.contact': 'Contact',
+        'footer.follow': 'Follow',
+        'footer.copy': '© 2026 NEWAVƎ. All rights reserved.',
+      },
+      es: {
+        'nav.professionals': 'Profesionales',
+        'nav.companies': 'Empresas',
+        'nav.contact': 'Contacto',
+        'nav.join': 'Únete',
+        'hero.h1': 'Carreras remotas para profesionales.<br><span class="h1-accent">Talento élite para empresas.</span>',
+        'hero.sub': 'Abrimos el mercado laboral global a profesionales de LATAM — y conectamos empresas con talento remoto excepcional.',
+        'hero.cta1': 'Soy profesional',
+        'hero.cta2': 'Quiero contratar',
+        'hero.stat1': 'Profesionales en comunidad',
+        'hero.stat2': 'Región de talento',
+        'statement': 'El trabajo se tiene que adaptar a tu vida.<br><em>No al revés.</em>',
+        'b2b.label': 'Para Empresas',
+        'b2b.h2': 'Talento remoto calificado de LATAM para tu equipo.',
+        'b2b.desc': 'Somos tu socio estratégico para contratar profesionales remotos. Reclutamos de nuestra propia comunidad verificada — personas que hemos formado, evaluado y conocemos personalmente.',
+        'b2b.feat1.title': 'Evaluación rigurosa',
+        'b2b.feat1.desc': 'Solo candidatos verificados con habilidades comprobadas, inglés fluido y mentalidad internacional.',
+        'b2b.feat2.title': 'Talento global listo',
+        'b2b.feat2.desc': 'Profesionales entrenados para equipos distribuidos y multiculturales — listos para contribuir desde el primer día.',
+        'b2b.feat3.title': 'Proceso rápido',
+        'b2b.feat3.desc': 'Del brief al shortlist en días, no semanas. Comunicación transparente en cada paso.',
+        'b2b.rolesLabel': 'ROLES QUE CUBRIMOS',
+        'b2b.role.sales': 'Ventas',
+        'b2b.role.cs': 'Éxito del Cliente',
+        'b2b.role.ops': 'Operaciones',
+        'b2b.role.pm': 'Gestión de Proyectos',
+        'b2b.role.finance': 'Finanzas y Contabilidad',
+        'b2b.role.ea': 'Asistentes Ejecutivos',
+        'b2b.role.hr': 'RRHH y Reclutamiento',
+        'b2b.whyLabel': 'POR QUÉ LATAM',
+        'b2b.why1.title': 'Zona horaria alineada',
+        'b2b.why1.desc': 'Los profesionales de LATAM trabajan en horarios de EE.UU. — sin retrasos, colaboración real.',
+        'b2b.why2.title': 'Altamente educados',
+        'b2b.why2.desc': 'Sólida formación académica, profesionales bilingües con ambiciones globales.',
+        'b2b.why3.title': 'Rentable',
+        'b2b.why3.desc': 'Talento de clase mundial a tarifas competitivas — sin comprometer la calidad.',
+        'b2b.cta': 'Contratar talento',
+        'lifestyle.label': 'EL CAMINO NEWAVE',
+        'lifestyle.h2': 'La libertad no es un destino.<br>Es una decisión.',
+        'lifestyle.desc': 'La nueva ola de profesionales no pide permiso para vivir plenamente. Construyen carreras que hacen espacio para la vida — y lo hacen en sus propios términos.',
+        'b2c.label': 'Para Profesionales',
+        'b2c.h2': 'Tu próximo lunes podría ser desde cualquier parte del mundo.',
+        'b2c.desc': 'Un curso y comunidad para profesionales listos para dar el siguiente paso: conseguir un trabajo remoto internacional pagado en USD, sin perder quiénes son.',
+        'b2c.li1': 'Formación en habilidades demandadas globalmente',
+        'b2c.li2': 'Preparación de CV, LinkedIn y entrevistas',
+        'b2c.li3': 'Comunidad activa + sesiones de mentoría en vivo',
+        'b2c.cta': 'Únete a la comunidad',
+        'b2c.skoolNote': 'Alojado en <strong>Skool</strong> — cursos, comunidad y sesiones en vivo en un solo lugar.',
+        'b2c.cardSub': 'profesionales en la ola',
+        'b2c.cardQuote': 'Vida en tus propios términos.',
+        'footer.tag': 'Carreras remotas. Talento global.',
+        'footer.contact': 'Contacto',
+        'footer.follow': 'Síguenos',
+        'footer.copy': '© 2026 NEWAVƎ. Todos los derechos reservados.',
+      }
+    };
+
+    let lang = 'en';
+
+    function applyLang(l) {
+      lang = l;
+      document.documentElement.lang = l;
+      document.getElementById('langToggle').textContent = l === 'en' ? 'ES' : 'EN';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[l][key] !== undefined) el.textContent = t[l][key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[l][key] !== undefined) el.innerHTML = t[l][key];
+      });
+      localStorage.setItem('nw-lang', l);
+    }
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      applyLang(lang === 'en' ? 'es' : 'en');
+    });
+
+    // Restore saved preference
+    const saved = localStorage.getItem('nw-lang');
+    if (saved && saved !== 'en') applyLang(saved);
+
+    /* ── NAV SCROLL HIDE ── */
     let lastY = 0;
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('.nav');
