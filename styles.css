@@ -127,8 +127,8 @@ body {
 .lifestyle-photo { position: relative; overflow: hidden; background: #1a1e26; }
 .lifestyle-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 .lifestyle-text { background: var(--black); padding: 3.5rem 4rem; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; border-left: 1px solid rgba(255,255,255,0.06); }
-.lifestyle-text h2 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
-.lifestyle-text p { color: var(--gray); font-size: 0.98rem; line-height: 1.75; max-width: 420px; }
+.lifestyle-text h2 { font-size: clamp(1.3rem, 1.8vw, 1.8rem); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; }
+.lifestyle-text p { color: var(--gray); font-size: 0.85rem; line-height: 1.7; max-width: 380px; }
 
 /* B2C */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
