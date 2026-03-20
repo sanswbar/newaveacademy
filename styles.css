@@ -163,31 +163,67 @@ body {
 .copyright { color: rgba(183,182,182,0.3); font-size: 0.75rem; }
 .footer-isotipo { width: 40px; height: 40px; color: rgba(255,255,255,0.1); }
 
-/* RESPONSIVE */
+/* RESPONSIVE — tablet */
 @media (max-width: 1024px) {
-  .lifestyle-feature { grid-template-columns: 1fr; min-height: auto; }
-  .lifestyle-photo { height: 420px; }
-  .lifestyle-text { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 3rem; }
+  .lifestyle-feature { grid-template-columns: 1fr; height: auto; }
+  .lifestyle-photo { height: 380px; }
+  .lifestyle-text { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 3rem; }
 }
-@media (max-width: 900px) {
-  .nav { padding: 1.2rem 1.5rem; }
+
+/* RESPONSIVE — mobile */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav { padding: 1rem 1.2rem; }
   .nav-links { display: none; }
-  .hero { padding: 8rem 1.5rem 0; }
-  .hero-stats { gap: 0; flex-wrap: wrap; }
+  .nav-right { gap: 0.8rem; }
+
+  /* Hero */
+  .hero { padding: 7rem 1.2rem 0; text-align: center; }
+  .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+  .hero-sub { font-size: 1rem; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .btn-primary, .btn-ghost { width: 100%; max-width: 280px; justify-content: center; }
+  .hero-stats { margin-top: 3rem; padding-bottom: 2.5rem; flex-wrap: wrap; gap: 1.5rem; }
   .stat-item { padding: 0 1.5rem; }
   .stat-divider { display: none; }
-  .statement { padding: 3.5rem 1.5rem; }
-  .photo-strip { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 240px; }
-  .section-inner { padding: 5rem 1.5rem; }
-  .split { grid-template-columns: 1fr; gap: 3rem; }
-  .three-col { grid-template-columns: 1fr; gap: 1.8rem; }
-  .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .lifestyle-photo { height: 320px; }
-  .lifestyle-text { padding: 3rem 1.5rem; }
-  .footer-top { flex-direction: column; gap: 2.5rem; }
-  .footer-links { gap: 2.5rem; }
+
+  /* Statement */
+  .statement { padding: 2.5rem 1.2rem; }
+
+  /* Photo strip */
+  .photo-strip { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; }
+
+  /* Sections */
+  .section-inner { padding: 3.5rem 1.2rem; }
+
+  /* B2B */
+  .three-col { grid-template-columns: 1fr; gap: 1.5rem; }
+  .why-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .b2b-divider { margin: 2rem 0; }
+
+  /* Lifestyle */
+  .lifestyle-feature { height: auto; }
+  .lifestyle-photo { height: 260px; }
+  .lifestyle-text { padding: 2.5rem 1.2rem; gap: 1rem; }
+  .lifestyle-text h2 { font-size: 1.5rem; }
+
+  /* B2C */
+  .split { grid-template-columns: 1fr; gap: 2.5rem; }
+  .split-visual { order: -1; }
+  .visual-card { padding: 1.6rem; }
+  .big-num { font-size: 3rem; }
+  .btn-dark { width: 100%; max-width: 280px; justify-content: center; }
+
+  /* Footer */
+  .footer-inner { padding: 3rem 1.2rem; }
+  .footer-top { flex-direction: column; gap: 2rem; }
+  .footer-links { gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
 }
-@media (max-width: 560px) {
-  .photo-strip { grid-template-columns: 1fr; grid-template-rows: repeat(4, 260px); }
-  .three-col { gap: 1.4rem; }
+
+/* RESPONSIVE — small phones */
+@media (max-width: 400px) {
+  .photo-strip { grid-template-columns: 1fr; grid-template-rows: repeat(4, 220px); }
+  .hero h1 { font-size: 1.9rem; }
+  .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.8rem; }
 }
