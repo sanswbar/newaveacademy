@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contratar Talento — NEWAVƎ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <style>
+    .hire-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 9rem 1.5rem 5rem;
+    }
+    .hire-inner {
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hire-inner .mono { color: var(--orange); margin-bottom: 0.4rem; }
+    .hire-inner h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .hire-inner > p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* FORM */
+    .hire-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-group label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(183,182,182,0.6);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--orange); }
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B7B6B6' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .form-group select option { background: #1a1e26; color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-divider { border-top: 1px solid rgba(255,255,255,0.07); margin: 0.5rem 0; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+      width: 100%;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+
+    /* SUCCESS STATE */
+    .hire-success {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 2rem;
+      border: 1px solid rgba(252,115,66,0.3);
+      border-radius: 12px;
+      background: rgba(252,115,66,0.06);
+      margin-top: 0.5rem;
+    }
+    .hire-success h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .hire-success p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .hire-page { padding: 7rem 1.2rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="NEWAVƎ" class="logo-img" /></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="index.html#professionals">Profesionales</a>
+        <a href="index.html#companies">Empresas</a>
+        <a href="index.html#contact">Contacto</a>
+      </div>
+      <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="nav-cta">Únete</a>
+    </div>
+  </nav>
+
+  <section class="hire-page">
+    <div class="hire-inner">
+      <span class="mono">Para Empresas</span>
+      <h1>Encontremos a tu<br>próxima gran contratación.</h1>
+      <p>Dinos qué perfil buscas y conectamos tu empresa con los mejores candidatos de nuestra comunidad.</p>
+
+      <form class="hire-form" id="hireForm" novalidate>
+        <div class="form-group">
+          <label for="company">Nombre de la empresa</label>
+          <input type="text" id="company" name="company" placeholder="Acme Inc." required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo de contacto</label>
+          <input type="email" id="email" name="email" placeholder="tu@empresa.com" required />
+        </div>
+        <div class="form-divider"></div>
+        <div class="form-group">
+          <label for="role">Puesto que buscas contratar</label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>Selecciona un rol</option>
+            <option>Marketing</option>
+            <option>Ventas</option>
+            <option>Éxito del Cliente</option>
+            <option>Operaciones</option>
+            <option>Gestión de Proyectos</option>
+            <option>Finanzas y Contabilidad</option>
+            <option>Asistente Ejecutivo</option>
+            <option>RRHH y Reclutamiento</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="details">¿Algo más que debamos saber? <span style="opacity:0.4">(opcional)</span></label>
+          <textarea id="details" name="details" placeholder="Nivel de experiencia, habilidades específicas, zona horaria…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar solicitud →</button>
+      </form>
+
+      <div class="hire-success" id="hireSuccess">
+        <span class="mono" style="color: var(--orange);">Solicitud recibida</span>
+        <h3>Nos ponemos en contacto pronto.</h3>
+        <p>Revisaremos tu solicitud y te enviaremos un shortlist de perfiles de nuestra comunidad en menos de 48 horas.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    /* Nav scroll hide */
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      const y = window.scrollY;
+      nav.style.transform = y > lastY && y > 80 ? 'translateY(-100%)' : 'translateY(0)';
+      lastY = y;
+    });
+
+    /* Form submit */
+    document.getElementById('hireForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const role = document.getElementById('role').value;
+      if (!company || !email || !role) {
+        alert('Por favor completa todos los campos requeridos.');
+        return;
+      }
+      const form = this;
+      fetch('https://formspree.io/f/hello@nwave.co', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).catch(() => {});
+      form.style.display = 'none';
+      document.getElementById('hireSuccess').style.display = 'flex';
+    });
+  </script>
+
+</body>
+</html>

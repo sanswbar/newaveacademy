@@ -133,7 +133,7 @@
         </div>
       </div>
 
-      <a href="hire.html" target="_blank" rel="noopener" class="btn-orange" data-i18n="b2b.cta">Hire talent</a>
+      <a href="hire.html" target="_blank" rel="noopener" class="btn-orange" id="hireBtn" data-i18n="b2b.cta">Hire talent</a>
     </div>
   </section>
 
@@ -346,6 +346,8 @@
         const key = el.getAttribute('data-i18n-html');
         if (t[l][key] !== undefined) el.innerHTML = t[l][key];
       });
+      const hireBtn = document.getElementById('hireBtn');
+      if (hireBtn) hireBtn.href = l === 'es' ? 'hire-es.html' : 'hire.html';
       localStorage.setItem('nw-lang', l);
     }
 
