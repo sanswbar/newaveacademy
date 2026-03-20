@@ -7,13 +7,124 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=5" />
+  <style>
+    .hire-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 9rem 1.5rem 5rem;
+    }
+    .hire-inner {
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hire-inner .mono { color: var(--orange); margin-bottom: 0.4rem; }
+    .hire-inner h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .hire-inner > p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    /* FORM */
+    .hire-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-group label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(183,182,182,0.6);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--orange); }
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B7B6B6' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .form-group select option { background: #1a1e26; color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-divider { border-top: 1px solid rgba(255,255,255,0.07); margin: 0.5rem 0; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+      width: 100%;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .btn-submit:hover { opacity: 0.88; }
+
+    /* SUCCESS STATE */
+    .hire-success {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 2rem;
+      border: 1px solid rgba(252,115,66,0.3);
+      border-radius: 12px;
+      background: rgba(252,115,66,0.06);
+      margin-top: 0.5rem;
+    }
+    .hire-success h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .hire-success p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
+
+    @media (max-width: 600px) {
+      .hire-page { padding: 7rem 1.2rem 4rem; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
-    <a href="index.html" class="logo"><img src="images/logo negro.png" alt="NEWAVƎ" class="logo-img" /></a>
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="NEWAVƎ" class="logo-img" /></a>
     <div class="nav-right">
       <div class="nav-links">
         <a href="index.html#professionals">Professionals</a>
@@ -26,40 +137,81 @@
 
   <section class="hire-page">
     <div class="hire-inner">
-      <span class="mono" style="color: var(--orange);">FOR COMPANIES</span>
+      <span class="mono">For Companies</span>
       <h1>Let's find your next<br>great hire.</h1>
-      <p>Tell us what you're looking for and we'll connect you with top-tier remote talent from LATAM.</p>
+      <p>Tell us what you're looking for and we'll match you with the best-fit profiles from our community.</p>
+
+      <form class="hire-form" id="hireForm" novalidate>
+        <div class="form-group">
+          <label for="company">Company name</label>
+          <input type="text" id="company" name="company" placeholder="Acme Inc." required />
+        </div>
+        <div class="form-group">
+          <label for="email">Contact email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required />
+        </div>
+        <div class="form-divider"></div>
+        <div class="form-group">
+          <label for="role">Role you're hiring for</label>
+          <select id="role" name="role" required>
+            <option value="" disabled selected>Select a role</option>
+            <option>Marketing</option>
+            <option>Sales</option>
+            <option>Customer Success</option>
+            <option>Operations</option>
+            <option>Project Management</option>
+            <option>Finance & Accounting</option>
+            <option>Executive Assistant</option>
+            <option>HR & Recruiting</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="details">Anything else we should know? <span style="opacity:0.4">(optional)</span></label>
+          <textarea id="details" name="details" placeholder="Experience level, specific skills, time zone preferences…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send request →</button>
+      </form>
+
+      <div class="hire-success" id="hireSuccess">
+        <span class="mono" style="color: var(--orange);">Request received</span>
+        <h3>We'll be in touch shortly.</h3>
+        <p>We'll review your request and send you a curated shortlist of profiles from our community within 48 hours.</p>
+      </div>
     </div>
   </section>
 
-  <style>
-    .hire-page {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-    }
-    .hire-inner {
-      max-width: 640px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .hire-inner h1 {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-    .hire-inner p {
-      color: var(--gray);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-  </style>
+  <script>
+    /* Nav scroll hide */
+    let lastY = 0;
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      const y = window.scrollY;
+      nav.style.transform = y > lastY && y > 80 ? 'translateY(-100%)' : 'translateY(0)';
+      lastY = y;
+    });
+
+    /* Form submit */
+    document.getElementById('hireForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const role = document.getElementById('role').value;
+      if (!company || !email || !role) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      // Send to Formspree (replace with your endpoint once set up)
+      const form = this;
+      fetch('https://formspree.io/f/hello@nwave.co', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).catch(() => {});
+      form.style.display = 'none';
+      document.getElementById('hireSuccess').style.display = 'flex';
+    });
+  </script>
 
 </body>
 </html>
