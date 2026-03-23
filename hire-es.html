@@ -203,14 +203,14 @@
         return;
       }
       const form = this;
+      form.style.display = 'none';
+      document.getElementById('hireSuccess').style.display = 'flex';
       fetch('https://script.google.com/macros/s/AKfycbyaazLspWJWQY9RJ4aDZAQLMJmsFp3Mgcbd1CWYmMb720Y84vs1h7XtjDb_rsl3GhBD/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ company, email, role, details: document.getElementById('details').value, lang: 'es' })
       }).catch(() => {});
-      form.style.display = 'none';
-      document.getElementById('hireSuccess').style.display = 'flex';
     });
   </script>
 
