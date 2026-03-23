@@ -45,7 +45,7 @@ body {
   transition: transform 0.3s ease;
 }
 .logo { text-decoration: none; display: flex; align-items: center; }
-.logo-img { height: 32px; width: auto; display: block; filter: brightness(0) invert(1); }
+.logo-img { height: 42px; width: auto; display: block; filter: brightness(0) invert(1); }
 .e-mirror { display: inline-block; transform: scaleX(-1); }
 .nav-right { display: flex; align-items: center; gap: 2rem; }
 .nav-links { display: flex; gap: 2rem; }
