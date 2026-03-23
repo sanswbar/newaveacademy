@@ -73,9 +73,9 @@ body {
 .stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
 
 /* BUTTONS */
-.btn-primary { display: inline-flex; align-items: center; text-decoration: none; background: var(--white); color: var(--black); font-weight: 700; font-size: 0.88rem; padding: 0.8rem 1.8rem; border-radius: 6px; letter-spacing: 0.02em; transition: opacity 0.2s; }
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; background: var(--white); color: var(--black); font-weight: 700; font-size: 1rem; padding: 0.85rem 2.2rem; border-radius: 6px; letter-spacing: 0.02em; transition: opacity 0.2s; min-width: 180px; }
 .btn-primary:hover { opacity: 0.88; }
-.btn-ghost { display: inline-flex; align-items: center; text-decoration: none; color: var(--white); font-weight: 600; font-size: 0.88rem; padding: 0.8rem 1.8rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: border-color 0.2s; }
+.btn-ghost { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: var(--white); font-weight: 700; font-size: 1rem; padding: 0.85rem 2.2rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; transition: border-color 0.2s; min-width: 180px; }
 .btn-ghost:hover { border-color: var(--white); }
 .btn-dark { display: inline-flex; align-items: center; text-decoration: none; background: var(--black); color: var(--white); font-weight: 700; font-size: 0.88rem; padding: 0.8rem 1.8rem; border-radius: 6px; transition: opacity 0.2s; }
 .btn-dark:hover { opacity: 0.82; }
