@@ -181,12 +181,12 @@ a   { text-decoration: none; color: inherit; }
 }
 .hero-corner-isotipo {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: clamp(250px, 35vw, 650px);
+  bottom: -5%;
+  right: -5%;
+  width: 50vw;
+  max-width: 450px;
   height: auto;
   opacity: 1;
-  transform: translate(45%, 45%);
   z-index: 0;
   pointer-events: none;
 }
