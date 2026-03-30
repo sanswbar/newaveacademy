@@ -428,7 +428,7 @@ a   { text-decoration: none; color: inherit; }
   background-color: var(--bg);
   text-align: center;
 }
-.pricing-inner { max-width: 780px; margin: 0 auto; }
+.pricing-inner { max-width: 640px; margin: 0 auto; }
 .pricing-section h2 {
   font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem;
