@@ -181,17 +181,18 @@ a   { text-decoration: none; color: inherit; }
 }
 .hero-corner-isotipo {
   position: absolute;
-  bottom: -5%;
-  right: -5%;
-  width: 50vw;
-  max-width: 450px;
+  bottom: 0;
+  right: 0;
+  width: clamp(300px, 45vw, 600px);
   height: auto;
   opacity: 1;
-  z-index: 0;
+  z-index: 5;
+  transform: translate(35%, 35%); /* Empuja la imagen fuera de la esquina para cortar la mitad */
+  filter: brightness(0) invert(0.85); /* Fuerza un gris claro elegante, ignorando el color original del PNG */
   pointer-events: none;
 }
 .hero-content {
-  position: relative; z-index: 1;
+  position: relative; z-index: 10;
   max-width: 760px;
   display: flex; flex-direction: column; align-items: center; gap: 0;
 }
