@@ -245,20 +245,13 @@ a   { text-decoration: none; color: inherit; }
 .tcard-author strong { font-size: 0.85rem; font-weight: 600; display: block; }
 .tcard-author span  { font-size: 0.75rem; color: rgba(255,255,255,0.4); display: block; }
 
-/* Avatars */
-.avatar {
-  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.78rem; color: #fff;
+/* Avatar photos */
+.avatar-photo {
+  width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.12);
+  display: block;
 }
-.av-1 { background: #E55E2B; }
-.av-2 { background: #0D9488; }
-.av-3 { background: #7C3AED; }
-.av-4 { background: #DB2777; }
-.av-5 { background: #2563EB; }
-.av-6 { background: #059669; }
-.av-7 { background: #D97706; }
-.av-8 { background: #4F46E5; }
 
 .testimonials-footer {
   font-size: 1rem; color: rgba(255,255,255,0.5);
