@@ -238,8 +238,6 @@
         const key = el.getAttribute('data-i18n-html');
         if (t[l][key] !== undefined) el.innerHTML = t[l][key];
       });
-      const hireBtn = document.getElementById('hireBtn');
-      if (hireBtn) hireBtn.href = l === 'es' ? 'hire-es.html' : 'hire.html';
       localStorage.setItem('nw-lang', l);
     }
 
