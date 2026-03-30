@@ -540,7 +540,7 @@ a   { text-decoration: none; color: inherit; }
 
   /* Hero */
   .hero { padding: 5.5rem 1.25rem 3.5rem; text-align: center; }
-  .hero h1 { font-size: 11vw; letter-spacing: -0.05em; }
+  .hero h1 { font-size: 15vw; letter-spacing: -0.05em; }
   .hero-sub { font-size: 1rem; }
   .hero-eyebrow { font-size: 0.65rem; }
   .hero-actions {
@@ -548,7 +548,7 @@ a   { text-decoration: none; color: inherit; }
     align-items: stretch; width: 100%;
   }
   .hero-actions .btn-primary {
-    width: 100%; padding: 1rem; font-size: 1.05rem;
+    width: 100%; padding: 0.65rem; font-size: 0.85rem;
     border-radius: 14px;
   }
   .btn-ghost { justify-content: center; font-size: 0.95rem; }
