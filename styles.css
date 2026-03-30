@@ -325,6 +325,7 @@ a   { text-decoration: none; color: inherit; }
 .method-list li:hover { color: var(--orange); }
 .check { color: var(--orange); font-size: 0.9rem; flex-shrink: 0; }
 .method-ai { border-top: none !important; margin-top: 0.5rem; }
+.method-ai .check { font-size: 1.4rem; }
 .method-ai span:last-child { color: var(--orange); font-weight: 700; font-style: italic; }
 
 /* ── TESTIMONIALS ── */
