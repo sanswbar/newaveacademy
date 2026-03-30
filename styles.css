@@ -117,6 +117,7 @@ a   { text-decoration: none; color: inherit; }
   font-weight: 700; line-height: 1.1;
   letter-spacing: -0.025em;
 }
+.h1-accent { color: var(--orange); }
 .hero-sub {
   color: rgba(255,255,255,0.6);
   font-size: 1.15rem; max-width: 520px; line-height: 1.7;
