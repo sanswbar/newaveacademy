@@ -444,7 +444,11 @@ a   { text-decoration: none; color: inherit; }
   text-align: left;
   position: relative;
   transition: border-color 0.25s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
 }
+.pricing-card .btn-pricing,
+.pricing-card .btn-pricing-featured { margin-top: auto; }
 .pricing-card:hover { transform: translateY(-3px); }
 .pricing-featured {
   border-color: rgba(252,115,66,0.4);
