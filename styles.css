@@ -179,17 +179,16 @@ a   { text-decoration: none; color: inherit; }
   padding: 0.35rem 0.9rem; border-radius: 20px;
   background: rgba(252,115,66,0.06);
 }
-.hero-bg-isotipo {
+.hero-corner-isotipo {
   position: absolute;
-  bottom: -5%;
-  right: -5%;
-  width: 45vw;
-  max-width: 350px;
+  bottom: 0;
+  right: 0;
+  width: clamp(250px, 35vw, 650px);
   height: auto;
-  opacity: 0.15;
+  opacity: 1;
+  transform: translate(45%, 45%);
   z-index: 0;
   pointer-events: none;
-  mix-blend-mode: screen;
 }
 .hero-content {
   position: relative; z-index: 1;
