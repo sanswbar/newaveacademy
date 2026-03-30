@@ -11,15 +11,15 @@
   --brand-orange: #FC7342;
   --brand-white:  #ffffff;
 
-  --bg:        var(--brand-black);
-  --bg-2:      #1a1f27;
-  --bg-3:      #212832;
+  --bg:        #080a0d;
+  --bg-2:      #12161b;
+  --bg-3:      #1a1f26;
   --white:     var(--brand-white);
   --muted:     var(--brand-gray);
   --subtle:    rgba(183, 182, 182, 0.4);
   --orange:    var(--brand-orange);
   --orange-h:  #d95b28;
-  --border:    rgba(183, 182, 182, 0.15);
+  --border:    rgba(183, 182, 182, 0.1);
   --sans:      'Helvena', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:      'Alice Mono', 'DM Mono', monospace;
   --r:         18px;
@@ -43,21 +43,6 @@ body {
 
 img { max-width: 100%; display: block; }
 a   { text-decoration: none; color: inherit; }
-
-/* ── BRAND GRAY THEME (TRANSITION) ── */
-.theme-gray {
-  --bg:        var(--brand-gray);
-  --white:     var(--brand-black);
-  --muted:     rgba(20, 24, 30, 0.7);
-  --subtle:    rgba(20, 24, 30, 0.5);
-  --border:    rgba(20, 24, 30, 0.15);
-  color: var(--white);
-  background: var(--bg);
-}
-.theme-gray .btn-primary { background: var(--brand-black); color: var(--brand-white); }
-.theme-gray .btn-primary:hover { background: #000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
-.theme-gray .skool-card { background: rgba(255,255,255,0.35); border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-.theme-gray .skool-header span { color: var(--muted); }
 
 /* ── BRAND LIGHT THEME ── */
 .theme-light {
@@ -175,7 +160,7 @@ a   { text-decoration: none; color: inherit; }
   padding: 7rem 1.5rem 5rem;
   text-align: center;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, rgba(20, 24, 30, 0.72), rgba(20, 24, 30, 0.95)), url('images/hero-new-2.png');
+  background-image: linear-gradient(to bottom, rgba(8, 10, 13, 0.45), rgba(8, 10, 13, 1)), url('images/hero-new-1.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -316,7 +301,8 @@ a   { text-decoration: none; color: inherit; }
 /* ── METHODOLOGY ── */
 .methodology {
   padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
-  background-image: linear-gradient(to bottom, rgba(183, 182, 182, 0.9), rgba(183, 182, 182, 0.97)), url('images/hero-new-1.jpg');
+  background-color: var(--bg);
+  background-image: linear-gradient(to bottom, rgba(8, 10, 13, 0.85), rgba(8, 10, 13, 0.98)), url('images/hero-new-2.png');
   background-size: cover;
   background-position: center;
 }
