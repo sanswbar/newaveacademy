@@ -182,15 +182,17 @@ a   { text-decoration: none; color: inherit; }
 .hero-corner-isotipo {
   position: absolute;
   bottom: 0;
-  right: 0;
-  width: clamp(300px, 45vw, 600px);
+  left: 0;
+  width: clamp(280px, 38vw, 520px);
   height: auto;
-  opacity: 1;
+  opacity: 0.08;
   z-index: 5;
-  transform: translate(35%, 35%); /* Empuja la imagen fuera de la esquina para cortar la mitad */
-  filter: brightness(0) invert(0.85); /* Fuerza un gris claro elegante, ignorando el color original del PNG */
+  transform: translate(-35%, 35%);
+  filter: brightness(0) invert(1);
   pointer-events: none;
+  transition: opacity 0.4s ease;
 }
+.hero-corner-isotipo.hidden { opacity: 0; }
 .hero-content {
   position: relative; z-index: 10;
   max-width: 760px;
