@@ -457,10 +457,12 @@ a   { text-decoration: none; color: inherit; }
 }
 .pricing-featured:hover { border-color: rgba(252,115,66,0.6); }
 .pricing-badge {
-  display: inline-block; font-family: var(--mono);
+  display: block; font-family: var(--mono);
   font-size: 0.6rem; letter-spacing: 0.12em;
   background: var(--orange); color: #fff;
   padding: 0.2rem 0.65rem; border-radius: 4px; margin-bottom: 1.25rem;
+  width: fit-content; margin-left: auto; margin-right: auto;
+  text-align: center;
 }
 .pricing-header { margin-bottom: 1.75rem; }
 .pricing-header h3  { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 0.6rem; }
