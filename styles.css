@@ -639,7 +639,7 @@ a   { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 420px) {
-  .hero h1 { font-size: 5.5vw; }
+  .hero h1 { font-size: 40vw; }
   .logo-img { height: 18px; }
   .why-grid { grid-template-columns: 1fr; }
   .tcard { flex: 0 0 88vw; }
