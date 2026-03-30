@@ -305,7 +305,7 @@ a   { text-decoration: none; color: inherit; }
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .footer-brand { display: flex; flex-direction: column; gap: 0.5rem; }
-.footer-logo-img { height: 28px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
+.footer-logo-img { height: 28px; width: auto; opacity: 0.85; }
 .footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.35); }
 .footer-links { display: flex; gap: 3.5rem; flex-wrap: wrap; }
 .footer-col { display: flex; flex-direction: column; gap: 0.7rem; }
