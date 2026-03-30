@@ -26,6 +26,7 @@
 
   <!-- HERO -->
   <section class="hero">
+    <img src="images/NEWAVEISO.png" alt="" class="hero-bg-isotipo" id="heroBgIsotipo" aria-hidden="true" />
     <div class="hero-content">
       <div class="hero-eyebrow" data-animate data-i18n="hero.tag">NEWAVE ACADEMY</div>
       <h1 data-animate data-delay="1" data-i18n-html="hero.h1">Los días de sueldos bajos<br><span class="h1-accent">se acabaron.</span></h1>
@@ -481,6 +482,15 @@
     document.getElementById('langToggle').addEventListener('click', () => applyLang(lang === 'es' ? 'en' : 'es'));
     const saved = localStorage.getItem('nw-lang');
     if (saved) applyLang(saved);
+
+    /* ISOTIPO HERO FADE ON SCROLL */
+    const heroBgIsotipo = document.getElementById('heroBgIsotipo');
+    window.addEventListener('scroll', () => {
+      if (heroBgIsotipo) {
+        const fade = Math.max(0, 1 - (window.scrollY / (window.innerHeight * 0.55)));
+        heroBgIsotipo.style.opacity = 0.06 * fade;
+      }
+    });
 
     /* NAV SCROLL HIDE */
     let lastY = 0;

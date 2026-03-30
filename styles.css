@@ -141,6 +141,19 @@ a   { text-decoration: none; color: inherit; }
   padding: 0.35rem 0.9rem; border-radius: 20px;
   background: rgba(252,115,66,0.06);
 }
+.hero-bg-isotipo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  max-width: 900px;
+  height: auto;
+  opacity: 0.06;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(1px);
+}
 .hero-content {
   position: relative; z-index: 1;
   max-width: 760px;
