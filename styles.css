@@ -557,9 +557,9 @@ a   { text-decoration: none; color: inherit; }
 
   /* Pain strip */
   .pain-strip { padding: 0.75rem 1rem; }
-  .pain-inner { gap: 0.5rem; }
-  .pain-sep { display: none; }
-  .pain-item { font-size: 0.68rem; }
+  .pain-inner { gap: 0.6rem; }
+  .pain-sep { display: inline; color: rgba(0,0,0,0.3); }
+  .pain-item { font-size: 0.7rem; }
 
   /* Why */
   .why-section { padding: 3.5rem 1.25rem; }
