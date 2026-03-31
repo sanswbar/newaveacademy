@@ -451,7 +451,7 @@ a   { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
 }
-.pricing-card:hover { transform: translateY(-3px); }
+.pricing-card:hover { transform: translateY(-1px); }
 .pricing-featured {
   border-color: rgba(252,115,66,0.25);
   box-shadow: 0 4px 24px rgba(0,0,0,0.2);
@@ -489,18 +489,17 @@ a   { text-decoration: none; color: inherit; }
 
 .btn-pricing {
   display: block; width: calc(100% - 3.5rem); margin: 0 1.75rem 1.75rem;
-  text-align: center; font-weight: 700; font-size: 0.9rem; letter-spacing: -0.01em;
-  padding: 0.8rem 1.5rem; border-radius: 980px;
+  text-align: center; font-weight: 500; font-size: 0.85rem; letter-spacing: -0.01em;
+  padding: 0.7rem 1.5rem; border-radius: 980px;
   border: 1px solid var(--border);
-  color: var(--white); background: transparent;
-  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  color: rgba(255,255,255,0.5); background: transparent;
+  transition: background 0.2s, border-color 0.2s;
 }
-.btn-pricing:hover { background: var(--border); border-color: var(--subtle); transform: translateY(-1px); }
+.btn-pricing:hover { background: var(--border); color: rgba(255,255,255,0.75); }
 .btn-pricing-featured {
-  background: var(--orange); border-color: var(--orange); color: #fff;
-  box-shadow: 0 4px 16px rgba(252,115,66,0.3);
+  background: rgba(252,115,66,0.15); border-color: rgba(252,115,66,0.3); color: var(--orange);
 }
-.btn-pricing-featured:hover { background: var(--orange-h); border-color: var(--orange-h); box-shadow: 0 6px 24px rgba(252,115,66,0.5); }
+.btn-pricing-featured:hover { background: rgba(252,115,66,0.25); border-color: rgba(252,115,66,0.5); }
 
 /* ── CTA SECTION ── */
 .cta-section {
