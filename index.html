@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/NEWAVEISO.png" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=27" />
 </head>
 <body>
 
@@ -284,16 +284,16 @@
           <div class="pricing-header">
             <h3 data-i18n="pricing.standard">Standard</h3>
             <div class="price-wrap">
-              <span class="price-amount">$219</span>
-              <span class="price-period" data-i18n="pricing.year">/año</span>
+              <span class="price-amount">$49</span>
+              <span class="price-period" data-i18n="pricing.month">/mes</span>
             </div>
           </div>
           <ul class="pricing-features">
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.std.0">Plan mensual</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.1">Guía práctica del proceso de aplicación</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.2">CV, Cover Letter y LinkedIn listos para aplicar</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.3">Conoce las mejores bolsas de trabajo remoto y encuentra vacantes que pagan en dólares</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.4">Estrategia y preparación para entrevistas</span></li>
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.std.5">Sesiones semanales de Q&amp;A</span></li>
           </ul>
           <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing" data-i18n="pricing.std.btn">Únete Standard</a>
         </div>
@@ -303,22 +303,41 @@
           <div class="pricing-header">
             <h3 data-i18n="pricing.premium">Premium</h3>
             <div class="price-wrap">
+              <span class="price-amount">$199</span>
+              <span class="price-period" data-i18n="pricing.year">/año</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.0">Plan Anual</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.1">Todo del Plan Standard +</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.2">Sesiones de seguimiento y Q&amp;A semanales</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.3">Introducción a Inteligencia Artificial</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.4">Introducción al mundo de Freelancer</span></li>
+          </ul>
+          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing btn-pricing-featured" data-i18n="pricing.pre.btn">Únete Premium</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 data-i18n="pricing.vip">VIP</h3>
+            <div class="price-wrap">
               <span class="price-amount">$299</span>
               <span class="price-period" data-i18n="pricing.year">/año</span>
             </div>
           </div>
           <ul class="pricing-features">
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.0">Todo del Plan Standard +</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.2">Revisión personalizada de tu CV, Cover Letter y LinkedIn</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.1">Sesión 1-1 para ajustar tu estrategia de aplicación</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.3">Soporte directo</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.4">Seguimiento semanal de tu proceso de aplicación</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.5">Vacantes seleccionadas para tu perfil</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.0">Plan Anual</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.1">Todo del Premium +</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.2">Sesión 1-1 para ajustar tu estrategia de aplicación</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.3">Revisión personalizada de tu CV, Cover Letter y LinkedIn</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.4">Acceso a Certificaciones IA</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.5">Acceso a NEWAVE Hire</span></li>
           </ul>
-          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing btn-pricing-featured" data-i18n="pricing.pre.btn">Únete Premium</a>
+          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing" data-i18n="pricing.vip.btn">Únete VIP</a>
         </div>
 
       </div>
+      <p class="pricing-note" data-i18n="pricing.usd">* Todos los precios en dólares americanos (USD)</p>
     </div>
   </section>
 
@@ -407,19 +426,28 @@
         'how.skool.3':'Comunidad activa de profesionales','how.skool.4':'Vacantes remotas via NEWAVE Hire',
         'how.3.title':'Empieza hoy','how.3.p':'Acceso inmediato a todo el contenido. Sin esperas.','how.3.note':'✓ Listo',
         'pricing.tag':'PLANES','pricing.h2':'Invierte en tu carrera',
-        'pricing.standard':'Standard','pricing.premium':'Premium','pricing.year':'/año','pricing.popular':'MÁS POPULAR',
+        'pricing.standard':'Standard','pricing.premium':'Premium','pricing.vip':'VIP',
+        'pricing.month':'/mes','pricing.year':'/año','pricing.popular':'MÁS POPULAR',
+        'pricing.std.0':'Plan mensual',
         'pricing.std.1':'Guía práctica del proceso de aplicación',
         'pricing.std.2':'CV, Cover Letter y LinkedIn listos para aplicar',
-        'pricing.std.3':'Mejores bolsas de trabajo remoto que pagan en dólares',
+        'pricing.std.3':'Conoce las mejores bolsas de trabajo remoto y encuentra vacantes que pagan en dólares',
         'pricing.std.4':'Estrategia y preparación para entrevistas',
         'pricing.std.btn':'Únete Standard',
-        'pricing.pre.0':'Todo del Plan Standard +',
-        'pricing.pre.1':'Sesión 1-1 para ajustar tu estrategia de aplicación',
-        'pricing.pre.2':'Revisión personalizada de tu CV, Cover Letter y LinkedIn',
-        'pricing.pre.3':'Soporte directo para resolver dudas rápido',
-        'pricing.pre.4':'Seguimiento semanal de tu proceso de aplicación',
-        'pricing.pre.5':'Vacantes seleccionadas para tu perfil',
+        'pricing.pre.0':'Plan Anual',
+        'pricing.pre.1':'Todo del Plan Standard +',
+        'pricing.pre.2':'Sesiones de seguimiento y Q&A semanales',
+        'pricing.pre.3':'Introducción a Inteligencia Artificial',
+        'pricing.pre.4':'Introducción al mundo de Freelancer',
         'pricing.pre.btn':'Únete Premium',
+        'pricing.vip.0':'Plan Anual',
+        'pricing.vip.1':'Todo del Premium +',
+        'pricing.vip.2':'Sesión 1-1 para ajustar tu estrategia de aplicación',
+        'pricing.vip.3':'Revisión personalizada de tu CV, Cover Letter y LinkedIn',
+        'pricing.vip.4':'Acceso a Certificaciones IA',
+        'pricing.vip.5':'Acceso a NEWAVE Hire',
+        'pricing.vip.btn':'Únete VIP',
+        'pricing.usd':'* Todos los precios en dólares americanos (USD)',
         'cta.h2':'¿Quieres resultados diferentes?<br>Aplica diferente.',
         'cta.p':'Únete a la comunidad NEWAVE y accede al curso, las herramientas y la mentoría que te llevan al trabajo remoto que buscas.',
         'cta.btn':'Únete hoy','cta.note':'Alojado en Skool — cursos, comunidad y sesiones en vivo en un solo lugar.',
@@ -459,19 +487,28 @@
         'how.skool.3':'Active community of professionals','how.skool.4':'Remote jobs via NEWAVE Hire',
         'how.3.title':'Start today','how.3.p':'Immediate access to all content. No waiting.','how.3.note':'✓ Done',
         'pricing.tag':'PLANS','pricing.h2':'Invest in your career',
-        'pricing.standard':'Standard','pricing.premium':'Premium','pricing.year':'/year','pricing.popular':'MOST POPULAR',
+        'pricing.standard':'Standard','pricing.premium':'Premium','pricing.vip':'VIP',
+        'pricing.month':'/month','pricing.year':'/year','pricing.popular':'MOST POPULAR',
+        'pricing.std.0':'Monthly plan',
         'pricing.std.1':'Practical guide to the application process',
         'pricing.std.2':'CV, Cover Letter and LinkedIn ready to apply',
         'pricing.std.3':'Best remote job boards that pay in dollars',
         'pricing.std.4':'Strategy and interview preparation',
         'pricing.std.btn':'Join Standard',
-        'pricing.pre.0':'Everything in Standard +',
-        'pricing.pre.1':'1-1 session to adjust your application strategy',
-        'pricing.pre.2':'Personalized review of your CV, Cover Letter and LinkedIn',
-        'pricing.pre.3':'Direct support to resolve doubts quickly',
-        'pricing.pre.4':'Weekly follow-up on your application process',
-        'pricing.pre.5':'Curated job vacancies for your profile',
+        'pricing.pre.0':'Annual plan',
+        'pricing.pre.1':'Everything in Standard +',
+        'pricing.pre.2':'Weekly follow-up and Q&A sessions',
+        'pricing.pre.3':'Introduction to Artificial Intelligence',
+        'pricing.pre.4':'Introduction to the Freelancer world',
         'pricing.pre.btn':'Join Premium',
+        'pricing.vip.0':'Annual plan',
+        'pricing.vip.1':'Everything in Premium +',
+        'pricing.vip.2':'1-1 session to adjust your application strategy',
+        'pricing.vip.3':'Personalized review of your CV, Cover Letter and LinkedIn',
+        'pricing.vip.4':'Access to AI Certifications',
+        'pricing.vip.5':'Access to NEWAVE Hire',
+        'pricing.vip.btn':'Join VIP',
+        'pricing.usd':'* All prices in US dollars (USD)',
         'cta.h2':'Want different results?<br>Apply differently.',
         'cta.p':'Join the NEWAVE community and access the course, tools, and mentorship that take you to the remote job you\'re looking for.',
         'cta.btn':'Join today','cta.note':'Hosted on Skool — courses, community and live sessions in one place.',

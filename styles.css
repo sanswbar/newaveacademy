@@ -437,7 +437,8 @@ a   { text-decoration: none; color: inherit; }
   font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem;
 }
 .pricing-sub { color: var(--muted); font-size: 1rem; margin-bottom: 3rem; }
-.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; align-items: stretch; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+.pricing-note { text-align: center; margin-top: 1.25rem; font-size: 0.8rem; color: var(--muted); font-family: var(--mono); }
 
 .pricing-card {
   background: var(--bg-3);
