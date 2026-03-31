@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/NEWAVEISO.png" />
-  <link rel="stylesheet" href="styles.css?v=27" />
+  <link rel="stylesheet" href="styles.css?v=28" />
 </head>
 <body>
 
@@ -280,60 +280,75 @@
       <h2 data-i18n="pricing.h2">Invierte en tu carrera</h2>
       <div class="pricing-grid">
 
+        <!-- STANDARD -->
         <div class="pricing-card">
-          <div class="pricing-header">
+          <div class="pricing-top">
             <h3 data-i18n="pricing.standard">Standard</h3>
             <div class="price-wrap">
               <span class="price-amount">$49</span>
-              <span class="price-period" data-i18n="pricing.month">/mes</span>
+              <div class="price-meta">
+                <span data-i18n="pricing.month.label">por usuario/mes</span>
+                <span data-i18n="pricing.std.billing">Plan mensual</span>
+              </div>
             </div>
+            <p class="pricing-desc" data-i18n="pricing.std.desc">Empieza a construir tu carrera remota con las herramientas esenciales.</p>
+            <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing" data-i18n="pricing.std.btn">Únete Standard</a>
           </div>
+          <hr class="pricing-divider" />
           <ul class="pricing-features">
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.std.0">Plan mensual</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.1">Guía práctica del proceso de aplicación</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.2">CV, Cover Letter y LinkedIn listos para aplicar</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.3">Conoce las mejores bolsas de trabajo remoto y encuentra vacantes que pagan en dólares</span></li>
             <li><span class="pcheck">✔</span><span data-i18n="pricing.std.4">Estrategia y preparación para entrevistas</span></li>
           </ul>
-          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing" data-i18n="pricing.std.btn">Únete Standard</a>
         </div>
 
+        <!-- PREMIUM -->
         <div class="pricing-card">
-          <div class="pricing-header">
+          <div class="pricing-top">
             <h3 data-i18n="pricing.premium">Premium</h3>
             <div class="price-wrap">
               <span class="price-amount">$199</span>
-              <span class="price-period" data-i18n="pricing.year">/año</span>
+              <div class="price-meta">
+                <span data-i18n="pricing.year.label">por usuario/año</span>
+                <span data-i18n="pricing.pre.billing">Cobro anual</span>
+              </div>
             </div>
+            <p class="pricing-desc" data-i18n="pricing.pre.desc">Acelera tu búsqueda con sesiones en vivo, IA y el mundo del freelancing.</p>
+            <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing" data-i18n="pricing.pre.btn">Únete Premium</a>
           </div>
+          <hr class="pricing-divider" />
           <ul class="pricing-features">
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.0">Plan Anual</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.1">Todo del Plan Standard +</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.2">Sesiones de seguimiento y Q&amp;A semanales</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.3">Introducción a Inteligencia Artificial</span></li>
-            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.pre.4">Introducción al mundo de Freelancer</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.pre.1">Todo del Plan Standard +</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.pre.2">Sesiones de seguimiento y Q&amp;A semanales</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.pre.3">Introducción a Inteligencia Artificial</span></li>
+            <li><span class="pcheck">✔</span><span data-i18n="pricing.pre.4">Introducción al mundo de Freelancer</span></li>
           </ul>
-          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing" data-i18n="pricing.pre.btn">Únete Premium</a>
         </div>
 
+        <!-- VIP -->
         <div class="pricing-card pricing-featured">
           <div class="pricing-badge" data-i18n="pricing.popular">MÁS POPULAR</div>
-          <div class="pricing-header">
+          <div class="pricing-top">
             <h3 data-i18n="pricing.vip">VIP</h3>
             <div class="price-wrap">
               <span class="price-amount">$299</span>
-              <span class="price-period" data-i18n="pricing.year">/año</span>
+              <div class="price-meta">
+                <span data-i18n="pricing.year.label">por usuario/año</span>
+                <span data-i18n="pricing.vip.billing">Cobro anual</span>
+              </div>
             </div>
+            <p class="pricing-desc" data-i18n="pricing.vip.desc">Control total, acceso VIP y todo el poder para conseguir tu trabajo remoto.</p>
+            <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing btn-pricing-featured" data-i18n="pricing.vip.btn">Únete VIP</a>
           </div>
+          <hr class="pricing-divider" />
           <ul class="pricing-features">
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.0">Plan Anual</span></li>
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.1">Todo del Premium +</span></li>
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.2">Sesión 1-1 para ajustar tu estrategia de aplicación</span></li>
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.3">Revisión personalizada de tu CV, Cover Letter y LinkedIn</span></li>
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.4">Acceso a Certificaciones IA</span></li>
-            <li><span class="pcheck">✔</span><span data-i18n="pricing.vip.5">Acceso a NEWAVE Hire</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.vip.1">Todo del Premium +</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.vip.2">Sesión 1-1 para ajustar tu estrategia de aplicación</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.vip.3">Revisión personalizada de tu CV, Cover Letter y LinkedIn</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.vip.4">Acceso a Certificaciones IA</span></li>
+            <li><span class="pcheck pcheck-o">✔</span><span data-i18n="pricing.vip.5">Acceso a NEWAVE Hire</span></li>
           </ul>
-          <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-pricing btn-pricing-featured" data-i18n="pricing.vip.btn">Únete VIP</a>
         </div>
 
       </div>
