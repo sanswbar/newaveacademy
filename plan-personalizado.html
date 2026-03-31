@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Plan Personalizado | NEWAVƎ Academy</title>
+  <meta name="description" content="Tu plan personalizado en NEWAVE Academy: comunidad, asesoría y acceso a NEWAVE Hire." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="images/NEWAVEISO.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:  #FC7342;
+      --orange-h: #d95b28;
+      --bg:      #080a0d;
+      --bg-2:    #12161b;
+      --bg-3:    #1a1f26;
+      --white:   #ffffff;
+      --muted:   #B7B6B6;
+      --subtle:  rgba(183,182,182,0.4);
+      --border:  rgba(183,182,182,0.1);
+      --sans:    'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono:    'DM Mono', monospace;
+      --r:       16px;
+      --max:     700px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 17px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.25rem clamp(1.25rem, 5vw, 3rem);
+      border-bottom: 1px solid var(--border);
+    }
+    nav img { height: 22px; width: auto; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      padding: clamp(3.5rem, 8vw, 6rem) 1.5rem clamp(2.5rem, 6vw, 5rem);
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(252,115,66,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(252,115,66,0.25);
+      padding: 0.35rem 0.9rem; border-radius: 20px;
+      background: rgba(252,115,66,0.06);
+      margin-bottom: 1.75rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 3rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    h1 .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 480px; margin: 0 auto;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem clamp(4rem, 10vw, 7rem);
+    }
+
+    /* PILLARS */
+    .pillars { display: flex; flex-direction: column; gap: 1rem; margin-top: 3rem; }
+
+    .pillar {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.75rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      opacity: 0.5;
+    }
+
+    .pillar-num {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 0.6rem;
+    }
+    .pillar h2 {
+      font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em;
+    }
+    .pillar p { font-size: 0.93rem; color: var(--muted); line-height: 1.65; }
+
+    .pillar-items { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .pillar-item {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.91rem; color: var(--muted);
+    }
+    .pillar-item .check {
+      color: var(--orange); font-size: 0.78rem; margin-top: 0.15rem; flex-shrink: 0;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      margin-top: 2.5rem;
+      background: rgba(183,182,182,0.04);
+      border: 1px solid rgba(183,182,182,0.12);
+      border-left: 3px solid var(--subtle);
+      border-radius: var(--r);
+      padding: 1.5rem 1.75rem;
+    }
+    .disclaimer-label {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--subtle); margin-bottom: 0.8rem;
+    }
+    .disclaimer p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .disclaimer p + p { margin-top: 0.6rem; }
+
+    .do-dont {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.1rem;
+    }
+    .do, .dont {
+      border-radius: 10px; padding: 1rem 1.1rem;
+    }
+    .do { background: rgba(252,115,66,0.06); border: 1px solid rgba(252,115,66,0.15); }
+    .dont { background: rgba(183,182,182,0.04); border: 1px solid rgba(183,182,182,0.1); }
+    .do-label, .dont-label {
+      font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .do-label { color: var(--orange); }
+    .dont-label { color: var(--subtle); }
+    .do ul, .dont ul {
+      list-style: none; display: flex; flex-direction: column; gap: 0.35rem;
+    }
+    .do li, .dont li { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+    .do li::before { content: '✔ '; color: var(--orange); font-size: 0.72rem; }
+    .dont li::before { content: '✕ '; color: var(--subtle); font-size: 0.72rem; }
+
+    /* CTA */
+    .cta-block {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+    }
+    .cta-block p { font-size: 0.93rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--orange); color: #fff;
+      font-weight: 700; font-size: 1rem; letter-spacing: -0.01em;
+      padding: 0.9rem 2.2rem; border-radius: 980px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.78rem; color: var(--subtle);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 520px) {
+      .do-dont { grid-template-columns: 1fr; }
+      .pillar { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/">
+      <img src="images/logo.svg" alt="NEWAVƎ Academy" />
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">PLAN PERSONALIZADO</div>
+      <h1>Todo lo que incluye<br><span class="accent">tu plan con nosotros.</span></h1>
+      <p class="hero-sub">Un acompañamiento de 3 meses para conseguir tu trabajo remoto internacional, paso a paso.</p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <div class="content">
+    <div class="pillars">
+
+      <!-- PILAR 1 -->
+      <div class="pillar">
+        <div class="pillar-num">01 / Comunidad</div>
+        <h2>Acceso a la comunidad y programa de trabajos remotos</h2>
+        <p>Entras a un espacio activo con +500 profesionales en proceso o que ya trabajan remoto. Recursos, vacantes, recursos de la metodología y una red que entiende exactamente por lo que estás pasando.</p>
+        <div class="pillar-items">
+          <div class="pillar-item"><span class="check">✦</span><span>Plataforma privada con todos los materiales del método</span></div>
+          <div class="pillar-item"><span class="check">✦</span><span>Vacantes remotas compartidas en tiempo real</span></div>
+          <div class="pillar-item"><span class="check">✦</span><span>Red de miembros activos en México y LATAM</span></div>
+        </div>
+      </div>
+
+      <!-- PILAR 2 -->
+      <div class="pillar">
+        <div class="pillar-num">02 / NEWAVE Hire</div>
+        <h2>Acceso a NEWAVE Hire</h2>
+        <p>Te conectamos directamente con empresas internacionales que contratan talento remoto de LATAM. Compartimos tu perfil con los equipos que están buscando a alguien como tú.</p>
+        <div class="pillar-items">
+          <div class="pillar-item"><span class="check">✦</span><span>Tu perfil compartido con empresas contratando remoto</span></div>
+          <div class="pillar-item"><span class="check">✦</span><span>Vacantes relevantes acercadas a ti directamente</span></div>
+          <div class="pillar-item"><span class="check">✦</span><span>Empresas globales que confían en el talento NEWAVE</span></div>
+        </div>
+      </div>
+
+      <!-- PILAR 3 -->
+      <div class="pillar">
+        <div class="pillar-num">03 / Asesoría</div>
+        <h2>Sesiones de asesoría semanales por 3 meses</h2>
+        <p>Cada semana tienes una sesión de seguimiento para revisar tu plan de aplicación, resolver dudas y ajustar estrategia. No estás solo en el proceso.</p>
+        <div class="pillar-items">
+          <div class="pillar-item"><span class="check">✦</span><span>Sesión semanal con tu asesor durante 3 meses</span></div>
+          <div class="pillar-item"><span class="check">✦</span><span>Plan de aplicación estructurado a tu perfil</span></div>
+          <div class="pillar-item"><span class="check">✦</span><span>Feedback directo sobre tu avance semana a semana</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer">
+      <div class="disclaimer-label">Importante: lo que hacemos y lo que no hacemos</div>
+      <p>NEWAVE te acompaña, te orienta y te abre puertas. Pero el proceso lo haces tú.</p>
+
+      <div class="do-dont">
+        <div class="do">
+          <div class="do-label">Sí hacemos</div>
+          <ul>
+            <li>Acercarte vacantes relevantes</li>
+            <li>Compartir tu perfil con empresas</li>
+            <li>Guiarte semana a semana</li>
+            <li>Darte el método y los recursos</li>
+            <li>Abrirte la red y la comunidad</li>
+          </ul>
+        </div>
+        <div class="dont">
+          <div class="dont-label">No hacemos</div>
+          <ul>
+            <li>Aplicar por ti a las vacantes</li>
+            <li>Redactar tu CV ni documentos</li>
+            <li>Hacer el proceso en tu lugar</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top:1.1rem; font-size:0.85rem;">Tu éxito depende de lo que tú hagas con lo que te damos. El método funciona cuando tú lo ejecutas.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div style="font-family:var(--mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--subtle);margin-bottom:0.5rem;">Inversión total</div>
+      <div style="font-size:2.4rem;font-weight:700;letter-spacing:-0.03em;margin-bottom:0.25rem;">$1,249 <span style="font-size:1rem;font-weight:500;color:var(--muted);">USD</span></div>
+      <p style="margin-bottom:1.5rem;">Pago único. Sin costos adicionales.</p>
+      <a href="https://www.skool.com/nomad-district/plans" target="_blank" rel="noopener" class="btn-primary">Comenzar ahora</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 NEWAVE Academy &nbsp;·&nbsp; newaveacademy.com
+  </footer>
+
+</body>
+</html>
