@@ -461,7 +461,7 @@ a   { text-decoration: none; color: inherit; }
 .pricing-badge {
   display: block; font-family: var(--mono);
   font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
-  background: var(--orange); color: #fff;
+  background: rgba(252,115,66,0.15); color: var(--orange);
   padding: 0.45rem 1.25rem;
   text-align: center;
 }
