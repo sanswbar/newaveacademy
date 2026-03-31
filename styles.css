@@ -230,7 +230,7 @@ a   { text-decoration: none; color: inherit; }
   gap: 1.25rem; flex-wrap: wrap;
 }
 .pain-item { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; color: var(--brand-black); white-space: nowrap; }
-.pain-sep  { color: rgba(0,0,0,0.15); }
+.pain-sep  { color: rgba(0,0,0,0.4); font-size: 1rem; }
 
 /* ── SECTION BASE ── */
 .section {
@@ -550,7 +550,7 @@ a   { text-decoration: none; color: inherit; }
   /* Hero */
   .hero { padding: 5.5rem 1.25rem 3.5rem; text-align: center; }
   .hero h1 { font-size: 8vw;letter-spacing: -0.05em; }
-  .hero-sub { font-size: 1rem; display: flex; flex-direction: column; gap: 0.15rem; }
+  .hero-sub { font-size: 1rem; }
   .hero-eyebrow { font-size: 0.65rem; }
   .hero-actions {
     flex-direction: column; gap: 0.75rem;
@@ -565,14 +565,10 @@ a   { text-decoration: none; color: inherit; }
   .hero-corner-isotipo { display: none; }
 
   /* Pain strip */
-  .pain-strip { padding: 1.25rem 1.25rem; }
-  .pain-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; max-width: 100%; }
-  .pain-sep { display: none; }
-  .pain-item {
-    font-size: 0.7rem; white-space: normal; text-align: center;
-    background: rgba(0,0,0,0.04); border-radius: 8px;
-    padding: 0.6rem 0.75rem;
-  }
+  .pain-strip { padding: 0.75rem 1rem; }
+  .pain-inner { gap: 0.6rem; }
+  .pain-sep { color: rgba(0,0,0,0.5); font-size: 1rem; }
+  .pain-item { font-size: 0.7rem; }
 
   /* Why */
   .why-section { padding: 3.5rem 1.25rem; }
