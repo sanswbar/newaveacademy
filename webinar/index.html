@@ -659,13 +659,11 @@
         return;
       }
 
-      try {
-        const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo });
-        await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { mode: 'no-cors' });
-        showThanks(nombre);
-      } catch {
-        showThanks(nombre);
-      }
+      const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo });
+      const img = new Image();
+      img.src = APPS_SCRIPT_URL + '?' + params.toString();
+      img.onload = img.onerror = () => {};
+      showThanks(nombre);
     });
   </script>
 </body>
