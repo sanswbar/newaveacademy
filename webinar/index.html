@@ -288,38 +288,6 @@
       margin-top: 1rem;
     }
 
-    /* ── ZOOM BUTTON ── */
-    .zoom-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      width: 100%;
-      background: var(--orange);
-      color: var(--white);
-      font-family: var(--sans);
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 12px;
-      padding: 1em;
-      text-decoration: none;
-      margin-bottom: 1.25rem;
-      transition: background 0.2s, box-shadow 0.2s;
-      letter-spacing: -0.01em;
-    }
-    .zoom-btn:hover {
-      background: var(--orange-h);
-      box-shadow: 0 6px 24px rgba(252,115,66,0.25);
-    }
-    .zoom-btn-soon {
-      font-size: 0.82rem;
-      color: var(--subtle);
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
     /* ── THANK YOU ── */
     .thank-you {
       display: none;
@@ -491,17 +459,9 @@
       </div>
 
       <h2 class="ty-h2">Listo, te esperamos</h2>
-      <p class="ty-sub">Agrega la sesion a tu calendario<br>para que no se te olvide.</p>
+      <p class="ty-sub">Agrega la sesion a tu calendario<br>y te enviaremos un recordatorio antes del webinar.</p>
 
       <div class="ty-date-tag">Mier. 8 de abril &nbsp;·&nbsp; 6:00 pm CDMX</div>
-
-      <div id="zoomLinkWrap" style="width:100%;margin-bottom:0.25rem;display:none;">
-        <a class="zoom-btn" id="zoomLinkBtn" href="#" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.277A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/></svg>
-          Unirme al webinar
-        </a>
-      </div>
-      <p id="zoomSoonMsg" class="zoom-btn-soon" style="display:none;">El link de acceso llega 24hrs antes por email.</p>
 
       <p class="cal-section-label">Agregar a mi calendario</p>
 
@@ -568,14 +528,6 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // ── Zoom link en pantalla de gracias ───────────────────────
-    if (WEBINAR.link) {
-      document.getElementById('zoomLinkBtn').href = WEBINAR.link;
-      document.getElementById('zoomLinkWrap').style.display = 'block';
-    } else {
-      document.getElementById('zoomSoonMsg').style.display = 'block';
-    }
 
     // ── Google Calendar link ────────────────────────────────────
     function toGCalDate(d) {
