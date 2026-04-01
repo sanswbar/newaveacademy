@@ -549,7 +549,7 @@
        2. Despues de implementar, pega la URL aqui
        Ejemplo: 'https://script.google.com/macros/s/AKfy.../exec'
        ============================================================ */
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxjUhlHsk_9IbErLqcEDpVRGyRgrjiKZWPP9nfTo-Nrpe-E-GhUdPNpnWajSwiOPM3Ghw/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwG_i6POgLDaGlP-YiQydU7nS8Lfucnzs15UjuQJviTHJ1gFbu3PPHP0sBYDn0OdAlT/exec';
 
     // ── Countdown ──────────────────────────────────────────────
     function updateCountdown() {
@@ -659,12 +659,9 @@
         return;
       }
 
-      const cbName = 'nw_cb_' + Date.now();
-      const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo, callback: cbName });
-      window[cbName] = (data) => { delete window[cbName]; };
+      const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo });
       const script = document.createElement('script');
       script.src = APPS_SCRIPT_URL + '?' + params.toString();
-      script.onerror = () => { delete window[cbName]; };
       document.head.appendChild(script);
       showThanks(nombre);
     });
