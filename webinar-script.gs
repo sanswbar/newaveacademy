@@ -39,19 +39,18 @@ function doGet(e) {
       e.parameter.webinar  || '',
     ]);
 
+    // JSONP: el callback evita el problema de CORS/redirect
+    const callback = e.parameter.callback || 'callback';
     return ContentService
-      .createTextOutput(JSON.stringify({ ok: true }))
-      .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput(callback + '(' + JSON.stringify({ ok: true }) + ')')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
 
   } catch (err) {
+    const callback = e.parameter.callback || 'callback';
     return ContentService
-      .createTextOutput(JSON.stringify({ ok: false, error: err.message }))
-      .setMimeType(ContentService.MimeType.JSON);
+      .createTextOutput(callback + '(' + JSON.stringify({ ok: false, error: err.message }) + ')')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
   }
-}
-
-function doPost(e) {
-  return doGet(e);
 }
 
 // Funcion de prueba — ejecutala manualmente para verificar que funciona

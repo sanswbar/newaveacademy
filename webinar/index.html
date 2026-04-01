@@ -659,10 +659,13 @@
         return;
       }
 
-      const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo });
-      const img = new Image();
-      img.src = APPS_SCRIPT_URL + '?' + params.toString();
-      img.onload = img.onerror = () => {};
+      const cbName = 'nw_cb_' + Date.now();
+      const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo, callback: cbName });
+      window[cbName] = (data) => { delete window[cbName]; };
+      const script = document.createElement('script');
+      script.src = APPS_SCRIPT_URL + '?' + params.toString();
+      script.onerror = () => { delete window[cbName]; };
+      document.head.appendChild(script);
       showThanks(nombre);
     });
   </script>
