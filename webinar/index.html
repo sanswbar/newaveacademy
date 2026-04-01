@@ -660,17 +660,10 @@
       }
 
       try {
-        // Apps Script no acepta CORS con fetch normal — usamos no-cors
-        // El envio funciona aunque no podamos leer la respuesta
-        await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nombre, email, whatsapp, webinar: WEBINAR.titulo }),
-        });
+        const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo });
+        await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { mode: 'no-cors' });
         showThanks(nombre);
       } catch {
-        // Si falla la red, igual mostramos gracias para no perder al usuario
         showThanks(nombre);
       }
     });

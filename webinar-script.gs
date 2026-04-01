@@ -20,14 +20,11 @@
 const SHEET_ID = 'TU_SHEET_ID_AQUI';
 const SHEET_NAME = 'Registros'; // nombre de la pestaña
 
-function doPost(e) {
+function doGet(e) {
   try {
-    const data = JSON.parse(e.postData.contents);
-
     const ss    = SpreadsheetApp.openById(SHEET_ID);
     let sheet   = ss.getSheetByName(SHEET_NAME);
 
-    // Crear la pestaña y encabezados si no existe
     if (!sheet) {
       sheet = ss.insertSheet(SHEET_NAME);
       sheet.appendRow(['Fecha', 'Nombre', 'Email', 'WhatsApp', 'Webinar']);
@@ -36,10 +33,10 @@ function doPost(e) {
 
     sheet.appendRow([
       new Date(),
-      data.nombre    || '',
-      data.email     || '',
-      data.whatsapp  || '',
-      data.webinar   || '',
+      e.parameter.nombre   || '',
+      e.parameter.email    || '',
+      e.parameter.whatsapp || '',
+      e.parameter.webinar  || '',
     ]);
 
     return ContentService
@@ -51,6 +48,10 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ ok: false, error: err.message }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+function doPost(e) {
+  return doGet(e);
 }
 
 // Funcion de prueba — ejecutala manualmente para verificar que funciona
