@@ -288,6 +288,38 @@
       margin-top: 1rem;
     }
 
+    /* ── ZOOM BUTTON ── */
+    .zoom-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      padding: 1em;
+      text-decoration: none;
+      margin-bottom: 1.25rem;
+      transition: background 0.2s, box-shadow 0.2s;
+      letter-spacing: -0.01em;
+    }
+    .zoom-btn:hover {
+      background: var(--orange-h);
+      box-shadow: 0 6px 24px rgba(252,115,66,0.25);
+    }
+    .zoom-btn-soon {
+      font-size: 0.82rem;
+      color: var(--subtle);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
     /* ── THANK YOU ── */
     .thank-you {
       display: none;
@@ -463,6 +495,14 @@
 
       <div class="ty-date-tag">Mier. 8 de abril &nbsp;·&nbsp; 6:00 pm CDMX</div>
 
+      <div id="zoomLinkWrap" style="width:100%;margin-bottom:0.25rem;display:none;">
+        <a class="zoom-btn" id="zoomLinkBtn" href="#" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.277A1 1 0 0 1 21 8.618v6.764a1 1 0 0 1-1.447.894L15 14"/><rect x="3" y="8" width="12" height="8" rx="2"/></svg>
+          Unirme al webinar
+        </a>
+      </div>
+      <p id="zoomSoonMsg" class="zoom-btn-soon" style="display:none;">El link de acceso llega 24hrs antes por email.</p>
+
       <p class="cal-section-label">Agregar a mi calendario</p>
 
       <div class="cal-buttons">
@@ -504,13 +544,12 @@
     };
 
     /* ============================================================
-       FORMSPREE (captura de leads)
-       1. Ve a https://formspree.io y crea una cuenta gratuita
-       2. Crea un nuevo Form y copia el endpoint
-       3. Reemplaza el valor de abajo con tu endpoint
-       Ejemplo: 'https://formspree.io/f/xrgvabcd'
+       GOOGLE APPS SCRIPT (captura de leads en Google Sheets)
+       1. Abre webinar-script.gs y sigue las instrucciones
+       2. Despues de implementar, pega la URL aqui
+       Ejemplo: 'https://script.google.com/macros/s/AKfy.../exec'
        ============================================================ */
-    const FORMSPREE = 'https://formspree.io/f/TU_ID_AQUI';
+    const APPS_SCRIPT_URL = 'TU_URL_AQUI';
 
     // ── Countdown ──────────────────────────────────────────────
     function updateCountdown() {
@@ -530,6 +569,14 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ── Zoom link en pantalla de gracias ───────────────────────
+    if (WEBINAR.link) {
+      document.getElementById('zoomLinkBtn').href = WEBINAR.link;
+      document.getElementById('zoomLinkWrap').style.display = 'block';
+    } else {
+      document.getElementById('zoomSoonMsg').style.display = 'block';
+    }
 
     // ── Google Calendar link ────────────────────────────────────
     function toGCalDate(d) {
@@ -603,29 +650,27 @@
       if (!validateEmail(email)) { setError('fieldEmail', true);  ok = false; } else { setError('fieldEmail', false); }
       if (!ok) return;
 
-      // Si Formspree no esta configurado todavia, mostrar gracias directamente
-      if (FORMSPREE.includes('TU_ID_AQUI')) {
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Guardando...';
+
+      // Si Apps Script no esta configurado todavia, mostrar gracias directamente
+      if (APPS_SCRIPT_URL === 'TU_URL_AQUI') {
         showThanks(nombre);
         return;
       }
 
-      submitBtn.disabled    = true;
-      submitBtn.textContent = 'Guardando...';
-
       try {
-        const res = await fetch(FORMSPREE, {
+        // Apps Script no acepta CORS con fetch normal — usamos no-cors
+        // El envio funciona aunque no podamos leer la respuesta
+        await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ nombre, email, whatsapp, webinar: WEBINAR.titulo }),
         });
-        if (res.ok) {
-          showThanks(nombre);
-        } else {
-          submitBtn.disabled    = false;
-          submitBtn.textContent = 'Reservar mi lugar \u2192';
-          alert('Hubo un error. Por favor intenta de nuevo.');
-        }
+        showThanks(nombre);
       } catch {
+        // Si falla la red, igual mostramos gracias para no perder al usuario
         showThanks(nombre);
       }
     });
