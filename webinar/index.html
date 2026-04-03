@@ -259,6 +259,26 @@
     .field input::placeholder { color: var(--subtle); }
     .field input:focus { border-color: rgba(252,115,66,0.5); }
 
+    .field select {
+      width: 100%;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85em 1em;
+      font-family: var(--sans);
+      font-size: 1rem;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23B7B6B6' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1em center;
+    }
+    .field select:focus { border-color: rgba(252,115,66,0.5); }
+    .field select option { background: var(--bg-2); color: var(--white); }
+
     .field-error {
       font-size: 0.72rem;
       color: #ff6b6b;
@@ -406,7 +426,7 @@
       <div class="eyebrow">Webinar gratuito</div>
 
       <h1>
-        ¿Quieres un<br><span class="accent">trabajo remoto?</span>
+        ¿Ya es hora de<br><span class="accent">cambiar de trabajo?</span>
       </h1>
 
       <div class="date-badge">
@@ -424,7 +444,7 @@
         <div class="cd-block"><span class="cd-num" id="cd-s">--</span><span class="cd-label">seg</span></div>
       </div>
 
-      <p class="proof"><strong>500 personas</strong> en Mexico ya trabajan remoto<br>gracias a nuestra metodologia</p>
+      <p class="proof"><strong>500 personas</strong> en Mexico ya lo hicieron<br>con nuestra metodologia</p>
       <p class="proof-sub">Te explicamos exactamente como lo hicieron</p>
 
       <div class="divider"></div>
@@ -448,6 +468,19 @@
           <div class="field">
             <label for="whatsapp">WhatsApp <span class="optional">(opcional)</span></label>
             <input type="tel" id="whatsapp" name="whatsapp" placeholder="+52 55 1234 5678" autocomplete="tel" />
+          </div>
+
+          <div class="field" id="fieldBuscando">
+            <label for="buscando">¿Que estas buscando exactamente?</label>
+            <select id="buscando" name="buscando">
+              <option value="" disabled selected>Selecciona una opcion</option>
+              <option value="Trabajo remoto">Trabajo remoto</option>
+              <option value="Ganar en dolares">Ganar en dolares</option>
+              <option value="Cambiar de carrera">Cambiar de carrera</option>
+              <option value="Mas libertad y flexibilidad">Mas libertad y flexibilidad</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <span class="field-error">Selecciona una opcion</span>
           </div>
 
           <button type="submit" class="btn-submit" id="submitBtn">
@@ -604,10 +637,12 @@
       const nombre   = document.getElementById('nombre').value.trim();
       const email    = document.getElementById('email').value.trim();
       const whatsapp = document.getElementById('whatsapp').value.trim();
+      const buscando = document.getElementById('buscando').value;
 
       let ok = true;
-      if (!nombre)           { setError('fieldNombre', true);  ok = false; } else { setError('fieldNombre', false); }
-      if (!validateEmail(email)) { setError('fieldEmail', true);  ok = false; } else { setError('fieldEmail', false); }
+      if (!nombre)               { setError('fieldNombre', true);   ok = false; } else { setError('fieldNombre', false); }
+      if (!validateEmail(email)) { setError('fieldEmail', true);    ok = false; } else { setError('fieldEmail', false); }
+      if (!buscando)             { setError('fieldBuscando', true); ok = false; } else { setError('fieldBuscando', false); }
       if (!ok) return;
 
       submitBtn.disabled    = true;
@@ -619,7 +654,7 @@
         return;
       }
 
-      const params = new URLSearchParams({ nombre, email, whatsapp, webinar: WEBINAR.titulo });
+      const params = new URLSearchParams({ nombre, email, whatsapp, buscando, webinar: WEBINAR.titulo });
       const script = document.createElement('script');
       script.src = APPS_SCRIPT_URL + '?' + params.toString();
       document.head.appendChild(script);
