@@ -473,7 +473,7 @@
           <div class="field" id="fieldBuscando">
             <label for="buscando">¿Que estas buscando exactamente?</label>
             <input type="text" id="buscando" name="buscando" placeholder="Ej. Trabajo remoto, ganar en dolares..." />
-            <span class="field-error">Escribe que estas buscando</span>
+            <span class="field-error">Escribe al menos 5 caracteres</span>
           </div>
 
           <button type="submit" class="btn-submit" id="submitBtn">
@@ -630,12 +630,12 @@
       const nombre   = document.getElementById('nombre').value.trim();
       const email    = document.getElementById('email').value.trim();
       const whatsapp = document.getElementById('whatsapp').value.trim();
-      const buscando = document.getElementById('buscando').value;
+      const buscando = document.getElementById('buscando').value.trim();
 
       let ok = true;
       if (!nombre)               { setError('fieldNombre', true);   ok = false; } else { setError('fieldNombre', false); }
       if (!validateEmail(email)) { setError('fieldEmail', true);    ok = false; } else { setError('fieldEmail', false); }
-      if (!buscando)             { setError('fieldBuscando', true); ok = false; } else { setError('fieldBuscando', false); }
+      if (buscando.length < 5)   { setError('fieldBuscando', true); ok = false; } else { setError('fieldBuscando', false); }
       if (!ok) return;
 
       submitBtn.disabled    = true;
