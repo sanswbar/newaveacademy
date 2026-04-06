@@ -513,6 +513,7 @@ a   { text-decoration: none; color: inherit; }
 .cta-note { font-family: var(--mono); font-size: 0.68rem; color: var(--subtle); letter-spacing: 0.06em; }
 
 /* ── VER PLANES ── */
+.how-cta { text-align: center; margin-top: 2.5rem; }
 .btn-ver-planes {
   display: inline-block;
   margin-top: 1.5rem;
