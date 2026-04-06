@@ -513,30 +513,24 @@ a   { text-decoration: none; color: inherit; }
 .cta-note { font-family: var(--mono); font-size: 0.68rem; color: var(--subtle); letter-spacing: 0.06em; }
 
 /* ── VER PLANES ── */
-.ver-planes-section {
-  padding: 4rem clamp(1.25rem, 5vw, 2.5rem);
-  text-align: center;
-  background: var(--bg);
-}
-.ver-planes-inner { max-width: var(--max); margin: 0 auto; }
 .btn-ver-planes {
   display: inline-block;
-  padding: 1.2rem 3.5rem;
-  background: var(--accent);
+  margin-top: 1.5rem;
+  padding: 1rem 2.75rem;
+  background: var(--orange);
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  border-radius: 14px;
+  border-radius: 12px;
   text-decoration: none;
-  border: none;
-  box-shadow: 0 4px 24px rgba(252,115,66,0.35);
+  box-shadow: 0 4px 20px rgba(252,115,66,0.4);
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 .btn-ver-planes:hover {
-  background: #e5612a;
+  background: var(--orange-h);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(252,115,66,0.45);
+  box-shadow: 0 8px 28px rgba(252,115,66,0.5);
 }
 
 /* ── FOOTER ── */
