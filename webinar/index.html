@@ -641,6 +641,10 @@
       thankEl.classList.add('active');
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'webinar_registro', nombre });
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+        fbq('track', 'CompleteRegistration');
+      }
     }
 
     form.addEventListener('submit', async (e) => {
