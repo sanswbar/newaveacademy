@@ -20,7 +20,7 @@ jobs:
       - name: Build sitemap.xml
         shell: bash
         run: |
-          BASE="https://www.newaveacademy.com"
+          BASE="https://newaveacademy.com"
           TODAY=$(date +%Y-%m-%d)
           {
             echo '<?xml version="1.0" encoding="UTF-8"?>'
