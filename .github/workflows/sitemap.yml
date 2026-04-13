@@ -1,0 +1,50 @@
+name: Generate sitemap
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - '.github/workflows/sitemap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build sitemap.xml
+        shell: bash
+        run: |
+          BASE="https://www.newaveacademy.com"
+          TODAY=$(date +%Y-%m-%d)
+          {
+            echo '<?xml version="1.0" encoding="UTF-8"?>'
+            echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            while IFS= read -r f; do
+              rel="${f#./}"
+              if [ "$rel" = "index.html" ]; then
+                loc="$BASE/"
+              elif [[ "$rel" == */index.html ]]; then
+                loc="$BASE/${rel%index.html}"
+              else
+                loc="$BASE/$rel"
+              fi
+              echo "  <url><loc>$loc</loc><lastmod>$TODAY</lastmod></url>"
+            done < <(find . -type f -name '*.html' -not -path './.git/*' -not -path './node_modules/*' | sort)
+            echo '</urlset>'
+          } > sitemap.xml
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet sitemap.xml; then
+            git add sitemap.xml
+            git commit -m "chore: regenerate sitemap.xml"
+            git push
+          fi
