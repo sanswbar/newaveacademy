@@ -225,13 +225,13 @@ a   { text-decoration: none; color: inherit; }
   justify-content: center;
 }
 .partner-label {
-  font-family: var(--mono); font-size: 0.78rem;
+  font-family: var(--mono); font-size: 1rem;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--subtle);
 }
 .partner-logo {
-  height: 22px; width: auto; opacity: 0.9;
-  border-radius: 4px;
+  height: 32px; width: auto; opacity: 0.95;
+  border-radius: 6px;
   image-rendering: -webkit-optimize-contrast;
 }
 
