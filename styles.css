@@ -230,9 +230,8 @@ a   { text-decoration: none; color: inherit; }
   color: var(--subtle);
 }
 .partner-logo {
-  height: 12px; width: auto; opacity: 0.9;
+  height: 12px; width: auto; opacity: 0.5;
   image-rendering: -webkit-optimize-contrast;
-  filter: brightness(0) saturate(100%) invert(52%) sepia(57%) saturate(2878%) hue-rotate(344deg) brightness(101%) contrast(96%);
 }
 
 /* ── PAIN STRIP ── */
@@ -263,7 +262,7 @@ a   { text-decoration: none; color: inherit; }
 .why-inner { max-width: var(--max-wide); margin: 0 auto; }
 .section-label { margin-bottom: 0.75rem; }
 .why-section h2 {
-  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-size: clamp(2rem, 5vw, 3.4rem);
   font-weight: 700; line-height: 1.05; letter-spacing: -0.03em;
   margin-bottom: 3.5rem;
 }
