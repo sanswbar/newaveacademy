@@ -230,11 +230,9 @@ a   { text-decoration: none; color: inherit; }
   color: var(--subtle);
 }
 .partner-logo {
-  height: 10px; width: auto; opacity: 0.55;
-  filter: brightness(0) invert(1);
+  height: 12px; width: auto; opacity: 0.75;
   image-rendering: -webkit-optimize-contrast;
 }
-body.theme-light .partner-logo { filter: none; }
 
 /* ── PAIN STRIP ── */
 .pain-strip {
