@@ -230,7 +230,8 @@ a   { text-decoration: none; color: inherit; }
   color: var(--subtle);
 }
 .partner-logo {
-  height: 12px; width: auto; opacity: 0.5;
+  height: 16px; width: auto; opacity: 0.9;
+  border-radius: 3px;
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -262,9 +263,13 @@ a   { text-decoration: none; color: inherit; }
 .why-inner { max-width: var(--max-wide); margin: 0 auto; }
 .section-label { margin-bottom: 0.75rem; }
 .why-section h2 {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 700; line-height: 1.05; letter-spacing: -0.03em;
+  font-size: clamp(1.5rem, 3.2vw, 2.3rem);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
   margin-bottom: 3.5rem;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .why-section h2 { white-space: normal; font-size: clamp(1.4rem, 5.5vw, 1.9rem); }
 }
 .why-grid {
   display: grid;
