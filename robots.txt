@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://newaveacademy.com/sitemap.xml
+Sitemap: https://www.newaveacademy.com/sitemap.xml
