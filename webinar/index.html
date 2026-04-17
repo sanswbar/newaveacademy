@@ -549,7 +549,7 @@
               <option>199 USD: Plan Basico</option>
               <option>299 USD: Plan Personalizado (sesiones 1:1 grupales + IA semanal)</option>
               <option>1,500 USD: Plan VIP (acompañamiento hiperpersonalizado)</option>
-              <option>No estoy listo para invertir</option>
+              <option>Menos de 199 USD</option>
             </select>
             <span class="field-error">Selecciona una opcion</span>
           </div>
@@ -751,7 +751,7 @@
       // Descalificacion automatica
       if (apoyo === 'Busco contenido gratuito por ahora' ||
           invertido === 'Nunca he pagado por uno' ||
-          invertirias === 'No estoy listo para invertir') {
+          invertirias === 'Menos de 199 USD') {
         showDisqualified();
         return;
       }
