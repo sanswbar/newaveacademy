@@ -27,16 +27,22 @@ function doGet(e) {
 
     if (!sheet) {
       sheet = ss.insertSheet(SHEET_NAME);
-      sheet.appendRow(['Fecha', 'Nombre', 'Email', 'WhatsApp', 'Webinar']);
-      sheet.getRange(1, 1, 1, 5).setFontWeight('bold');
+      sheet.appendRow(['Fecha', 'Nombre', 'Email', 'Telefono', 'A que te dedicas', 'Ingles', 'Experiencia', 'Tipo de apoyo', 'Inversion previa', 'Inversion futura', 'Webinar']);
+      sheet.getRange(1, 1, 1, 11).setFontWeight('bold');
     }
 
     sheet.appendRow([
       new Date(),
-      e.parameter.nombre   || '',
-      e.parameter.email    || '',
-      e.parameter.whatsapp || '',
-      e.parameter.webinar  || '',
+      e.parameter.nombre      || '',
+      e.parameter.email       || '',
+      e.parameter.telefono    || '',
+      e.parameter.dedicas     || '',
+      e.parameter.ingles      || '',
+      e.parameter.experiencia || '',
+      e.parameter.apoyo       || '',
+      e.parameter.invertido   || '',
+      e.parameter.invertirias || '',
+      e.parameter.webinar     || '',
     ]);
 
     // JSONP: el callback evita el problema de CORS/redirect
@@ -55,14 +61,18 @@ function doGet(e) {
 
 // Funcion de prueba — ejecutala manualmente para verificar que funciona
 function testInsert() {
-  doPost({
-    postData: {
-      contents: JSON.stringify({
-        nombre:   'Test Usuario',
-        email:    'test@email.com',
-        whatsapp: '+52 55 0000 0000',
-        webinar:  'Webinar Gratuito NEWAVE',
-      })
+  doGet({
+    parameter: {
+      nombre:      'Test Usuario',
+      email:       'test@email.com',
+      telefono:    '+52 55 0000 0000',
+      dedicas:     'Marketing',
+      ingles:      'Intermedio',
+      experiencia: '3 a 5 años',
+      apoyo:       'Estoy dispuesto a invertir en un programa si me demuestra resultados',
+      invertido:   'Menos de 500 USD',
+      invertirias: '199 a 499 USD',
+      webinar:     'Webinar Gratuito NEWAVE',
     }
   });
 }
