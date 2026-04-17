@@ -776,9 +776,7 @@
         experiencia, apoyo, invertido, invertirias,
         webinar: WEBINAR.titulo
       });
-      const script = document.createElement('script');
-      script.src = APPS_SCRIPT_URL + '?' + params.toString();
-      document.head.appendChild(script);
+      fetch(APPS_SCRIPT_URL + '?' + params.toString(), { mode: 'no-cors' });
       showThanks(nombre);
     });
   </script>
