@@ -755,32 +755,29 @@
       if (!invertirias)          { setError('fieldInvertirias', true); ok = false; } else { setError('fieldInvertirias', false); }
       if (!ok) return;
 
-      // Descalificacion automatica
-      if (apoyo === 'Busco contenido gratuito por ahora' ||
-          invertido === 'Nunca he pagado por uno' ||
-          invertirias === 'Menos de 199 USD') {
-        showDisqualified();
-        return;
-      }
+      const calificado = apoyo === 'Busco contenido gratuito por ahora' ? 'NO' : 'SI';
 
       submitBtn.disabled    = true;
       submitBtn.textContent = 'Guardando...';
 
-      if (APPS_SCRIPT_URL === 'TU_URL_AQUI') {
-        showThanks(nombre);
-        return;
+      if (APPS_SCRIPT_URL !== 'TU_URL_AQUI') {
+        const params = new URLSearchParams({
+          nombre, email, telefono, dedicas, ingles,
+          experiencia, apoyo, invertido, invertirias,
+          calificado,
+          webinar: WEBINAR.titulo
+        });
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = APPS_SCRIPT_URL + '?' + params.toString();
+        document.body.appendChild(iframe);
       }
 
-      const params = new URLSearchParams({
-        nombre, email, telefono, dedicas, ingles,
-        experiencia, apoyo, invertido, invertirias,
-        webinar: WEBINAR.titulo
-      });
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.src = APPS_SCRIPT_URL + '?' + params.toString();
-      document.body.appendChild(iframe);
-      showThanks(nombre);
+      if (calificado === 'NO') {
+        showDisqualified();
+      } else {
+        showThanks(nombre);
+      }
     });
   </script>
 </body>
