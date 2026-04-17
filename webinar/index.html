@@ -478,20 +478,80 @@
           </div>
 
           <div class="field" id="fieldEmail">
-            <label for="email">Email</label>
+            <label for="email">Correo</label>
             <input type="email" id="email" name="email" placeholder="tu@email.com" autocomplete="email" />
             <span class="field-error">Ingresa un email valido</span>
           </div>
 
-          <div class="field">
-            <label for="whatsapp">WhatsApp <span class="optional">(opcional)</span></label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="+52 55 1234 5678" autocomplete="tel" />
+          <div class="field" id="fieldTelefono">
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+52 55 1234 5678" autocomplete="tel" />
+            <span class="field-error">Ingresa tu telefono</span>
           </div>
 
-          <div class="field" id="fieldBuscando">
-            <label for="buscando">Si mañana tuvieras tu trabajo remoto ideal, ¿que seria lo primero que harias?</label>
-            <input type="text" id="buscando" name="buscando" placeholder="Ej. Viajar, mudarme, dejar mi trabajo actual..." />
-            <span class="field-error">Escribe al menos 5 caracteres</span>
+          <div class="field" id="fieldDedicas">
+            <label for="dedicas">¿A que te dedicas?</label>
+            <input type="text" id="dedicas" name="dedicas" placeholder="Ej. Marketing, ingenieria, diseño..." />
+            <span class="field-error">Ingresa a que te dedicas</span>
+          </div>
+
+          <div class="field" id="fieldIngles">
+            <label for="ingles">Nivel de ingles</label>
+            <select id="ingles" name="ingles">
+              <option value="" disabled selected>Selecciona tu nivel</option>
+              <option>Basico</option>
+              <option>Intermedio</option>
+              <option>Avanzado</option>
+              <option>Nativo / Bilingue</option>
+            </select>
+            <span class="field-error">Selecciona tu nivel de ingles</span>
+          </div>
+
+          <div class="field" id="fieldExperiencia">
+            <label for="experiencia">¿Cuantos años de experiencia laboral tienes?</label>
+            <select id="experiencia" name="experiencia">
+              <option value="" disabled selected>Selecciona una opcion</option>
+              <option>Menos de 1 año</option>
+              <option>1 a 3 años</option>
+              <option>3 a 5 años</option>
+              <option>Mas de 5 años</option>
+            </select>
+            <span class="field-error">Selecciona una opcion</span>
+          </div>
+
+          <div class="field" id="fieldApoyo">
+            <label for="apoyo">¿Que tipo de apoyo buscas para conseguir tu trabajo remoto?</label>
+            <select id="apoyo" name="apoyo">
+              <option value="" disabled selected>Selecciona una opcion</option>
+              <option>Busco contenido gratuito por ahora</option>
+              <option>Estoy dispuesto a invertir en un programa si me demuestra resultados</option>
+              <option>Ya tengo presupuesto y busco el programa correcto</option>
+            </select>
+            <span class="field-error">Selecciona una opcion</span>
+          </div>
+
+          <div class="field" id="fieldInvertido">
+            <label for="invertido">¿Cuanto has invertido antes en cursos o programas de carrera?</label>
+            <select id="invertido" name="invertido">
+              <option value="" disabled selected>Selecciona una opcion</option>
+              <option>Nunca he pagado por uno</option>
+              <option>Menos de 500 USD</option>
+              <option>Entre 500 y 2,000 USD</option>
+              <option>Mas de 2,000 USD</option>
+            </select>
+            <span class="field-error">Selecciona una opcion</span>
+          </div>
+
+          <div class="field" id="fieldInvertirias">
+            <label for="invertirias">¿Cuanto invertirias en un programa paso a paso para conseguir un trabajo remoto con sueldos arriba de 3,000 USD?</label>
+            <select id="invertirias" name="invertirias">
+              <option value="" disabled selected>Selecciona una opcion</option>
+              <option>Menos de 500 USD</option>
+              <option>500 a 1,500 USD</option>
+              <option>Mas de 1,500 USD</option>
+              <option>No estoy listo para invertir</option>
+            </select>
+            <span class="field-error">Selecciona una opcion</span>
           </div>
 
           <button type="submit" class="btn-submit" id="submitBtn">
@@ -501,6 +561,17 @@
 
         <p class="privacy">Tu info esta segura. Solo te contactaremos para el webinar.</p>
       </div>
+    </div>
+
+    <!-- ── DESCALIFICADO ── -->
+    <div class="thank-you" id="disqualified">
+      <div class="check-wrap" style="background:rgba(255,107,107,0.1);border-color:rgba(255,107,107,0.25);color:#ff6b6b;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </div>
+      <h2 class="ty-h2">Este webinar no es para ti</h2>
+      <p class="ty-sub">Por el momento, este webinar esta diseñado para personas que estan listas para invertir en su carrera profesional.<br><br>Te recomendamos seguirnos en redes para contenido gratuito que te puede ayudar.</p>
     </div>
 
     <!-- ── GRACIAS ── -->
@@ -632,6 +703,7 @@
     const submitBtn  = document.getElementById('submitBtn');
     const mainEl     = document.getElementById('mainContent');
     const thankEl    = document.getElementById('thankYou');
+    const disqualEl  = document.getElementById('disqualified');
 
     function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
     function setError(id, on) { document.getElementById(id).classList.toggle('has-error', on); }
@@ -647,29 +719,56 @@
       }
     }
 
+    function showDisqualified() {
+      mainEl.style.display = 'none';
+      disqualEl.classList.add('active');
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const nombre   = document.getElementById('nombre').value.trim();
-      const email    = document.getElementById('email').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
-      const buscando = document.getElementById('buscando').value.trim();
+      const nombre     = document.getElementById('nombre').value.trim();
+      const email      = document.getElementById('email').value.trim();
+      const telefono   = document.getElementById('telefono').value.trim();
+      const dedicas    = document.getElementById('dedicas').value.trim();
+      const ingles     = document.getElementById('ingles').value;
+      const experiencia = document.getElementById('experiencia').value;
+      const apoyo      = document.getElementById('apoyo').value;
+      const invertido  = document.getElementById('invertido').value;
+      const invertirias = document.getElementById('invertirias').value;
 
       let ok = true;
-      if (!nombre)               { setError('fieldNombre', true);   ok = false; } else { setError('fieldNombre', false); }
-      if (!validateEmail(email)) { setError('fieldEmail', true);    ok = false; } else { setError('fieldEmail', false); }
-      if (buscando.length < 5)   { setError('fieldBuscando', true); ok = false; } else { setError('fieldBuscando', false); }
+      if (!nombre)               { setError('fieldNombre', true);      ok = false; } else { setError('fieldNombre', false); }
+      if (!validateEmail(email)) { setError('fieldEmail', true);       ok = false; } else { setError('fieldEmail', false); }
+      if (!telefono)             { setError('fieldTelefono', true);    ok = false; } else { setError('fieldTelefono', false); }
+      if (!dedicas)              { setError('fieldDedicas', true);     ok = false; } else { setError('fieldDedicas', false); }
+      if (!ingles)               { setError('fieldIngles', true);      ok = false; } else { setError('fieldIngles', false); }
+      if (!experiencia)          { setError('fieldExperiencia', true); ok = false; } else { setError('fieldExperiencia', false); }
+      if (!apoyo)                { setError('fieldApoyo', true);       ok = false; } else { setError('fieldApoyo', false); }
+      if (!invertido)            { setError('fieldInvertido', true);   ok = false; } else { setError('fieldInvertido', false); }
+      if (!invertirias)          { setError('fieldInvertirias', true); ok = false; } else { setError('fieldInvertirias', false); }
       if (!ok) return;
+
+      // Descalificacion automatica
+      if (apoyo === 'Busco contenido gratuito por ahora' ||
+          invertido === 'Nunca he pagado por uno' ||
+          invertirias === 'No estoy listo para invertir') {
+        showDisqualified();
+        return;
+      }
 
       submitBtn.disabled    = true;
       submitBtn.textContent = 'Guardando...';
 
-      // Si Apps Script no esta configurado todavia, mostrar gracias directamente
       if (APPS_SCRIPT_URL === 'TU_URL_AQUI') {
         showThanks(nombre);
         return;
       }
 
-      const params = new URLSearchParams({ nombre, email, whatsapp, buscando, webinar: WEBINAR.titulo });
+      const params = new URLSearchParams({
+        nombre, email, telefono, dedicas, ingles,
+        experiencia, apoyo, invertido, invertirias,
+        webinar: WEBINAR.titulo
+      });
       const script = document.createElement('script');
       script.src = APPS_SCRIPT_URL + '?' + params.toString();
       document.head.appendChild(script);
