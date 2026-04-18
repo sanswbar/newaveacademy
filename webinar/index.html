@@ -468,7 +468,7 @@
       <div class="divider"></div>
 
       <div class="form-card">
-        <p class="form-title">Reserva tu lugar</p>
+        <p class="form-title">Reserva tu lugar <span>[2 min]</span></p>
 
         <form id="regForm" novalidate>
           <div class="field" id="fieldNombre">
@@ -519,18 +519,7 @@
             <span class="field-error">Selecciona una opcion</span>
           </div>
 
-          <div class="field" id="fieldApoyo">
-            <label for="apoyo">¿Que tipo de apoyo buscas para conseguir tu trabajo remoto?</label>
-            <select id="apoyo" name="apoyo">
-              <option value="" disabled selected>Selecciona una opcion</option>
-              <option>Busco contenido gratuito por ahora</option>
-              <option>Estoy dispuesto a invertir en un programa si me demuestra resultados</option>
-              <option>Ya tengo presupuesto y busco el programa correcto</option>
-            </select>
-            <span class="field-error">Selecciona una opcion</span>
-          </div>
-
-          <div class="field" id="fieldInvertido">
+<div class="field" id="fieldInvertido">
             <label for="invertido">¿Cuanto has invertido antes en cursos o programas de carrera?</label>
             <select id="invertido" name="invertido">
               <option value="" disabled selected>Selecciona una opcion</option>
@@ -739,7 +728,6 @@
       const dedicas    = document.getElementById('dedicas').value.trim();
       const ingles     = document.getElementById('ingles').value;
       const experiencia = document.getElementById('experiencia').value;
-      const apoyo      = document.getElementById('apoyo').value;
       const invertido  = document.getElementById('invertido').value;
       const invertirias = document.getElementById('invertirias').value;
 
@@ -750,12 +738,9 @@
       if (!dedicas)              { setError('fieldDedicas', true);     ok = false; } else { setError('fieldDedicas', false); }
       if (!ingles)               { setError('fieldIngles', true);      ok = false; } else { setError('fieldIngles', false); }
       if (!experiencia)          { setError('fieldExperiencia', true); ok = false; } else { setError('fieldExperiencia', false); }
-      if (!apoyo)                { setError('fieldApoyo', true);       ok = false; } else { setError('fieldApoyo', false); }
       if (!invertido)            { setError('fieldInvertido', true);   ok = false; } else { setError('fieldInvertido', false); }
       if (!invertirias)          { setError('fieldInvertirias', true); ok = false; } else { setError('fieldInvertirias', false); }
       if (!ok) return;
-
-      const calificado = apoyo === 'Busco contenido gratuito por ahora' ? 'NO' : 'SI';
 
       submitBtn.disabled    = true;
       submitBtn.textContent = 'Guardando...';
@@ -763,8 +748,7 @@
       if (APPS_SCRIPT_URL !== 'TU_URL_AQUI') {
         const params = new URLSearchParams({
           nombre, email, telefono, dedicas, ingles,
-          experiencia, apoyo, invertido, invertirias,
-          calificado,
+          experiencia, invertido, invertirias,
           webinar: WEBINAR.titulo
         });
         const iframe = document.createElement('iframe');
@@ -773,11 +757,7 @@
         document.body.appendChild(iframe);
       }
 
-      if (calificado === 'NO') {
-        showDisqualified();
-      } else {
-        showThanks(nombre);
-      }
+      showThanks(nombre);
     });
   </script>
 </body>
