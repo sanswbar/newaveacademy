@@ -823,12 +823,10 @@ a   { text-decoration: none; color: inherit; }
   margin-top: 2px;
 }
 .inv-cta-note {
-  font-family: var(--mono);
-  font-size: 0.67rem;
-  color: var(--subtle);
-  letter-spacing: 0.05em;
-  margin-top: 1rem;
-  max-width: 380px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.85rem;
+  max-width: 400px;
   line-height: 1.6;
 }
 
