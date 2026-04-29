@@ -741,19 +741,18 @@ a   { text-decoration: none; color: inherit; }
 .company-logo:hover { filter: grayscale(0) brightness(1) opacity(1); }
 .logo-placeholder {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--subtle);
+  letter-spacing: 0.06em;
+  color: rgba(183,182,182,0.75);
   white-space: nowrap;
-  opacity: 0.55;
   flex-shrink: 0;
-  padding: 0.35rem 0.85rem;
-  border: 1px solid rgba(183,182,182,0.12);
+  padding: 0.4rem 1rem;
+  border: 1px solid rgba(183,182,182,0.22);
   border-radius: 6px;
-  transition: opacity 0.2s;
+  transition: color 0.2s, border-color 0.2s;
 }
-.logo-placeholder:hover { opacity: 0.9; }
+.logo-placeholder:hover { color: var(--white); border-color: rgba(183,182,182,0.45); }
 
 /* ── INVERSIÓN ── */
 .inversion-section {
