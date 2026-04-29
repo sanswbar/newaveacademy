@@ -497,20 +497,6 @@
     </div>
   </section>
 
-  <!-- WEBINAR MODAL -->
-  <div class="wm-overlay" id="webinarModal" role="dialog" aria-modal="true" aria-labelledby="wmTitle">
-    <div class="wm-card">
-      <button class="wm-close" id="webinarClose" aria-label="Cerrar">×</button>
-      <div class="wm-icon" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      </div>
-      <p class="wm-eyebrow" data-i18n="webinar.eyebrow">WEBINAR GRATUITO</p>
-      <h3 id="wmTitle" data-i18n="webinar.title">¿Aún no estás convencido?</h3>
-      <p class="wm-sub" data-i18n="webinar.sub">Únete a nuestro webinar en vivo y descubre cómo conseguir tu primer trabajo remoto que pague en dólares.</p>
-      <a href="https://newaveacademy.com/webinar" target="_blank" rel="noopener" class="btn-primary wm-btn" data-i18n="webinar.cta">Quiero unirme al webinar</a>
-      <button class="wm-skip" id="webinarSkip" data-i18n="webinar.skip">No me interesa por ahora</button>
-    </div>
-  </div>
 
   <!-- STICKY CTA MOBILE -->
   <div class="sticky-cta" id="stickyCta">
@@ -817,26 +803,6 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-    /* WEBINAR MODAL */
-    (function() {
-      const STORAGE_KEY = 'nw-webinar-shown';
-      if (sessionStorage.getItem(STORAGE_KEY)) return;
-      const modal = document.getElementById('webinarModal');
-      const trigger = document.getElementById('contact');
-      if (!modal || !trigger) return;
-      function showModal() {
-        if (sessionStorage.getItem(STORAGE_KEY)) return;
-        modal.classList.add('visible');
-        sessionStorage.setItem(STORAGE_KEY, '1');
-      }
-      function closeModal() { modal.classList.remove('visible'); }
-      document.getElementById('webinarClose').addEventListener('click', closeModal);
-      document.getElementById('webinarSkip').addEventListener('click', closeModal);
-      modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-      new IntersectionObserver(function(entries, obs) {
-        if (entries[0].isIntersecting) { showModal(); obs.disconnect(); }
-      }, { threshold: 0.2 }).observe(trigger);
-    })();
 
     /* STICKY CTA MOBILE */
     (function() {
