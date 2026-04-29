@@ -912,3 +912,26 @@ a   { text-decoration: none; color: inherit; }
   .faq-trigger { font-size: 0.9rem; padding: 1rem 0; }
   .faq-body-inner { padding-right: 0.5rem; font-size: 0.875rem; }
 }
+
+/* ── STICKY CTA MOBILE ── */
+.sticky-cta {
+  display: none;
+}
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: block;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
+    padding: 0.875rem 1.25rem calc(0.875rem + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, var(--bg) 80%, transparent);
+    pointer-events: none;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .sticky-cta.visible {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+  }
+  .sticky-cta .btn-primary {
+    display: block; width: 100%; text-align: center;
+    padding: 0.9rem 1rem; font-size: 1rem;
+  }
+}

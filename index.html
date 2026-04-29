@@ -64,7 +64,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/NEWAVEISO.png" />
-  <link rel="stylesheet" href="styles.css?v=39" />
+  <link rel="stylesheet" href="styles.css?v=40" />
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -494,6 +494,11 @@
     </div>
   </section>
 
+  <!-- STICKY CTA MOBILE -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://www.skool.com/newave/plans" target="_blank" rel="noopener" class="btn-primary" data-i18n="inv.cta">Ver planes y unirme</a>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
@@ -779,6 +784,19 @@
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    /* STICKY CTA MOBILE */
+    (function() {
+      const sticky = document.getElementById('stickyCta');
+      const hero = document.querySelector('.hero');
+      const ctaSection = document.getElementById('contact');
+      if (!sticky || !hero) return;
+      window.addEventListener('scroll', function() {
+        const pastHero = window.scrollY > hero.offsetHeight * 0.6;
+        const nearCta = ctaSection && window.scrollY + window.innerHeight > ctaSection.offsetTop - 40;
+        sticky.classList.toggle('visible', pastHero && !nearCta);
+      }, { passive: true });
+    })();
 
     /* FAQ ACCORDION */
     document.querySelectorAll('.faq-trigger').forEach(btn => {
