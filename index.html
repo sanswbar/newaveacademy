@@ -834,7 +834,7 @@
       modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
       const timer = setTimeout(showModal, 30000);
       window.addEventListener('scroll', function onScroll() {
-        if ((window.scrollY + window.innerHeight) / document.body.scrollHeight > 0.6) {
+        if ((window.scrollY + window.innerHeight) / document.body.scrollHeight > 0.9) {
           clearTimeout(timer); showModal();
           window.removeEventListener('scroll', onScroll);
         }
