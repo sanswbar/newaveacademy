@@ -859,3 +859,56 @@ a   { text-decoration: none; color: inherit; }
     font-size: 1rem;
   }
 }
+
+/* ── FAQ ── */
+.faq-section {
+  padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
+  background: var(--bg);
+}
+.faq-inner { max-width: var(--max); margin: 0 auto; }
+.faq-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 700; letter-spacing: -0.03em;
+  margin-bottom: 0.75rem; text-align: center;
+}
+.faq-sub {
+  text-align: center; color: var(--muted);
+  font-size: 1rem; margin-bottom: 2.75rem;
+}
+.faq-list { list-style: none; border-top: 1px solid var(--border); }
+.faq-item  { border-bottom: 1px solid var(--border); }
+.faq-trigger {
+  width: 100%; background: none; border: none;
+  color: var(--white); font-family: var(--sans);
+  font-size: 1rem; font-weight: 600;
+  text-align: left; padding: 1.25rem 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  line-height: 1.45; transition: color 0.2s;
+}
+.faq-trigger:hover { color: var(--orange); }
+.faq-trigger[aria-expanded="true"] { color: var(--orange); }
+.faq-icon {
+  flex-shrink: 0; width: 32px; height: 32px;
+  border-radius: 50%; border: 1.5px solid var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; line-height: 1; color: var(--orange);
+  transition: background 0.2s, color 0.2s;
+}
+.faq-trigger[aria-expanded="true"] .faq-icon {
+  background: var(--orange); color: #fff; border-color: var(--orange);
+}
+.faq-body {
+  overflow: hidden; max-height: 0;
+  transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.faq-body-inner {
+  padding: 0 2rem 1.5rem 0;
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+}
+@media (max-width: 768px) {
+  .faq-section { padding: 3.5rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .faq-sub { font-size: 0.9rem; margin-bottom: 2rem; }
+  .faq-trigger { font-size: 0.9rem; padding: 1rem 0; }
+  .faq-body-inner { padding-right: 0.5rem; font-size: 0.875rem; }
+}
