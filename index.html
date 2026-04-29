@@ -822,7 +822,8 @@
       const STORAGE_KEY = 'nw-webinar-shown';
       if (sessionStorage.getItem(STORAGE_KEY)) return;
       const modal = document.getElementById('webinarModal');
-      if (!modal) return;
+      const trigger = document.getElementById('contact');
+      if (!modal || !trigger) return;
       function showModal() {
         if (sessionStorage.getItem(STORAGE_KEY)) return;
         modal.classList.add('visible');
@@ -832,14 +833,9 @@
       document.getElementById('webinarClose').addEventListener('click', closeModal);
       document.getElementById('webinarSkip').addEventListener('click', closeModal);
       modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
-      const timer = setTimeout(showModal, 30000);
-      window.addEventListener('scroll', function onScroll() {
-        const scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-        if (scrolled > 0.9) {
-          clearTimeout(timer); showModal();
-          window.removeEventListener('scroll', onScroll);
-        }
-      }, { passive: true });
+      new IntersectionObserver(function(entries, obs) {
+        if (entries[0].isIntersecting) { showModal(); obs.disconnect(); }
+      }, { threshold: 0.2 }).observe(trigger);
     })();
 
     /* STICKY CTA MOBILE */
