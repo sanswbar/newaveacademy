@@ -1249,13 +1249,17 @@ a   { text-decoration: none; color: inherit; }
   display: flex; flex-direction: column; gap: 0.5rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
+.autoridad-stat-plain {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  padding: 0.5rem 0;
+}
 .autoridad-stat-num {
   font-size: clamp(1.6rem, 3vw, 2.25rem);
   font-weight: 800; letter-spacing: -0.04em;
   color: var(--orange); line-height: 1;
 }
 .autoridad-stat-label {
-  font-size: 0.82rem; color: rgba(20,24,30,0.55); line-height: 1.5;
+  font-size: 0.85rem; color: rgba(20,24,30,0.6); line-height: 1.5;
 }
 @media (max-width: 768px) {
   .autoridad-inner { grid-template-columns: 1fr; gap: 2.5rem; }
