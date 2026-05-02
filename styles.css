@@ -1057,13 +1057,13 @@ a   { text-decoration: none; color: inherit; }
 /* ── SOCIAL PROOF METRICS ── */
 .metrics-section {
   padding: var(--section) clamp(1.25rem, 5vw, 3rem);
-  background: #FC7342;
+  background: #f5f5f7;
 }
 .metrics-inner {
   max-width: var(--max-wide); margin: 0 auto; text-align: center;
 }
 .metrics-leadin {
-  font-size: 1.1rem; color: rgba(0,0,0,0.7); line-height: 1.7;
+  font-size: 1.1rem; color: rgba(20,24,30,0.65); line-height: 1.7;
   margin-bottom: 3rem; max-width: 580px; margin-left: auto; margin-right: auto;
 }
 .metrics-grid {
@@ -1071,26 +1071,26 @@ a   { text-decoration: none; color: inherit; }
   gap: 1.5rem; margin-bottom: 2.5rem;
 }
 .metrics-card {
-  background: rgba(0,0,0,0.12); border-radius: 16px;
+  background: #fff; border-radius: 16px; border: 1px solid rgba(20,24,30,0.08);
   padding: 2rem 1.25rem;
   display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
 }
 .metrics-big {
   font-size: clamp(1.6rem, 2.8vw, 2.25rem);
   font-weight: 800; letter-spacing: -0.03em;
-  color: #fff; line-height: 1.1;
+  color: var(--orange); line-height: 1.1;
 }
 .metrics-label {
-  font-size: 0.85rem; color: rgba(0,0,0,0.65);
+  font-size: 0.85rem; color: rgba(20,24,30,0.55);
   line-height: 1.5; text-align: center;
 }
 .metrics-countries {
-  font-size: 0.9rem; color: rgba(0,0,0,0.6);
+  font-size: 0.9rem; color: rgba(20,24,30,0.5);
   margin-bottom: 1.75rem; letter-spacing: 0.02em;
 }
 .metrics-close {
   font-style: italic; font-weight: 700;
-  color: #fff; font-size: 1.1rem;
+  color: var(--brand-black); font-size: 1.1rem;
 }
 @media (max-width: 768px) {
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
