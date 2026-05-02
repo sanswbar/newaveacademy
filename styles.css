@@ -1015,3 +1015,41 @@ a   { text-decoration: none; color: inherit; }
 .faq-webinar p { font-size: 0.9rem; color: var(--muted); }
 .faq-webinar a { font-size: 0.9rem; color: var(--orange); transition: opacity 0.2s; }
 .faq-webinar a:hover { opacity: 0.75; }
+
+/* ── PARA TI SI ── */
+.parati-section {
+  padding: var(--section) clamp(1.25rem, 5vw, 3rem);
+  background: var(--bg-2);
+}
+.parati-inner { max-width: var(--max-wide); margin: 0 auto; }
+.parati-h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 800; letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin-bottom: 3.5rem;
+  line-height: 1.2;
+}
+.parati-h2 .parati-ellipsis { color: var(--orange); }
+.parati-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 3rem;
+}
+.parati-card {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 1rem;
+}
+.parati-emoji {
+  font-size: 3rem; line-height: 1;
+  display: block;
+}
+.parati-card p {
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+}
+@media (max-width: 768px) {
+  .parati-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .parati-h2 { font-size: 1.35rem; margin-bottom: 2.5rem; }
+  .parati-emoji { font-size: 2.5rem; }
+  .parati-card p { font-size: 0.9rem; }
+}
