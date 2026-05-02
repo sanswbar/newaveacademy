@@ -15,8 +15,8 @@
   --bg-2:      #12161b;
   --bg-3:      #1a1f26;
   --white:     var(--brand-white);
-  --muted:     #d4d3d3;
-  --subtle:    rgba(212, 211, 211, 0.55);
+  --muted:     #e8e7e7;
+  --subtle:    rgba(232, 231, 231, 0.6);
   --orange:    var(--brand-orange);
   --orange-h:  #d95b28;
   --border:    rgba(183, 182, 182, 0.12);
@@ -29,14 +29,14 @@
   --section:   clamp(3.5rem, 7vw, 6rem);
 }
 
-html { scroll-behavior: smooth; font-size: 17px; overflow-x: hidden; }
+html { scroll-behavior: smooth; font-size: 18px; overflow-x: hidden; }
 p { text-align: justify; }
 
 body {
   font-family: var(--sans);
   background: var(--bg);
   color: var(--white);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -201,7 +201,7 @@ a   { text-decoration: none; color: inherit; }
   display: flex; flex-direction: column; align-items: center; gap: 0;
 }
 .hero h1 {
-  font-size: clamp(2rem, 5.5vw, 3.7rem);
+  font-size: clamp(2.1rem, 5.5vw, 3.9rem);
   font-weight: 700; line-height: 1.04;
   letter-spacing: -0.04em;
   margin-bottom: 1.35rem;
@@ -1222,28 +1222,30 @@ a   { text-decoration: none; color: inherit; }
 .autoridad-inner {
   max-width: var(--max-wide); margin: 0 auto;
   display: flex; flex-direction: column; gap: 2.5rem;
+  align-items: center; text-align: center;
 }
 .autoridad-grid {
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; width: 100%;
 }
 .autoridad-text { max-width: 680px; }
 .autoridad-text .mono-tag { margin-bottom: 1rem; }
 .autoridad-text h2 {
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-weight: 700; letter-spacing: -0.03em; line-height: 1.15;
-  color: var(--brand-black); margin-bottom: 1.25rem;
+  color: var(--brand-black); margin-bottom: 1.25rem; text-align: center;
 }
 .autoridad-text p {
   font-size: 1rem; color: rgba(20,24,30,0.65); line-height: 1.75;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem; text-align: center;
 }
 .autoridad-list {
   list-style: none; display: flex; flex-direction: column; gap: 0.7rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.75rem; align-items: center;
 }
 .autoridad-list li {
   display: flex; align-items: flex-start; gap: 0.75rem;
   font-size: 0.95rem; color: var(--brand-black); font-weight: 500; line-height: 1.5;
+  text-align: left;
 }
 .autoridad-check { color: var(--orange); flex-shrink: 0; font-size: 0.85rem; margin-top: 2px; }
 .autoridad-close {
