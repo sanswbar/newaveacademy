@@ -862,7 +862,10 @@ a   { text-decoration: none; color: inherit; }
 .modulo-badge {
   position: absolute; top: 0.6rem; right: 0.75rem;
   font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
-  text-transform: uppercase; background: var(--orange); color: #fff;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
   padding: 0.2rem 0.55rem; border-radius: 20px; z-index: 2;
 }
 .modulo-body {
