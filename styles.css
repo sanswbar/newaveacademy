@@ -30,6 +30,7 @@
 }
 
 html { scroll-behavior: smooth; font-size: 17px; overflow-x: hidden; }
+p { text-align: justify; }
 
 body {
   font-family: var(--sans);
