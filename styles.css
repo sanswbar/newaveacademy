@@ -1269,6 +1269,26 @@ a   { text-decoration: none; color: inherit; }
   text-align: left;
 }
 .autoridad-check { color: var(--orange); flex-shrink: 0; font-size: 0.85rem; margin-top: 2px; }
+/* ── AUTORIDAD BRIDGE ── */
+.autoridad-bridge {
+  display: flex; align-items: center; gap: 1.25rem;
+  width: 100%; max-width: 640px;
+  margin: 0 auto;
+}
+.autoridad-bridge p {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--subtle);
+  white-space: nowrap; text-align: center;
+  flex-shrink: 0;
+}
+.autoridad-bridge-line {
+  flex: 1; height: 1px; background: rgba(20,24,30,0.15);
+}
+@media (max-width: 600px) {
+  .autoridad-bridge { max-width: 100%; gap: 0.75rem; }
+  .autoridad-bridge p { font-size: 0.7rem; white-space: normal; text-align: center; }
+}
+
 /* ── AUTORIDAD STATS PILLS ── */
 .autoridad-stats-row {
   display: flex; flex-wrap: wrap; gap: 1rem;
