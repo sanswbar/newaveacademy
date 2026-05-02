@@ -1201,6 +1201,160 @@ a   { text-decoration: none; color: inherit; }
   .parati-card p { font-size: 0.9rem; }
 }
 
+/* ── AUTORIDAD ── */
+.autoridad-section {
+  padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
+  background: #f5f5f7;
+}
+.autoridad-inner {
+  max-width: var(--max-wide); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.autoridad-text .mono-tag { margin-bottom: 1rem; }
+.autoridad-text h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1.15;
+  color: var(--brand-black); margin-bottom: 1.25rem;
+}
+.autoridad-text p {
+  font-size: 1rem; color: rgba(20,24,30,0.65); line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+.autoridad-list {
+  list-style: none; display: flex; flex-direction: column; gap: 0.7rem;
+  margin-bottom: 1.75rem;
+}
+.autoridad-list li {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.95rem; color: var(--brand-black); font-weight: 500; line-height: 1.5;
+}
+.autoridad-check { color: var(--orange); flex-shrink: 0; font-size: 0.85rem; margin-top: 2px; }
+.autoridad-close {
+  font-style: italic; font-weight: 700;
+  color: var(--brand-black); font-size: 1rem;
+  border-top: 1px solid rgba(20,24,30,0.1);
+  padding-top: 1.25rem; margin-bottom: 0;
+}
+.autoridad-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.autoridad-stat {
+  background: #fff;
+  border: 1px solid rgba(20,24,30,0.08);
+  border-top: 3px solid var(--orange);
+  border-radius: var(--r);
+  padding: 1.5rem 1.25rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.autoridad-stat-num {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 800; letter-spacing: -0.04em;
+  color: var(--orange); line-height: 1;
+}
+.autoridad-stat-label {
+  font-size: 0.82rem; color: rgba(20,24,30,0.55); line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .autoridad-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .autoridad-text h2 { font-size: 1.5rem; }
+  .autoridad-stats { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .autoridad-stats { grid-template-columns: 1fr; }
+}
+
+/* ── PERFILES ── */
+.perfiles-section {
+  padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
+  background: var(--bg);
+  text-align: center;
+}
+.perfiles-inner { max-width: var(--max-wide); margin: 0 auto; }
+.perfiles-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem;
+}
+.perfiles-sub {
+  font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+  max-width: 520px; margin: 0 auto 2.5rem;
+}
+.perfiles-grid {
+  display: flex; flex-wrap: wrap; gap: 0.75rem;
+  justify-content: center; margin-bottom: 2rem;
+}
+.perfil-tag {
+  font-size: 0.95rem; font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border: 1px solid rgba(252,115,66,0.3);
+  border-radius: 980px;
+  color: var(--white);
+  background: rgba(252,115,66,0.08);
+  transition: background 0.2s, border-color 0.2s;
+}
+.perfil-tag:hover { background: rgba(252,115,66,0.18); border-color: rgba(252,115,66,0.6); }
+.perfiles-note {
+  font-size: 0.95rem; color: var(--muted); font-style: italic;
+}
+@media (max-width: 600px) {
+  .perfiles-section { padding: 3.5rem 1.25rem; }
+  .perfiles-inner h2 { font-size: 1.6rem; }
+  .perfil-tag { font-size: 0.875rem; padding: 0.5rem 1rem; }
+}
+
+/* ── LO QUE LOGRARÁS ── */
+.logras-section {
+  padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
+  background: var(--bg-2);
+  text-align: center;
+}
+.logras-inner { max-width: var(--max-wide); margin: 0 auto; }
+.logras-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 700; letter-spacing: -0.03em; margin-bottom: 3rem;
+}
+.logras-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem; text-align: left;
+}
+.logra-card {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 2rem 1.5rem;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  position: relative; overflow: hidden;
+}
+.logra-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--orange);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.logra-card:hover { transform: translateY(-3px); border-color: rgba(252,115,66,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.logra-card:hover::before { transform: scaleX(1); }
+.logra-icon {
+  width: 48px; height: 48px;
+  background: rgba(252,115,66,0.12);
+  border: 1px solid rgba(252,115,66,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--orange); margin-bottom: 1.25rem;
+}
+.logra-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+.logra-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+@media (max-width: 900px) {
+  .logras-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .logras-section { padding: 3.5rem 1.25rem; }
+  .logras-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .logras-inner h2 { font-size: 1.6rem; margin-bottom: 2rem; }
+}
+
 /* ── SOCIAL PROOF METRICS ── */
 .metrics-section {
   padding: var(--section) clamp(1.25rem, 5vw, 3rem);
