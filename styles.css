@@ -316,7 +316,7 @@ a   { text-decoration: none; color: inherit; }
   border: 1px solid rgba(252,115,66,0.2);
 }
 .why-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.65rem; letter-spacing: -0.01em; }
-.why-card p  { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+.why-card p  { font-size: 0.9rem; color: var(--muted); line-height: 1.7; text-align: left; }
 
 /* ── VIDEO ── */
 .video-section {
@@ -412,7 +412,7 @@ a   { text-decoration: none; color: inherit; }
 }
 .tcard:hover { border-color: rgba(252,115,66,0.4); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
 .tcard-quote { font-size: 3rem; line-height: 1; color: var(--orange); font-family: Georgia, serif; opacity: 0.7; margin-bottom: -0.5rem; }
-.tcard p { font-size: 0.925rem; color: var(--muted); line-height: 1.75; flex: 1; }
+.tcard p { font-size: 0.925rem; color: var(--muted); line-height: 1.75; flex: 1; text-align: left; }
 .tcard-author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; padding-top: 0.875rem; border-top: 1px solid var(--border); }
 .tcard-author div:last-child { display: flex; flex-direction: column; gap: 0.15rem; }
 .tcard-author strong { font-size: 0.85rem; font-weight: 600; color: var(--white); }
@@ -893,7 +893,7 @@ a   { text-decoration: none; color: inherit; }
   margin-bottom: 0.5rem; color: var(--white);
 }
 .modulo-body p {
-  font-size: 0.875rem; color: var(--muted); line-height: 1.7;
+  font-size: 0.875rem; color: var(--muted); line-height: 1.7; text-align: left;
 }
 .modulos-cta {
   display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
@@ -1246,7 +1246,7 @@ a   { text-decoration: none; color: inherit; }
   display: block;
 }
 .parati-card p {
-  font-size: 0.925rem; color: var(--muted); line-height: 1.75;
+  font-size: 0.925rem; color: var(--muted); line-height: 1.75; text-align: left;
 }
 @media (max-width: 900px) {
   .parati-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1438,7 +1438,7 @@ a   { text-decoration: none; color: inherit; }
   color: var(--orange); margin-bottom: 1.25rem;
 }
 .logra-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
-.logra-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+.logra-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; text-align: left; }
 @media (max-width: 900px) {
   .logras-grid { grid-template-columns: repeat(2, 1fr); }
 }
