@@ -1057,36 +1057,46 @@ a   { text-decoration: none; color: inherit; }
 /* ── SOCIAL PROOF METRICS ── */
 .metrics-section {
   padding: var(--section) clamp(1.25rem, 5vw, 3rem);
-  background: var(--bg-2);
+  background: #FC7342;
 }
 .metrics-inner {
-  max-width: 680px; margin: 0 auto; text-align: center;
+  max-width: var(--max-wide); margin: 0 auto; text-align: center;
 }
 .metrics-leadin {
-  font-size: 1.05rem; color: var(--muted); line-height: 1.7;
-  margin-bottom: 2rem;
+  font-size: 1.1rem; color: rgba(0,0,0,0.7); line-height: 1.7;
+  margin-bottom: 3rem; max-width: 580px; margin-left: auto; margin-right: auto;
 }
-.metrics-list {
-  list-style: none; text-align: left;
-  display: inline-flex; flex-direction: column; gap: 0.85rem;
-  margin-bottom: 2rem;
+.metrics-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; margin-bottom: 2.5rem;
 }
-.metrics-list li {
-  font-size: 1rem; color: var(--muted); line-height: 1.5;
+.metrics-card {
+  background: rgba(0,0,0,0.12); border-radius: 16px;
+  padding: 2rem 1.25rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
 }
-.metrics-num {
-  color: var(--orange); font-weight: 700;
+.metrics-big {
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  font-weight: 800; letter-spacing: -0.03em;
+  color: #fff; line-height: 1.1;
+}
+.metrics-label {
+  font-size: 0.85rem; color: rgba(0,0,0,0.65);
+  line-height: 1.5; text-align: center;
+}
+.metrics-countries {
+  font-size: 0.9rem; color: rgba(0,0,0,0.6);
+  margin-bottom: 1.75rem; letter-spacing: 0.02em;
 }
 .metrics-close {
-  font-style: italic; font-weight: 600;
-  color: var(--orange); font-size: 1rem;
-  margin-bottom: 0.75rem;
-}
-.metrics-sub {
-  font-size: 0.95rem; color: var(--muted); line-height: 1.65;
+  font-style: italic; font-weight: 700;
+  color: #fff; font-size: 1.1rem;
 }
 @media (max-width: 768px) {
-  .metrics-leadin { font-size: 0.95rem; }
-  .metrics-list { width: 100%; }
-  .metrics-list li { font-size: 0.9rem; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .metrics-leadin { font-size: 0.95rem; margin-bottom: 2rem; }
+  .metrics-big { font-size: 1.5rem; }
+}
+@media (max-width: 420px) {
+  .metrics-grid { grid-template-columns: 1fr; }
 }
