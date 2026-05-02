@@ -425,15 +425,14 @@ a   { text-decoration: none; color: inherit; }
 /* ── HOW TO JOIN ── */
 .how-section {
   padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
-  background: var(--bg);
   text-align: center;
 }
-.how-inner { max-width: 600px; margin: 0 auto; }
+.how-inner { max-width: 560px; margin: 0 auto; }
 .how-section .mono-tag { margin-bottom: 1rem; }
 .how-section h2 {
   font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
-  margin-bottom: 0.75rem; color: var(--white);
+  margin-bottom: 0.75rem;
 }
 .how-sub {
   font-size: 1.05rem;
@@ -461,8 +460,8 @@ a   { text-decoration: none; color: inherit; }
 .step-note-check { color: #34d399; }
 
 .skool-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(20,24,30,0.04);
+  border: 1px solid rgba(20,24,30,0.1);
   border-radius: var(--r-sm); padding: 1rem 1.1rem; margin-top: 1rem;
 }
 .skool-header { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.8rem; }
