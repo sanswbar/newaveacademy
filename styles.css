@@ -26,7 +26,7 @@
   --r-sm:      10px;
   --max:       680px;
   --max-wide:  1020px;
-  --section:   clamp(5rem, 10vw, 9rem);
+  --section:   clamp(3.5rem, 7vw, 6rem);
 }
 
 html { scroll-behavior: smooth; font-size: 17px; overflow-x: hidden; }
@@ -616,107 +616,120 @@ a   { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 768px) {
-  :root { --section: 3.5rem; }
+  :root { --section: 2.75rem; }
 
   /* Nav */
   .nav { padding: 0 1.1rem; height: 52px; }
 
   /* Hero */
-  .hero { padding: 5.5rem 1.25rem 3rem; text-align: center; }
+  .hero { padding: 5rem 1.25rem 2.5rem; text-align: center; }
   .hero h1 { font-size: clamp(1.9rem, 9vw, 2.75rem); letter-spacing: -0.04em; line-height: 1.08; }
-  .hero-sub { font-size: 1.05rem; color: var(--muted); }
+  .hero-sub { font-size: 1rem; color: var(--muted); }
   .hero-eyebrow { font-size: 0.65rem; }
-  .hero-actions {
-    flex-direction: column; gap: 0.75rem;
-    align-items: stretch; width: 100%;
-  }
-  .hero-actions .btn-primary {
-    width: 100%; padding: 1rem; font-size: 1rem;
-    border-radius: 14px;
-  }
+  .hero-actions { flex-direction: column; gap: 0.75rem; align-items: stretch; width: 100%; }
+  .hero-actions .btn-primary { width: 100%; padding: 1rem; font-size: 1rem; border-radius: 14px; }
   .btn-ghost { justify-content: center; font-size: 0.95rem; }
   .hero-proof { justify-content: center; font-size: 0.7rem; }
   .hero-corner-isotipo { display: none; }
-  .hero-partner { gap: 0.4rem; margin-top: 0.85rem; flex-wrap: wrap; justify-content: center; max-width: 100%; }
+  .hero-partner { gap: 0.4rem; margin-top: 0.75rem; flex-wrap: wrap; justify-content: center; max-width: 100%; }
   .partner-label { font-size: 0.58rem; letter-spacing: 0.06em; }
   .partner-logo { height: 16px; border-radius: 4px; }
+  .hero-companies { margin-top: 1rem; }
 
   /* Pain strip */
-  .pain-strip { padding: 0.75rem 1rem; }
-  .pain-inner { gap: 0.6rem; }
-  .pain-sep { color: rgba(0,0,0,0.5); font-size: 1rem; }
-  .pain-item { font-size: 0.7rem; }
+  .pain-strip { padding: 0.65rem 1rem; }
+  .pain-inner { gap: 0.5rem; }
+  .pain-item { font-size: 0.68rem; }
+
+  /* Para ti si */
+  .parati-section { padding: 2.5rem 1.25rem; }
+  .parati-h2 { font-size: 1.2rem; margin-bottom: 1.75rem; }
+  .parati-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .parati-card { padding: 1.1rem 1rem; gap: 0.65rem; }
+  .parati-emoji { font-size: 1.5rem; }
+  .parati-card p { font-size: 0.875rem; }
+
+  /* Autoridad */
+  .autoridad-section { padding: 2.5rem 1.25rem; }
+  .autoridad-text h2 { font-size: 1.5rem; }
+  .autoridad-text p { font-size: 0.95rem; }
+  .autoridad-list li { font-size: 0.9rem; }
 
   /* Why */
-  .why-section { padding: 3.5rem 1.25rem; }
-  .why-section h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); margin-bottom: 2rem; }
-  .why-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .why-card { padding: 1.5rem 1.25rem; }
-  .why-card h3 { font-size: 0.95rem; }
-  .why-card p { font-size: 0.82rem; }
-  .why-icon { width: 40px; height: 40px; margin-bottom: 1rem; }
+  .why-section { padding: 2.5rem 1.25rem; }
+  .why-section h2 { font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .why-card { padding: 1.25rem 1rem; }
+  .why-card h3 { font-size: 0.9rem; }
+  .why-card p { font-size: 0.8rem; }
+  .why-icon { width: 36px; height: 36px; margin-bottom: 0.75rem; }
 
-  /* Video */
-  .video-section { padding: 3.5rem 1.25rem; }
-  .video-inner h2 { font-size: 1.5rem; }
-  .video-sub { font-size: 0.9rem; }
+  /* Módulos */
+  .modulos-section { padding: 2.5rem 1.25rem; }
+  .modulos-inner h2 { font-size: 1.6rem; }
+  .modulos-sub { font-size: 0.9rem; margin-bottom: 2rem; }
+  .modulos-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 2rem; }
+  .modulo-thumb { height: 90px; }
+  .modulo-num { font-size: 2.5rem; }
+  .modulo-body { padding: 1rem 1rem 1.25rem; }
+  .modulo-body h3 { font-size: 0.875rem; }
+  .modulo-body p { font-size: 0.8rem; }
+  .modulo-extra-title { font-size: 1rem; }
 
-  /* Methodology */
-  .methodology { padding: 3.5rem 1.25rem; }
-  .method-inner h2 { font-size: clamp(1.7rem, 6vw, 2.2rem); margin-bottom: 1.75rem; }
-  .method-list li { font-size: 0.95rem; padding: 0.95rem 0; }
-
-  /* Testimonials — swipeable carousel */
-  .testimonials-section { padding-bottom: 2.5rem; }
-  .testimonials-header { padding: 3.5rem 1.25rem 2rem; }
-  .testimonials-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 0.875rem;
-    padding: 0.5rem 1.25rem 1.5rem;
-    background: transparent;
-    border: none;
-  }
-  .testimonials-grid::-webkit-scrollbar { display: none; }
-  .tcard {
-    scroll-snap-align: start;
-    flex: 0 0 82vw;
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--orange);
-    border-radius: var(--r);
-    background: var(--bg-3);
-  }
+  /* Testimonials */
+  .testimonials-section { padding-bottom: 2rem; }
+  .testimonials-header { padding: 2.5rem 1.25rem 1.5rem; }
+  .testimonials-grid { gap: 0.75rem; padding: 0.5rem 1.25rem 1.25rem; }
+  .tcard { scroll-snap-align: start; flex: 0 0 82vw; border: 1px solid var(--border); border-top: 3px solid var(--orange); border-radius: var(--r); background: var(--bg-3); }
   .testimonials-footer { padding: 0 1.25rem; font-size: 0.85rem; }
 
-  /* How to join */
-  .how-section { padding: 3.5rem 1.25rem; }
-  .how-inner { max-width: 100%; }
-  .how-inner h2 { font-size: 1.75rem; }
-  .how-sub { font-size: 0.9rem; }
+  /* Video */
+  .video-section { padding: 2.5rem 1.25rem; }
+  .video-inner h2 { font-size: 1.5rem; }
+  .video-sub { font-size: 0.875rem; margin-bottom: 1.5rem; }
 
-  /* Pricing */
-  .pricing-section { padding: 3.5rem 1.25rem; }
-  .pricing-inner { max-width: 100%; padding: 0; }
-  .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .pricing-section h2 { font-size: 1.75rem; }
-  .price-amount { font-size: 2.5rem; }
-  .btn-pricing { width: calc(100% - 3rem); margin: 0 1.5rem 1.5rem; }
-  .pricing-top { padding: 1.5rem 1.5rem 1.25rem; }
+  /* Perfiles */
+  .perfiles-section { padding: 2.5rem 1.25rem; }
+  .perfiles-inner h2 { font-size: 1.6rem; }
+  .perfiles-sub { font-size: 0.9rem; margin-bottom: 1.75rem; }
+  .perfil-tag { font-size: 0.85rem; padding: 0.5rem 1rem; }
+
+  /* Lo que lograrás */
+  .logras-section { padding: 2.5rem 1.25rem; }
+  .logras-inner h2 { font-size: 1.6rem; margin-bottom: 2rem; }
+  .logras-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .logra-card { padding: 1.25rem 1rem; }
+  .logra-card h3 { font-size: 0.95rem; }
+  .logra-card p { font-size: 0.82rem; }
+  .logra-icon { width: 40px; height: 40px; margin-bottom: 1rem; }
+
+  /* How to join */
+  .how-section { padding: 2.5rem 1.25rem; }
+  .how-inner { max-width: 100%; }
+  .how-inner h2 { font-size: 1.6rem; }
+  .how-sub { font-size: 0.875rem; margin-bottom: 2rem; }
+  .step-content { padding-bottom: 1.75rem; }
+  .step-content h3 { font-size: 1rem; }
+  .step-content p { font-size: 0.875rem; }
+
+  /* FAQ */
+  .faq-section { padding: 2.5rem 1.25rem; }
+  .faq-inner h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .faq-sub { font-size: 0.875rem; margin-bottom: 1.75rem; }
+  .faq-trigger { font-size: 0.875rem; padding: 1rem 0; }
+  .faq-body-inner { padding-right: 0.5rem; font-size: 0.85rem; }
 
   /* CTA */
-  .cta-section { padding: 4rem 1.25rem; }
-  .cta-section h2 { font-size: clamp(1.7rem, 7vw, 2.25rem); }
-  .cta-section p { font-size: 0.95rem; }
-  .btn-large { width: 100%; padding: 1rem; font-size: 1.05rem; border-radius: 14px; }
+  .cta-section { padding: 3rem 1.25rem; }
+  .cta-section h2 { font-size: clamp(1.6rem, 7vw, 2.1rem); }
+  .cta-section p { font-size: 0.9rem; }
+  .btn-large { width: 100%; padding: 1rem; font-size: 1rem; border-radius: 14px; }
 
   /* Footer */
-  .footer-inner { padding: 2.5rem 1.25rem 2rem; }
-  .footer-top { flex-direction: column; gap: 1.75rem; align-items: center; text-align: center; }
+  .footer-inner { padding: 2rem 1.25rem 1.5rem; }
+  .footer-top { flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
   .footer-brand { align-items: center; }
-  .footer-links { gap: 1.75rem; justify-content: center; }
+  .footer-links { gap: 1.5rem; justify-content: center; }
   .footer-col { align-items: center; }
   .footer-social-icons { justify-content: center; }
   .footer-bottom { flex-direction: column; align-items: center; gap: 0.75rem; text-align: center; }
@@ -726,12 +739,11 @@ a   { text-decoration: none; color: inherit; }
   .hero h1 { font-size: clamp(1.75rem, 9vw, 2.2rem); }
   .logo-img { height: 18px; }
   .why-grid { grid-template-columns: 1fr; }
-  .tcard { flex: 0 0 88vw; }
-  .pricing-card { padding: 1.5rem 1.25rem; }
   .modulos-grid { grid-template-columns: 1fr; }
-  .modulo-thumb { height: 90px; }
-  .modulo-num { font-size: 2.5rem; }
-  .parati-grid { grid-template-columns: 1fr; gap: 0.875rem; }
+  .modulo-thumb { height: 80px; }
+  .logras-grid { grid-template-columns: 1fr; }
+  .tcard { flex: 0 0 88vw; }
+  .parati-grid { grid-template-columns: 1fr; gap: 0.75rem; }
 }
 
 /* ── HERO COMPANIES ── */
