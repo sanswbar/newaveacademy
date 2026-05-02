@@ -1207,9 +1207,7 @@ a   { text-decoration: none; color: inherit; }
   background: #f5f5f7;
 }
 .autoridad-inner {
-  max-width: var(--max-wide); margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
+  max-width: 680px; margin: 0 auto;
 }
 .autoridad-text .mono-tag { margin-bottom: 1rem; }
 .autoridad-text h2 {
@@ -1262,12 +1260,7 @@ a   { text-decoration: none; color: inherit; }
   font-size: 0.85rem; color: rgba(20,24,30,0.6); line-height: 1.5;
 }
 @media (max-width: 768px) {
-  .autoridad-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .autoridad-text h2 { font-size: 1.5rem; }
-  .autoridad-stats { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 420px) {
-  .autoridad-stats { grid-template-columns: 1fr; }
 }
 
 /* ── PERFILES ── */
