@@ -211,7 +211,7 @@ a   { text-decoration: none; color: inherit; }
 .hero-sub {
   color: var(--muted); font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   max-width: 800px; line-height: 1.65;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem; text-align: center;
 }
 .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
 .hero-proof {
@@ -625,17 +625,17 @@ a   { text-decoration: none; color: inherit; }
   /* Hero */
   .hero { padding: 5.5rem 1.25rem 3rem; text-align: center; }
   .hero h1 { font-size: clamp(2rem, 9vw, 2.75rem); letter-spacing: -0.04em; line-height: 1.08; margin-bottom: 1rem; }
-  .hero-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; text-align: center; }
   .hero-eyebrow { font-size: 0.65rem; }
   .hero-actions { flex-direction: column; gap: 0.75rem; align-items: stretch; width: 100%; margin-bottom: 1.75rem; }
   .hero-actions .btn-primary { width: 100%; padding: 1.1rem; font-size: 1.05rem; border-radius: 14px; }
-  .hero-proof { justify-content: center; font-size: 0.72rem; }
+  .hero-proof { justify-content: center; font-size: 0.72rem; text-align: center; }
   .hero-corner-isotipo { display: none; }
   .hero-partner { gap: 0.4rem; margin-top: 0.75rem; flex-wrap: wrap; justify-content: center; max-width: 100%; }
-  .partner-label { font-size: 0.68rem; letter-spacing: 0.06em; }
+  .partner-label { font-size: 0.68rem; letter-spacing: 0.06em; text-align: center; }
   .partner-logo { height: 16px; border-radius: 4px; }
-  .hero-companies { margin-top: 1.25rem; gap: 0.6rem; }
-  .companies-label { font-size: 0.6rem; }
+  .hero-companies { margin-top: 1.25rem; gap: 0.6rem; justify-content: center; }
+  .companies-label { font-size: 0.6rem; text-align: center; width: 100%; }
 
   /* Autoridad */
   .autoridad-section { padding: 3rem 1.25rem; }
