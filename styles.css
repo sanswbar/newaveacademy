@@ -31,7 +31,7 @@
 
 html { scroll-behavior: smooth; font-size: 18px; overflow-x: hidden; }
 p { text-align: justify; }
-@media (max-width: 768px) { p { text-align: left; } }
+@media (max-width: 768px) { p { text-align: center; } }
 
 body {
   font-family: var(--sans);
@@ -386,7 +386,7 @@ a   { text-decoration: none; color: inherit; }
 }
 .testimonials-scroll-hint {
   font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
-  color: var(--subtle); margin-top: 0.5rem;
+  color: var(--subtle); margin-top: 0.5rem; text-align: center;
 }
 
 /* Desktop grid / Mobile carousel */
@@ -680,11 +680,12 @@ a   { text-decoration: none; color: inherit; }
 
   /* Testimonials */
   .testimonials-section { padding-bottom: 2.5rem; }
-  .testimonials-header { padding: 3rem 1.25rem 1.5rem; }
-  .testimonials-section h2 { font-size: 1.7rem; }
+  .testimonials-header { padding: 3rem 1.25rem 1.5rem; text-align: center; }
+  .testimonials-section h2 { font-size: 1.7rem; text-align: center; }
   .testimonials-grid { gap: 0.85rem; padding: 0.5rem 1.25rem 1.25rem; }
-  .tcard { scroll-snap-align: start; flex: 0 0 84vw; }
-  .tcard p { font-size: 0.925rem; }
+  .tcard { scroll-snap-align: start; flex: 0 0 84vw; text-align: center; }
+  .tcard p { font-size: 0.925rem; text-align: center; }
+  .tcard-author { justify-content: center; }
   .testimonials-footer { padding: 0 1.25rem; font-size: 0.875rem; text-align: center; }
 
   /* Video */
@@ -714,9 +715,10 @@ a   { text-decoration: none; color: inherit; }
   .how-section .mono-tag { display: block; text-align: center; }
   .how-inner h2 { font-size: 1.7rem; text-align: center; }
   .how-sub { font-size: 0.925rem; margin-bottom: 2.5rem; text-align: center; }
-  .step-content { padding-bottom: 2rem; }
-  .step-content h3 { font-size: 1.05rem; }
-  .step-content p { font-size: 0.925rem; }
+  .step-content { padding-bottom: 2rem; text-align: center; }
+  .step-content h3 { font-size: 1.05rem; text-align: center; }
+  .step-content p { font-size: 0.925rem; text-align: center; }
+  .how-steps { text-align: center; align-items: center; }
   .how-cta { margin-top: 2rem; }
 
   /* FAQ */
@@ -724,7 +726,7 @@ a   { text-decoration: none; color: inherit; }
   .faq-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; text-align: center; }
   .faq-sub { font-size: 0.925rem; margin-bottom: 2rem; text-align: center; }
   .faq-trigger { font-size: 0.925rem; padding: 1.1rem 0; }
-  .faq-body-inner { padding-right: 0.5rem; font-size: 0.9rem; line-height: 1.7; }
+  .faq-body-inner { padding-right: 0.5rem; font-size: 0.9rem; line-height: 1.7; text-align: center; }
 
   /* CTA */
   .cta-section { padding: 3.5rem 1.25rem; }
