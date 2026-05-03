@@ -639,40 +639,43 @@ a   { text-decoration: none; color: inherit; }
 
   /* Autoridad */
   .autoridad-section { padding: 3rem 1.25rem; }
-  .autoridad-text h2 { font-size: 1.55rem; line-height: 1.2; }
-  .autoridad-text p { font-size: 0.975rem; }
+  .autoridad-inner { text-align: center; }
+  .autoridad-text h2 { font-size: 1.55rem; line-height: 1.2; text-align: center; }
+  .autoridad-text p { font-size: 0.975rem; text-align: center; }
   .autoridad-stats-row { flex-direction: column; gap: 0.75rem; }
   .autoridad-stat-pill { flex-direction: row; align-items: center; justify-content: flex-start; gap: 1rem; padding: 1rem 1.25rem; min-width: unset; }
   .autoridad-stat-pill-num { font-size: 1.5rem; white-space: nowrap; }
   .autoridad-stat-pill-label { text-align: left; font-size: 0.85rem; }
+  .autoridad-bridge p { font-size: 0.72rem; }
 
   /* Why cards */
   .why-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .why-card { padding: 1.25rem 1rem; }
+  .why-card { padding: 1.25rem 1rem; text-align: center; }
   .why-card h3 { font-size: 0.95rem; }
-  .why-card p { font-size: 0.85rem; }
-  .why-icon { width: 38px; height: 38px; margin-bottom: 0.75rem; }
+  .why-card p { font-size: 0.85rem; text-align: center; }
+  .why-icon { width: 38px; height: 38px; margin: 0 auto 0.75rem; }
 
   /* Para ti si */
   .parati-section { padding: 3rem 1.25rem; }
-  .parati-h2 { font-size: 1.25rem; margin-bottom: 2rem; }
+  .parati-h2 { font-size: 1.25rem; margin-bottom: 2rem; text-align: center; }
   .parati-grid { grid-template-columns: 1fr; gap: 0.85rem; }
-  .parati-card { padding: 1.25rem 1.1rem; gap: 0.75rem; }
+  .parati-card { padding: 1.25rem 1.1rem; gap: 0.75rem; align-items: center; text-align: center; }
   .parati-emoji { font-size: 1.6rem; }
-  .parati-card p { font-size: 0.925rem; line-height: 1.65; }
+  .parati-card p { font-size: 0.925rem; line-height: 1.65; text-align: center; }
 
   /* Módulos */
   .modulos-section { padding: 3rem 1.25rem; }
-  .modulos-inner h2 { font-size: 1.7rem; }
-  .modulos-sub { font-size: 0.95rem; margin-bottom: 2rem; }
+  .modulos-inner h2 { font-size: 1.7rem; text-align: center; }
+  .modulos-sub { font-size: 0.95rem; margin-bottom: 2rem; text-align: center; }
   .modulos-grid { grid-template-columns: 1fr; gap: 0.85rem; margin-bottom: 2rem; }
   .modulo-thumb { height: 100px; }
   .modulo-num { font-size: 2.75rem; }
-  .modulo-body { padding: 1.1rem 1.1rem 1.35rem; }
-  .modulo-body h3 { font-size: 1rem; }
-  .modulo-body p { font-size: 0.875rem; }
+  .modulo-body { padding: 1.1rem 1.1rem 1.35rem; text-align: center; }
+  .modulo-body h3 { font-size: 1rem; text-align: center; }
+  .modulo-body p { font-size: 0.875rem; text-align: center; }
   .modulo-extra-title { font-size: 1.1rem; }
-  .modulos-cta { padding: 0 0; }
+  .modulos-cta { padding: 0; }
+  .inv-cta-note { text-align: center; }
   .btn-ver-planes { display: block; width: 100%; padding: 1.1rem 1.25rem; box-sizing: border-box; text-align: center; font-size: 1.05rem; }
 
   /* Testimonials */
@@ -682,31 +685,32 @@ a   { text-decoration: none; color: inherit; }
   .testimonials-grid { gap: 0.85rem; padding: 0.5rem 1.25rem 1.25rem; }
   .tcard { scroll-snap-align: start; flex: 0 0 84vw; }
   .tcard p { font-size: 0.925rem; }
-  .testimonials-footer { padding: 0 1.25rem; font-size: 0.875rem; }
+  .testimonials-footer { padding: 0 1.25rem; font-size: 0.875rem; text-align: center; }
 
   /* Video */
   .video-section { padding: 3rem 1.25rem; }
-  .video-inner h2 { font-size: 1.7rem; }
-  .video-sub { font-size: 0.925rem; margin-bottom: 1.5rem; }
+  .video-inner h2 { font-size: 1.7rem; text-align: center; }
+  .video-sub { font-size: 0.925rem; margin-bottom: 1.5rem; text-align: center; }
 
   /* Perfiles */
   .perfiles-section { padding: 3rem 1.25rem; }
-  .perfiles-inner h2 { font-size: 1.7rem; }
-  .perfiles-sub { font-size: 0.925rem; margin-bottom: 1.75rem; }
+  .perfiles-inner h2 { font-size: 1.7rem; text-align: center; }
+  .perfiles-sub { font-size: 0.925rem; margin-bottom: 1.75rem; text-align: center; }
   .perfil-tag { font-size: 0.9rem; padding: 0.55rem 1.1rem; }
+  .perfiles-note { text-align: center; }
 
   /* Lo que lograrás */
   .logras-section { padding: 3rem 1.25rem; }
-  .logras-inner h2 { font-size: 1.7rem; margin-bottom: 2rem; }
+  .logras-inner h2 { font-size: 1.7rem; margin-bottom: 2rem; text-align: center; }
   .logras-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-  .logra-card { padding: 1.35rem 1.1rem; }
-  .logra-card h3 { font-size: 1rem; }
-  .logra-card p { font-size: 0.875rem; }
-  .logra-icon { width: 42px; height: 42px; margin-bottom: 1rem; }
+  .logra-card { padding: 1.35rem 1.1rem; text-align: center; }
+  .logra-card h3 { font-size: 1rem; text-align: center; }
+  .logra-card p { font-size: 0.875rem; text-align: center; }
+  .logra-icon { width: 42px; height: 42px; margin: 0 auto 1rem; }
 
   /* How to join */
   .how-section { padding: 3rem 1.25rem; }
-  .how-inner { max-width: 100%; text-align: left; }
+  .how-inner { max-width: 100%; }
   .how-section .mono-tag { display: block; text-align: center; }
   .how-inner h2 { font-size: 1.7rem; text-align: center; }
   .how-sub { font-size: 0.925rem; margin-bottom: 2.5rem; text-align: center; }
@@ -717,15 +721,15 @@ a   { text-decoration: none; color: inherit; }
 
   /* FAQ */
   .faq-section { padding: 3rem 1.25rem; }
-  .faq-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
-  .faq-sub { font-size: 0.925rem; margin-bottom: 2rem; }
+  .faq-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; text-align: center; }
+  .faq-sub { font-size: 0.925rem; margin-bottom: 2rem; text-align: center; }
   .faq-trigger { font-size: 0.925rem; padding: 1.1rem 0; }
   .faq-body-inner { padding-right: 0.5rem; font-size: 0.9rem; line-height: 1.7; }
 
   /* CTA */
   .cta-section { padding: 3.5rem 1.25rem; }
-  .cta-section h2 { font-size: clamp(1.7rem, 7vw, 2.1rem); }
-  .cta-section p { font-size: 0.975rem; }
+  .cta-section h2 { font-size: clamp(1.7rem, 7vw, 2.1rem); text-align: center; }
+  .cta-section p { font-size: 0.975rem; text-align: center; }
   .btn-large { width: 100%; padding: 1.1rem; font-size: 1.05rem; border-radius: 14px; }
 
   /* Footer */
