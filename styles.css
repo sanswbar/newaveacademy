@@ -413,7 +413,7 @@ a   { text-decoration: none; color: inherit; }
 .tcard-author span  { font-size: 0.75rem; color: var(--subtle); }
 .avatar-photo { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid rgba(252,115,66,0.3); }
 
-.testimonials-footer { font-size: 0.925rem; color: var(--subtle); }
+.testimonials-footer { font-size: 0.925rem; color: var(--subtle); text-align: center; }
 .testimonials-footer strong { color: var(--white); font-weight: 600; }
 
 /* ── HOW TO JOIN ── */
@@ -1040,6 +1040,7 @@ a   { text-decoration: none; color: inherit; }
   margin-top: 0.85rem;
   max-width: 400px;
   line-height: 1.6;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
