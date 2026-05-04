@@ -719,6 +719,10 @@ a   { text-decoration: none; color: inherit; }
   .step-content p { font-size: 0.875rem; text-align: center; }
   .how-cta { margin-top: 2rem; }
 
+  /* Why cards standalone */
+  .why-cards-section { padding: 3rem 1.25rem; }
+  .why-cards-inner { gap: 1.5rem; }
+
   /* FAQ */
   .faq-section { padding: 3rem 1.25rem; }
   .faq-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; text-align: center; }
@@ -1042,6 +1046,15 @@ a   { text-decoration: none; color: inherit; }
   /* Hero: contener layout dentro del viewport */
   .hero-content { width: 100%; }
   .hero-sub { max-width: 100%; }
+}
+
+/* ── WHY CARDS (standalone) ── */
+.why-cards-section {
+  padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
+}
+.why-cards-inner {
+  max-width: var(--max-wide); margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 2.5rem;
 }
 
 /* ── FAQ ── */
