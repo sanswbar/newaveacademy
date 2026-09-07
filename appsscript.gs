@@ -19,20 +19,21 @@ const WHATSAPP_APAGADO = true;
 const COL_FECHA      = 1;
 const COL_NOMBRE     = 2;
 const COL_CORREO     = 3;
-const COL_ESTATUS    = 12; // Column L
-const COL_CLICK      = 13; // Column M — "Click a plan"
+const COL_ACOMPANAMIENTO = 12; // Column L — nivel de acompañamiento (paso 5)
+const COL_ESTATUS    = 13; // Column M
+const COL_CLICK      = 14; // Column N — "Click a plan"
 // Columna N — cuántos correos había recibido la persona cuando entró a Skool.
 // Se llena de dos formas: `onEdit` la calcula al marcar un trial nuevo, y
 // `calcularCorreoRealAlConvertir` la reconstruye para los viejos cruzando el
 // export de Skool. Vive aparte porque marcar "trial" a mano sobrescribe la
 // columna Estatus y borra el "email N" que estaba ahí.
-const COL_CORREO_AL_CONVERTIR = 14;
+const COL_CORREO_AL_CONVERTIR = 15;
 // Columna O — de dónde vino el lead. Por ahora solo distingue Google Ads del
 // resto: el formulario manda el `gclid` que Google agrega a cada clic de sus
 // anuncios. Si viene vacío, el lead llegó por Meta, orgánico o directo (eso ya
 // se sabe por otras vías). Va al FINAL a propósito: las columnas 12, 13 y 14
 // están hardcodeadas por número y meter una en medio rompería el registro.
-const COL_FUENTE = 15;
+const COL_FUENTE = 16;
 
 // Columnas que lee la notificación de Slack. No están hardcodeadas en ningún
 // otro lado, pero se declaran aquí para no repetir números mágicos.
@@ -119,6 +120,7 @@ function doGet(e) {
       e.parameter.compromiso || '',
       e.parameter.inversion  || '',
       interesIA,
+      e.parameter.acompanamiento || '',
       'Registrado',
     ];
 
@@ -1180,15 +1182,16 @@ function getSheet(name) {
   let sheet = ss.getSheetByName(name);
   if (!sheet) {
     sheet = ss.insertSheet(name);
-    // Deben coincidir con los del sheet real y en el mismo orden: COL_ESTATUS
-    // (12), COL_CLICK (13), COL_CORREO_AL_CONVERTIR (14) y COL_FUENTE (15)
+    // Deben coincidir con los del sheet real y en el mismo orden:
+    // COL_ACOMPANAMIENTO (12), COL_ESTATUS (13), COL_CLICK (14),
+    // COL_CORREO_AL_CONVERTIR (15) y COL_FUENTE (16)
     // están hardcodeadas por número. Este bloque solo corre si la hoja no
     // existe, pero si algún día se recrea, el orden tiene que quedar igual.
     const headers = [
       'Fecha', 'Nombre', 'Correo', 'WhatsApp', 'LinkedIn',
       'Inglés', 'Trabajo actual', 'Razón del cambio',
       'Nivel de compromiso', 'Capacidad de inversión',
-      'Interés en IA', 'Estatus', 'Click a Skool (Si /No) ',
+      'Interés en IA', 'Nivel de acompañamiento', 'Estatus', 'Click a Skool (Si /No) ',
       'En que correo convirtieron', 'Fuente',
     ];
     const headerRow = sheet.getRange(1, 1, 1, headers.length);
@@ -1232,7 +1235,7 @@ function diagnostico() {
   const sheet = getSheet(SHEET_NAME);
   const lastRow = sheet.getLastRow();
   Logger.log('Última fila del sheet: ' + lastRow);
-  const rowData = sheet.getRange(lastRow, 1, 1, 13).getValues()[0];
+  const rowData = sheet.getRange(lastRow, 1, 1, COL_FUENTE).getValues()[0];
   Logger.log('Datos última fila: ' + JSON.stringify(rowData));
 }
 const TRIALS_SKOOL = {
