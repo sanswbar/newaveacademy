@@ -473,6 +473,9 @@
     .comunidad-inner h2 { font-size: clamp(1.3rem,3vw,1.9rem); font-weight: 800; letter-spacing: -0.03em; color: var(--white); line-height: 1.15; margin: 0.5rem 0 1.5rem; }
 
     /* ── Page thanks ── */
+    /* Qué pasa al llegar a Skool. Va debajo del botón, no arriba: arriba
+       frena, abajo prepara a quien ya decidió. */
+    .lowPasos { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-align: center; margin: 0.75rem auto 0; max-width: 380px; line-height: 1.5; }
     .thanks-videos-wrap { width: 100%; max-width: 520px; margin: 0 auto 2rem; padding: 0 1rem; box-sizing: border-box; }
     .thanks-videos-tag { font-family: 'DM Mono','Courier New',monospace; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase; text-align: center; margin-bottom: 0.75rem; }
     .thanks-videos-title { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; text-align: center; margin-bottom: 1.25rem; line-height: 1.2; }
@@ -828,14 +831,10 @@
       <p id="lowPlanNombre" style="margin:0;font-size:1.1rem;font-weight:700;color:var(--white)"></p>
     </div>
 
-    <p id="lowIntro" style="font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1.25rem;text-align:center">Estamos listos para ayudarte a tomar el control de tu carrera.</p>
-
-    <a id="lowPlanBtn" href="https://www.skool.com/newave/plans" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:block;text-decoration:none;margin-top:0"></a>
-
-    <p style="font-size:0.95rem;color:rgba(255,255,255,0.75);text-align:center;margin:0.9rem 0 0">Nos vemos dentro.</p>
+    <p id="lowIntro" style="font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:0.5rem;text-align:center">Estamos listos para ayudarte a tomar el control de tu carrera.</p>
 
     <!-- Videos de casos de éxito -->
-    <div class="thanks-videos-wrap" style="text-align:left;margin-top:2rem">
+    <div class="thanks-videos-wrap" style="text-align:left;margin:1.75rem 0 2rem">
       <p class="thanks-videos-tag">Casos de éxito</p>
       <h3 class="thanks-videos-title">Lo que han logrado nuestros miembros</h3>
       <div class="thanks-videos-list">
@@ -844,6 +843,13 @@
         <div class="thanks-video-item"><div class="thanks-video-ratio"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:none" src="https://player.vimeo.com/video/1193762000?badge=0&autopause=0&player_id=0&app_id=58479" title="Caso de éxito 3" loading="lazy" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe></div></div>
       </div>
     </div>
+
+
+    <a id="lowPlanBtn" href="https://www.skool.com/newave/plans" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:block;text-decoration:none;margin-top:0"></a>
+
+    <p class="lowPasos">Creas tu cuenta, eliges tu plan y empiezas. No se cobra nada durante los primeros 7 días.</p>
+
+    <p style="font-size:0.95rem;color:rgba(255,255,255,0.75);text-align:center;margin:0.9rem 0 0">Nos vemos dentro.</p>
 
     <!-- Carrusel comunidad -->
     <section class="comunidad-section" style="width:100%">
