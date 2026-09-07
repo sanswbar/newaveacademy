@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes somos — NEWAVE Academy</title>
+  <meta name="description" content="Jaime García y Santiago Sánchez Woodworth, fundadores de NEWAVE: más de siete años trabajando en empresas remotas internacionales y más de 500 profesionales que ya consiguieron su trabajo remoto." />
+  <link rel="canonical" href="https://www.newaveacademy.com/nosotros/" />
+  <meta property="og:title" content="Quiénes somos — NEWAVE Academy" />
+  <meta property="og:description" content="La historia detrás de NEWAVE: dos carreras remotas internacionales y una metodología que más de 500 profesionales han replicado." />
+  <meta property="og:image" content="https://www.newaveacademy.com/images/og-image.png" />
+  <meta property="og:url" content="https://www.newaveacademy.com/nosotros/" />
+  <link rel="icon" type="image/png" href="../images/NEWAVEISO.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../fonts/fonts.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+  :root{
+    --bg:#080a0d; --bg-2:#12161b; --bg-3:#1a1f26;
+    --white:#fff; --muted:#e8e7e7; --subtle:rgba(232,231,231,0.6);
+    --orange:#FC7342; --border:rgba(183,182,182,0.12);
+    --sans:'Helvena','Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'Alice Mono','DM Mono',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--white);font-family:var(--sans);
+       line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  .shell{max-width:1020px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2rem)}
+
+  /* ── HERO ── */
+  .hero{padding:clamp(3.5rem,8vw,6rem) 0 clamp(2rem,4vw,3rem);text-align:center}
+  .eyebrow{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.16em;
+           text-transform:uppercase;color:var(--orange);margin-bottom:1rem}
+  h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-0.03em;
+     line-height:1.1;text-wrap:balance;margin-bottom:1rem}
+  .hero p{color:var(--muted);font-size:1.02rem;max-width:56ch;margin:0 auto}
+
+  /* ── FUNDADORES ── */
+  .founders{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;
+            padding-bottom:clamp(2.5rem,5vw,4rem)}
+  .founder{background:var(--bg-2);border:1px solid var(--border);
+           border-radius:18px;padding:clamp(1.5rem,3vw,2rem);
+           display:flex;flex-direction:column;align-items:center}
+  .founder .f-bio{align-self:stretch}
+  /* object-position sube el encuadre: en las dos fotos la cara está en el
+     tercio superior y un centrado normal la cortaría. */
+  /* Retrato vertical 3:4, que es la proporción de las fotos originales: un
+     cuadrado las cortaba a la altura del pecho. */
+  .f-photo{width:210px;height:280px;object-fit:cover;object-position:50% 62%;
+           border-radius:16px;display:block;margin:0 auto 1.25rem}
+  .f-name{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;text-align:center}
+  .f-role{font-family:var(--mono);font-size:0.72rem;color:var(--orange);
+          letter-spacing:0.06em;text-transform:uppercase;margin:0.35rem 0 1.15rem;
+          text-align:center}
+  .f-bio{color:var(--muted);font-size:0.95rem;margin-bottom:0.9rem;
+         text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  .f-bio:last-child{margin-bottom:0}
+  .f-bio strong{color:var(--white);font-weight:600}
+
+
+  /* ── NEWAVE ── */
+  .story{border-top:1px solid var(--border);padding:clamp(2.5rem,5vw,4rem) 0
+         clamp(3.5rem,7vw,5rem)}
+  .story-inner{max-width:64ch;margin:0 auto}
+  .story h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700;
+            letter-spacing:-0.025em;margin-bottom:1.5rem;text-wrap:balance;
+            text-align:center}
+  .h2-sub{margin-top:3rem}
+  /* Justificado con guiones: sin ellos el justificado abre huecos feos entre
+     palabras, sobre todo en móvil donde caben pocas por línea. */
+  .story-inner>p{color:var(--muted);font-size:0.98rem;margin-bottom:1.15rem;
+           text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  .story strong{color:var(--white);font-weight:600}
+  .story-inner>p.pull{border-left:2px solid var(--orange);padding-left:1.15rem;
+        margin:1.75rem 0;font-size:1.05rem;color:var(--white);
+        text-align:left;hyphens:none}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+         margin-top:2.5rem}
+  .stat{display:flex;flex-direction:column;align-items:center;gap:0.35rem;
+        background:var(--bg-2);border:1px solid var(--border);
+        border-top:3px solid var(--orange);border-radius:14px;
+        padding:1.15rem 1rem;text-align:center}
+  .stat-n{font-size:1.6rem;font-weight:800;letter-spacing:-0.04em;line-height:1;
+          color:var(--orange);font-variant-numeric:tabular-nums}
+  .stat-l{font-size:0.8rem;color:var(--subtle);line-height:1.4}
+
+  /* ── Barra superior: da salida y ancla la página al sitio ── */
+  .topbar{border-bottom:1px solid var(--border);
+          position:sticky;top:0;z-index:10;
+          background:rgba(8,10,13,0.82);backdrop-filter:blur(12px)}
+  .topbar-in{display:flex;align-items:center;justify-content:space-between;
+             padding-top:1rem;padding-bottom:1rem}
+  .brand img{display:block;height:26px;width:auto}
+  .brand-back{font-size:0.85rem;color:var(--subtle);transition:color 0.2s}
+  .brand-back:hover{color:var(--orange)}
+
+  /* ── Tarjetas: el hover premia la exploración sin distraer ── */
+  .founder{transition:border-color 0.25s, transform 0.25s}
+  .founder:hover{border-color:rgba(252,115,66,0.3);transform:translateY(-2px)}
+  .f-photo{transition:filter 0.3s}
+  .founder:hover .f-photo{filter:saturate(1.08)}
+
+  /* ── Números: tabular para que no bailen los dígitos ── */
+
+  /* ── Cierre: quien terminó de leer necesita a dónde ir ── */
+  .cta{margin-top:2.75rem;padding-top:2.25rem;border-top:1px solid var(--border);
+       text-align:center}
+  .cta-line{color:var(--muted);font-size:1.02rem;margin-bottom:1.25rem;text-align:center}
+  .cta-btn{display:inline-flex;align-items:center;justify-content:center;
+           background:var(--orange);color:#fff;font-weight:700;font-size:1rem;
+           letter-spacing:-0.01em;padding:0.9rem 2.2rem;border-radius:980px;
+           transition:background 0.2s, transform 0.15s, box-shadow 0.2s}
+  .cta-btn:hover{background:#d95b28;transform:translateY(-1px);
+                 box-shadow:0 4px 24px rgba(252,115,66,0.5)}
+  .cta-btn:focus-visible,.brand-back:focus-visible,.brand:focus-visible{
+    outline:2px solid var(--orange);outline-offset:3px}
+
+  /* ── Revelado al hacer scroll, igual que en la home ── */
+  .js-anim [data-animate]{opacity:0;transform:translateY(14px);
+    transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),
+               transform 0.5s cubic-bezier(0.16,1,0.3,1)}
+  .js-anim [data-animate].visible{opacity:1;transform:none}
+  .js-anim [data-animate][data-delay="1"]{transition-delay:0.07s}
+  @media(prefers-reduced-motion:reduce){
+    .js-anim [data-animate]{opacity:1;transform:none;transition:none}
+    .founder:hover{transform:none}
+  }
+
+  @media(max-width:720px){
+    .founders{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr;gap:1.75rem 1rem}
+    .brand-back{display:none}
+    .story p{text-align:left}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="/"><img src="../images/logo.svg" alt="NEWAVƎ" width="110" height="29" /></a>
+    <a class="brand-back" href="/">← Volver al inicio</a>
+  </div>
+
+<script>
+  // Mismo revelado que la home. Si el JS no corre, todo se ve igual: la
+  // clase js-anim es la que activa el estado inicial oculto.
+  (function () {
+    var r = document.documentElement;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    r.classList.add('js-anim');
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+    document.querySelectorAll('[data-animate]').forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</header>
+
+<div class="shell">
+  <section class="hero" data-animate>
+    <p class="eyebrow">NEWAVE Academy</p>
+    <h1>Quiénes somos</h1>
+    <p>Dos profesionales que llevamos más de siete años trabajando en empresas
+       remotas internacionales. Construimos nuestras carreras aplicando a
+       vacantes globales, y aprovechamos el salto del trabajo remoto después de
+       la pandemia.</p>
+  </section>
+
+  <section class="founders">
+    <article class="founder" data-animate>
+      <img class="f-photo" src="../images/jaime.jpg" alt="Jaime en la Patagonia" width="560" height="560" loading="lazy" />
+      <h2 class="f-name">Jaime García</h2>
+      <p class="f-role">Fundador de NEWAVE</p>
+      <p class="f-bio">Siete años liderando proyectos de transformación digital e
+        inteligencia artificial con equipos totalmente distribuidos entre Estados
+        Unidos, Europa y Latinoamérica.</p>
+      <p class="f-bio">Empezó en consultoría en <strong>Accenture</strong>, con
+        clientes de Estados Unidos y Canadá. De ahí a Austin: entregas de producto
+        para fintechs en <strong>Praxent</strong> y despliegue de plataformas de IA
+        en <strong>Gatego</strong>. Después dirigió la transformación con IA de un
+        grupo automotriz de <strong>40 sedes</strong>, y hoy lleva la estrategia de
+        IA en <strong>Supernal AI</strong>.</p>
+      <p class="f-bio">Durante la pandemia creó el <strong>primer curso sobre
+        trabajo remoto en español</strong>, que con el tiempo se convirtió en la
+        metodología que hoy es NEWAVE.</p>
+      <p class="f-bio">Le mueve enseñar a entrar al trabajo remoto, preparar a la
+        gente para los empleos que vienen y que la IA juegue a su favor y no en su
+        contra.</p>
+    </article>
+
+    <article class="founder" data-animate data-delay="1">
+      <img class="f-photo" src="../images/santiago.jpg" alt="Santiago en la Patagonia" width="560" height="560" loading="lazy" />
+      <h2 class="f-name">Santiago Sánchez Woodworth</h2>
+      <p class="f-role">Fundador de NEWAVE</p>
+      <p class="f-bio">Más de seis años en empresas SaaS internacionales, en roles de
+        Customer Success, Account Management y Growth, siempre dentro de equipos
+        100% remotos de Norteamérica y Europa.</p>
+      <p class="f-bio">Su carrera empezó en ventas y marketing en México. Un año en
+        Australia, y desde entonces nada local: desarrollo inmobiliario en Utah,
+        <strong>Topsort</strong> en California, y casi tres años en
+        <strong>Positive</strong> manejando un portafolio de
+        <strong>700 mil dólares anuales</strong> con clientes de Norteamérica y
+        LATAM.</p>
+      <p class="f-bio">Esos roles le enseñaron a estructurar procesos y a posicionar
+        un perfil en mercados internacionales. Cuando hizo su propia transición al
+        trabajo remoto, <strong>documentó cada paso</strong>. Ese registro es parte
+        del sistema que usamos hoy.</p>
+      <p class="f-bio">Acompaña a quienes buscan un puesto remoto y a los que se
+        están preparando para el trabajo que viene.</p>
+    </article>
+  </section>
+
+  <section class="story">
+   <div class="story-inner" data-animate>
+    <h2>Cómo nació NEWAVE</h2>
+
+    <p>Ambos construimos nuestras carreras en empresas internacionales, de forma
+      remota y desde México, cuando eso todavía era la excepción. No fue
+      casualidad. Fue entender qué buscan esas organizaciones, cómo evalúan un
+      perfil y cómo se compite por una posición abierta a candidatos de todo el
+      mundo.</p>
+
+    <p>En 2020 empezamos a compartir ese conocimiento con quienes nos lo pedían.
+      Así surgió <strong>Nomad District</strong>, una comunidad de profesionales
+      con el mismo objetivo. Con el tiempo, lo que empezó como una comunidad se
+      consolidó en algo más sólido: una metodología, validada caso por caso, con
+      resultados que podíamos medir y documentar.</p>
+
+    <p>Esa metodología es hoy <strong>NEWAVE</strong>.</p>
+
+    <p class="pull">No enseñamos teoría. Enseñamos el proceso que seguimos nosotros
+      y que más de 500 profesionales han replicado desde entonces.</p>
+
+    <p>El propósito no ha cambiado: que un profesional en Latinoamérica pueda
+      competir por un trabajo remoto en una empresa internacional, percibir sus
+      ingresos en dólares y desarrollar su carrera sin necesidad de emigrar.</p>
+
+    <p>Es un programa exigente y lo presentamos como tal. Requiere disciplina,
+      constancia y aplicar el método con rigor. A cambio, funciona, y llevamos
+      años demostrándolo.</p>
+
+    <h2 class="h2-sub">Por qué importa para ti</h2>
+
+    <p>Nuestro sistema no es teoría. Es la misma ruta que usamos para crecer
+      profesionalmente en empresas de Estados Unidos, Europa y LATAM. Lo que
+      enseñamos es lo que nos ha funcionado a nosotros y a cientos de personas
+      que hoy viven del trabajo remoto.</p>
+
+    <p>Hoy todo está dentro de nuestra comunidad en Skool. Tienes acceso al
+      método, a las herramientas, a las vacantes filtradas y a un acompañamiento
+      que te guía paso a paso para conseguir tu trabajo remoto en dólares.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-n">+500</span>
+        <span class="stat-l">personas con trabajo remoto</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">$4,500+</span>
+        <span class="stat-l">dólares al mes en promedio</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">+10</span>
+        <span class="stat-l">países y sectores</span>
+      </div>
+      <div class="stat">
+        <span class="stat-n">7 años</span>
+        <span class="stat-l">aplicando el método</span>
+      </div>
+    </div>
+
+    <div class="cta">
+      <p class="cta-line">¿Quieres que te ayudemos a conseguir el tuyo?</p>
+      <a class="cta-btn" href="/formulario/">Conoce nuestros programas →</a>
+    </div>
+   </div>
+  </section>
+</div>
+
+<script>
+  // Mismo revelado que la home del sitio. Si el JS no corre, la página se ve
+  // completa: es la clase js-anim la que activa el estado inicial oculto.
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.documentElement.classList.add('js-anim');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+    document.querySelectorAll('[data-animate]').forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
