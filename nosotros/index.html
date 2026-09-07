@@ -97,7 +97,7 @@
           backdrop-filter:saturate(180%) blur(20px);
           -webkit-backdrop-filter:saturate(180%) blur(20px);
           border-bottom:1px solid var(--border)}
-  .brand img{display:block;height:20px;width:auto}
+  .logo-img{height:20px;width:auto;display:block}
   .nav-center{position:absolute;left:50%;transform:translateX(-50%);
               display:flex;align-items:center;gap:2.25rem}
   .nav-link{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;
@@ -131,7 +131,7 @@
            transition:background 0.2s, transform 0.15s, box-shadow 0.2s}
   .cta-btn:hover{background:#d95b28;transform:translateY(-1px);
                  box-shadow:0 4px 24px rgba(252,115,66,0.5)}
-  .cta-btn:focus-visible,.nav-link:focus-visible,.nav-login:focus-visible,.brand:focus-visible{
+  .cta-btn:focus-visible,.nav-link:focus-visible,.nav-login:focus-visible,.logo:focus-visible{
     outline:2px solid var(--orange);outline-offset:3px}
 
   /* ── Revelado al hacer scroll, igual que en la home ── */
@@ -149,14 +149,16 @@
     .founders{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr;gap:1.75rem 1rem}
     .nav-center{display:none}
-    .brand img{height:18px}
+    .logo-img{height:18px}
     .story p{text-align:left}
   }
 </style>
 </head>
 <body>
 <header class="topbar">
-    <a class="brand" href="/"><img src="../images/logo.svg" alt="NEWAVƎ" width="110" height="29" /></a>
+    <a href="/" class="logo">
+      <img src="../images/logo.svg" alt="NEWAVƎ" class="logo-img" />
+    </a>
     <nav class="nav-center">
       <a href="/" class="nav-link">Inicio</a>
       <a href="/nosotros/" class="nav-link is-active" aria-current="page">Quiénes somos</a>
