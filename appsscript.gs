@@ -95,7 +95,12 @@ function doGet(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
 
-    const track = e.parameter.track || '';
+    // El formulario manda el interés en IA en este parámetro. Se llamaba
+    // 'track' y guardaba low/high/disqualified, pero desde que el flujo
+    // high-ticket se retiró siempre valía 'low' y no servía de nada. Ahora
+    // guarda una respuesta que sí varía y que sirve para segmentar.
+    // El header de la columna K en el sheet se renombró a "Interés en IA".
+    const interesIA = e.parameter.track || '';
     const sheet = getSheet(SHEET_NAME);
 
     const nombre   = e.parameter.nombre   || '';
@@ -113,7 +118,7 @@ function doGet(e) {
       e.parameter.razon      || '',
       e.parameter.compromiso || '',
       e.parameter.inversion  || '',
-      track,
+      interesIA,
       'Registrado',
     ];
 
@@ -277,7 +282,7 @@ function calcularMetricas() {
     const fecha      = fila[COL_FECHA - 1];
     const ingles     = (fila[5]  || '').toString().trim();   // col 6
     const compromiso = (fila[8]  || '').toString().trim();   // col 9
-    const track      = (fila[10] || '').toString().trim();   // col 11
+    const interesIA  = (fila[10] || '').toString().trim();   // col 11 — Interés en IA
     const estatus    = (fila[COL_ESTATUS - 1] || '').toString().toLowerCase();
     const click      = (fila[COL_CLICK - 1] || '').toString().trim();
     const fuente     = (fila[COL_FUENTE - 1] || '').toString().trim();
@@ -302,7 +307,7 @@ function calcularMetricas() {
 
     acumularSegmento(porCompromiso, compromiso || 'Sin dato', esTrial, dioClick);
     acumularSegmento(porIngles,     ingles     || 'Sin dato', esTrial, dioClick);
-    acumularSegmento(porTrack,      track      || 'Sin dato', esTrial, dioClick);
+    acumularSegmento(porTrack,      interesIA  || 'Sin dato', esTrial, dioClick);
     acumularSegmento(porFuente,     fuente     || 'Meta, orgánico o directo', esTrial, dioClick);
 
     if (esTrial) {
@@ -1183,7 +1188,7 @@ function getSheet(name) {
       'Fecha', 'Nombre', 'Correo', 'WhatsApp', 'LinkedIn',
       'Inglés', 'Trabajo actual', 'Razón del cambio',
       'Nivel de compromiso', 'Capacidad de inversión',
-      'Track (low/high/disqualified)', 'Estatus', 'Click a Skool (Si /No) ',
+      'Interés en IA', 'Estatus', 'Click a Skool (Si /No) ',
       'En que correo convirtieron', 'Fuente',
     ];
     const headerRow = sheet.getRange(1, 1, 1, headers.length);

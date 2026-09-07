@@ -325,6 +325,40 @@
       border-radius: 980px;
       white-space: nowrap;
     }
+    /* ── Plan recomendado (paso 8) ──
+       Deliberadamente discreto: solo el borde en naranja tenue y la píldora
+       montada sobre el borde superior. Sin fondo ni glow, para que sugiera
+       sin empujar — la selección sigue siendo del usuario y las otras dos
+       tarjetas se ven igual de disponibles. El padding-top abre el hueco de
+       la píldora y el margin-top evita que se encime con la tarjeta de
+       arriba. Ojo: esto NO marca la opción como elegida; eso lo hace
+       .selected, que es la clase que guarda la respuesta. */
+    .opt.recommended {
+      position: relative;
+      border-color: rgba(252,115,66,0.45);
+      padding-top: 1.35rem;
+      margin-top: 0.5rem;
+    }
+    .rec-badge { display: none; }
+    .opt.recommended .rec-badge {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      transform: translateY(-50%);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      white-space: nowrap;
+      color: rgba(252,115,66,0.9);
+      background: var(--bg-2);
+      border: 1px solid rgba(252,115,66,0.3);
+      border-radius: 980px;
+      padding: 0.32rem 0.65rem;
+    }
+
     .opt-features {
       list-style: none;
       margin: 0.5rem 0 0;
@@ -621,7 +655,7 @@
   <!-- Progress -->
   <div class="progress-wrap" id="progressWrap">
     <div class="progress-label">
-      <span id="progressText">Paso 1 de 6</span>
+      <span id="progressText">Paso 1 de 8</span>
       <span id="progressPct">0%</span>
     </div>
     <div class="progress-bar">
@@ -634,7 +668,7 @@
 
     <!-- ── Paso 1: Datos personales ── -->
     <div class="step active" id="step-1">
-      <div class="step-eyebrow">Paso 1 de 6</div>
+      <div class="step-eyebrow">Paso 1 de 8</div>
       <h2 class="step-title">Cuéntanos sobre ti</h2>
       <p class="step-sub">Necesitamos algunos datos básicos para poder ayudarte mejor.</p>
 
@@ -663,7 +697,7 @@
 
     <!-- ── Paso 2: Nivel de inglés ── -->
     <div class="step" id="step-2">
-      <div class="step-eyebrow">Paso 2 de 6</div>
+      <div class="step-eyebrow">Paso 2 de 8</div>
       <h2 class="step-title">¿Cuál es tu nivel de inglés?</h2>
       <p class="step-sub">El inglés es clave para trabajar con empresas internacionales.</p>
 
@@ -695,7 +729,7 @@
 
     <!-- ── Paso 3: Trabajo actual ── -->
     <div class="step" id="step-3">
-      <div class="step-eyebrow">Paso 3 de 6</div>
+      <div class="step-eyebrow">Paso 3 de 8</div>
       <h2 class="step-title">¿En qué empresa trabajas y qué puesto tienes?</h2>
       <p class="step-sub">Cuéntanos sobre tu situación profesional actual. Newave funciona para cualquier perfil, no solo tech.</p>
 
@@ -713,7 +747,7 @@
 
     <!-- ── Paso 4: Razón del cambio ── -->
     <div class="step" id="step-4">
-      <div class="step-eyebrow">Paso 4 de 6</div>
+      <div class="step-eyebrow">Paso 4 de 8</div>
       <h2 class="step-title">¿Por qué quieres hacer un cambio en tu vida profesional?</h2>
       <p class="step-sub">Cuéntanos cuál es tu motivación principal.</p>
 
@@ -729,9 +763,67 @@
       </div>
     </div>
 
-    <!-- ── Paso 5: Nivel de compromiso ── -->
+    <!-- ── Paso 5: Nivel de acompañamiento ── -->
     <div class="step" id="step-5">
-      <div class="step-eyebrow">Paso 5 de 6</div>
+      <div class="step-eyebrow">Paso 5 de 8</div>
+      <h2 class="step-title">¿Qué nivel de acompañamiento buscas?</h2>
+      <p class="step-sub">Queremos entender cuánto apoyo quieres durante tu proceso.</p>
+
+      <div class="options" id="opts-acompanamiento">
+        <div class="opt" data-val="Metodologia a mi ritmo" onclick="selectOpt('acompanamiento', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Quiero la metodología completa para avanzar a mi ritmo</div>
+        </div>
+        <div class="opt" data-val="Revision de documentos" onclick="selectOpt('acompanamiento', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Quiero revisión personalizada de mis documentos de aplicación</div>
+        </div>
+        <div class="opt" data-val="Uno a uno" onclick="selectOpt('acompanamiento', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Quiero ayuda uno a uno para definir mi perfil y estrategia de aplicación</div>
+        </div>
+      </div>
+      <div class="field-error" id="err-acompanamiento" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep(5)">← Atrás</button>
+        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(5)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- ── Paso 6: Interés en IA ──
+         Define la recomendación del paso 8: quien la quiere aprender va a
+         VIP, que es el único plan que la incluye. Ver planRecomendado(). -->
+    <div class="step" id="step-6">
+      <div class="step-eyebrow">Paso 6 de 8</div>
+      <h2 class="step-title">¿Te interesa aprender a usar Inteligencia Artificial aplicada a tu carrera?</h2>
+      <p class="step-sub">La IA está cambiando cómo trabajamos. Queremos saber qué tanto te interesa.</p>
+
+      <div class="options" id="opts-ia">
+        <div class="opt" data-val="Quiero aprender" onclick="selectOpt('ia', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Sí, quiero aprender a usarla</div>
+        </div>
+        <div class="opt" data-val="Ya la uso" onclick="selectOpt('ia', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Ya la uso y quiero sacarle más provecho</div>
+        </div>
+        <div class="opt" data-val="No es prioridad" onclick="selectOpt('ia', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Por ahora no es una prioridad</div>
+        </div>
+      </div>
+      <div class="field-error" id="err-ia" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep(6)">← Atrás</button>
+        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(6)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- ── Paso 7: Nivel de compromiso ── -->
+    <div class="step" id="step-7">
+      <div class="step-eyebrow">Paso 7 de 8</div>
       <h2 class="step-title">¿Cuál es tu nivel de compromiso en este momento?</h2>
       <p class="step-sub">No hay respuesta incorrecta, solo queremos entender dónde estás para acompañarte de la mejor forma.</p>
 
@@ -752,20 +844,21 @@
       <div class="field-error" id="err-compromiso" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
 
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(5)">← Atrás</button>
-        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(5)">Continuar →</button>
+        <button class="btn-back" onclick="prevStep(7)">← Atrás</button>
+        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(7)">Continuar →</button>
       </div>
     </div>
 
-    <!-- ── Paso 6: Inversión ── -->
-    <div class="step" id="step-6">
-      <div class="step-eyebrow">Paso 6 de 6</div>
-      <h2 class="step-title">Gracias por tus respuestas.</h2>
-      <p class="step-sub">Tenemos distintos planes, la diferencia está en el nivel de personalización y acompañamiento que buscas.</p>
+    <!-- ── Paso 8: Inversión ── -->
+    <div class="step" id="step-8">
+      <div class="step-eyebrow">Paso 8 de 8</div>
+      <h2 class="step-title">Gracias por llenar el formulario.</h2>
+      <p class="step-sub" id="planesSub">Según tus respuestas, este es el plan que te recomendamos.</p>
       <p class="step-sub"><strong style="color:var(--white);font-size:1.05rem">Todos incluyen 7 días de prueba gratis.</strong></p>
 
       <div class="options" id="opts-inversion">
-        <div class="opt" data-val="100-150 usd" data-track="low" onclick="selectOpt('inversion', this)">
+        <div class="opt" id="plan-standard" data-val="100-150 usd" data-track="low" onclick="selectOpt('inversion', this)">
+          <div class="rec-badge">Recomendado para ti</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
             <div class="opt-head">Standard</div>
@@ -778,7 +871,8 @@
             <div class="opt-price">$199/año <span class="opt-cancel">· Cancela cuando quieras</span></div>
           </div>
         </div>
-        <div class="opt" data-val="150-200 usd" data-track="low" onclick="selectOpt('inversion', this)">
+        <div class="opt" id="plan-premium" data-val="150-200 usd" data-track="low" onclick="selectOpt('inversion', this)">
+          <div class="rec-badge">Recomendado para ti</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
             <div class="opt-head">Premium</div>
@@ -791,7 +885,8 @@
             <div class="opt-price">$249/año <span class="opt-cancel">· Cancela cuando quieras</span></div>
           </div>
         </div>
-        <div class="opt" data-val="200-300 usd" data-track="low" onclick="selectOpt('inversion', this)">
+        <div class="opt" id="plan-vip" data-val="200-300 usd" data-track="low" onclick="selectOpt('inversion', this)">
+          <div class="rec-badge">Recomendado para ti</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
             <div class="opt-head">VIP</div>
@@ -809,7 +904,7 @@
       <div class="field-error" id="err-inversion" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
 
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(6)">← Atrás</button>
+        <button class="btn-back" onclick="prevStep(8)">← Atrás</button>
         <button class="btn-primary" style="width:auto;margin-top:0" id="btnSubmit" onclick="submitForm()">Comenzar prueba gratis →</button>
       </div>
     </div>
@@ -941,18 +1036,18 @@
   // ── State ──
   const answers = {
     nombre: '', correo: '', whatsapp: '', linkedin: '',
-    ingles: '', experiencia: '', area: '', trabajo: '', razon: '', compromiso: '', inversion: '',
+    ingles: '', experiencia: '', area: '', trabajo: '', razon: '', compromiso: '', acompanamiento: '', ia: '', inversion: '',
     track: '' // 'disqualified' | 'low' | 'high'
   };
 
-  const TOTAL_STEPS = 6;
+  const TOTAL_STEPS = 8;
 
   // ── Google Apps Script URL ──
   // Pega aquí la URL de tu Google Apps Script desplegado:
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxB5e11js0uCMFswJx7vRojZMV6dUB_9gML8B5TarLie5K1Ue7ZfILKVqfuVMiS2Fx-iA/exec';
 
   // ── Progress ──
-  // Cuenta el paso actual como avance (paso 1 = 17%, paso 6 = 100%): empezar
+  // Cuenta el paso actual como avance (paso 1 = 13%, paso 8 = 100%): empezar
   // en 0% desanima, y el paso en el que estás parado ya es progreso real.
   function updateProgress(step) {
     const pct = Math.round((step / TOTAL_STEPS) * 100);
@@ -1031,12 +1126,22 @@
       else    { setErr('err-razon', false); document.getElementById('razon').classList.remove('error'); answers.razon = r; }
     }
 
-    if (step === 5) {
+    if (step === 7) {
       if (!answers.compromiso) { setErr('err-compromiso', true); ok = false; }
       else setErr('err-compromiso', false);
     }
 
+    if (step === 5) {
+      if (!answers.acompanamiento) { setErr('err-acompanamiento', true); ok = false; }
+      else setErr('err-acompanamiento', false);
+    }
+
     if (step === 6) {
+      if (!answers.ia) { setErr('err-ia', true); ok = false; }
+      else setErr('err-ia', false);
+    }
+
+    if (step === 8) {
       if (!answers.inversion) { setErr('err-inversion', true); ok = false; }
     }
 
@@ -1049,12 +1154,46 @@
     gtag('event', 'form_step_view', { step: 1 });
   }
 
+  // ── Recomendación de plan (paso 8) ──
+  // VIP es el único plan que incluye la sección de IA, así que quien la
+  // quiere aprender va ahí sin importar lo demás. Si no le interesa, decide
+  // el nivel de acompañamiento: a su ritmo es Standard, lo demás Premium.
+  // Solo pinta la tarjeta: NO la preselecciona, el usuario tiene que elegir.
+  function planRecomendado() {
+    if (answers.ia === 'Quiero aprender' || answers.ia === 'Ya la uso') return 'vip';
+    if (answers.acompanamiento === 'Metodologia a mi ritmo') return 'standard';
+    if (answers.acompanamiento) return 'premium';
+    return null;
+  }
+
+  function pintarRecomendacion() {
+    ['standard', 'premium', 'vip'].forEach(function (nombre) {
+      const el = document.getElementById('plan-' + nombre);
+      if (el) el.classList.remove('recommended');
+    });
+
+    const plan = planRecomendado();
+    const sub  = document.getElementById('planesSub');
+
+    if (plan) {
+      const el = document.getElementById('plan-' + plan);
+      if (el) el.classList.add('recommended');
+      if (sub) sub.textContent = 'Según tus respuestas, este es el plan que te recomendamos.';
+    } else if (sub) {
+      // Red de seguridad: no debería pasar porque los pasos 5 y 6 son
+      // obligatorios, pero si alguien llega sin respuestas no se le miente
+      // diciéndole que hay una recomendación.
+      sub.textContent = 'Todos parten del mismo método, la diferencia está en el acompañamiento.';
+    }
+  }
+
   function showStep(n) {
     document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
     const el = document.getElementById(`step-${n}`);
     if (el) el.classList.add('active');
     currentStep = n;
     updateProgress(n);
+    if (n === 8) pintarRecomendacion();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     if (typeof gtag === 'function') {
@@ -1102,7 +1241,7 @@
     // ya pasó una vez (30 jul 2026) y perdimos leads reales por esto.
     try {
       if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', { compromiso: answers.compromiso, inversion: answers.inversion });
+        gtag('event', 'form_submit', { compromiso: answers.compromiso, inversion: answers.inversion, ia: answers.ia, plan_recomendado: planRecomendado() || '' });
       }
     } catch (err) {
       console.error('GA4 form_submit falló:', err);
@@ -1251,7 +1390,11 @@
       razon:      answers.razon,
       compromiso: answers.compromiso,
       inversion:  answers.inversion,
-      track:      answers.track,
+      // Esta columna guardaba el track (siempre 'low' desde que el flujo
+      // high-ticket se retiró). Ahora guarda el interés en IA, que sí varía
+      // y es lo que se quiere medir. El endpoint de métricas segmenta por
+      // esta columna, así que ahora segmenta por IA.
+      track:      answers.ia,
       // Google agrega ?gclid=... a cada clic de sus anuncios. Si viene, el
       // lead llegó por Google Ads; si no, por Meta, orgánico o directo.
       gclid:      obtenerGclid()
