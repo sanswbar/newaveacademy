@@ -25,7 +25,7 @@
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--white);font-family:var(--sans);
-       line-height:1.65;-webkit-font-smoothing:antialiased}
+       line-height:1.65;-webkit-font-smoothing:antialiased;padding-top:56px}
   a{text-decoration:none;color:inherit}
   .shell{max-width:1020px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2rem)}
 
@@ -89,14 +89,15 @@
           color:var(--orange);font-variant-numeric:tabular-nums}
   .stat-l{font-size:0.8rem;color:var(--subtle);line-height:1.4}
 
-  /* ── Barra superior: da salida y ancla la página al sitio ── */
-  .topbar{border-bottom:1px solid var(--border);
-          position:sticky;top:0;z-index:10;
-          background:rgba(8,10,13,0.82);backdrop-filter:blur(12px)}
-  .topbar-in{display:flex;align-items:center;justify-content:space-between;
-             padding-top:1rem;padding-bottom:1rem}
-  .brand img{display:block;height:26px;width:auto}
-  .topbar-in{position:relative}
+  /* ── Barra superior: mismas medidas que la .nav de la home ── */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:100;
+          display:flex;align-items:center;justify-content:space-between;
+          padding:0 clamp(1.25rem,5vw,3rem);height:56px;
+          background:rgba(8,8,8,0.72);
+          backdrop-filter:saturate(180%) blur(20px);
+          -webkit-backdrop-filter:saturate(180%) blur(20px);
+          border-bottom:1px solid var(--border)}
+  .brand img{display:block;height:20px;width:auto}
   .nav-center{position:absolute;left:50%;transform:translateX(-50%);
               display:flex;align-items:center;gap:2.25rem}
   .nav-link{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;
@@ -148,20 +149,20 @@
     .founders{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr;gap:1.75rem 1rem}
     .nav-center{display:none}
+    .brand img{height:18px}
     .story p{text-align:left}
   }
 </style>
 </head>
 <body>
 <header class="topbar">
-  <div class="shell topbar-in">
     <a class="brand" href="/"><img src="../images/logo.svg" alt="NEWAVƎ" width="110" height="29" /></a>
     <nav class="nav-center">
       <a href="/" class="nav-link">Inicio</a>
       <a href="/nosotros/" class="nav-link is-active" aria-current="page">Quiénes somos</a>
     </nav>
     <a href="https://www.skool.com/login?ref=newave" target="_blank" rel="noopener" class="nav-login">Iniciar sesión</a>
-  </div>
+</header>
 
 <script>
   // Mismo revelado que la home. Si el JS no corre, todo se ve igual: la
@@ -178,7 +179,6 @@
     document.querySelectorAll('[data-animate]').forEach(function (el) { io.observe(el); });
   })();
 </script>
-</header>
 
 <div class="shell">
   <section class="hero" data-animate>
