@@ -50,6 +50,9 @@
      cuadrado las cortaba a la altura del pecho. */
   .f-photo{width:210px;height:280px;object-fit:cover;object-position:50% 62%;
            border-radius:16px;display:block;margin:0 auto 1.25rem}
+  .f-photo-zoom{overflow:hidden;position:relative}
+  .f-photo-zoom img{width:100%;height:100%;object-fit:cover;display:block;
+                    transform:scale(1.22);transform-origin:50% 42%}
   .f-name{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;text-align:center}
   .f-role{font-family:var(--mono);font-size:0.72rem;color:var(--orange);
           letter-spacing:0.06em;text-transform:uppercase;margin:0.35rem 0 1.15rem;
@@ -193,7 +196,7 @@
     </article>
 
     <article class="founder" data-animate data-delay="1">
-      <img class="f-photo" src="../images/santiago.jpg" alt="Santiago en la Patagonia" width="560" height="560" loading="lazy" />
+      <span class="f-photo f-photo-zoom"><img src="../images/santiago.jpg" alt="Santiago en la Patagonia" width="720" height="967" loading="lazy" /></span>
       <h2 class="f-name">Santiago Sánchez Woodworth</h2>
       <p class="f-role">Fundador de NEWAVE</p>
       <p class="f-bio">Más de seis años en empresas SaaS internacionales, en roles de
