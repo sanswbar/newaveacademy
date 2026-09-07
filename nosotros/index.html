@@ -24,8 +24,12 @@
     --mono:'Alice Mono','DM Mono',monospace;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  /* La home declara html{font-size:18px}. Sin esto, 1rem vale 16px aquí y la
+     barra se recorre: el padding en clamp(...rem) da otro valor. */
+  html{font-size:18px;scroll-behavior:smooth;overflow-x:hidden}
   body{background:var(--bg);color:var(--white);font-family:var(--sans);
-       line-height:1.65;-webkit-font-smoothing:antialiased;padding-top:56px}
+       line-height:1.65;-webkit-font-smoothing:antialiased;
+       -moz-osx-font-smoothing:grayscale;overflow-x:hidden;padding-top:56px}
   a{text-decoration:none;color:inherit}
   .shell{max-width:1020px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2rem)}
 
