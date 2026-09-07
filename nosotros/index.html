@@ -96,8 +96,21 @@
   .topbar-in{display:flex;align-items:center;justify-content:space-between;
              padding-top:1rem;padding-bottom:1rem}
   .brand img{display:block;height:26px;width:auto}
-  .brand-back{font-size:0.85rem;color:var(--subtle);transition:color 0.2s}
-  .brand-back:hover{color:var(--orange)}
+  .topbar-in{position:relative}
+  .nav-center{position:absolute;left:50%;transform:translateX(-50%);
+              display:flex;align-items:center;gap:2.25rem}
+  .nav-link{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.1em;
+            text-transform:uppercase;color:var(--subtle);padding-bottom:3px;
+            border-bottom:1.5px solid transparent;
+            transition:color 0.2s,border-color 0.2s}
+  .nav-link:hover{color:var(--white)}
+  .nav-link.is-active{color:var(--orange);border-bottom-color:var(--orange)}
+  .nav-login{font-size:0.85rem;font-weight:600;color:var(--muted);
+             padding:0.45rem 0.95rem;border:1px solid var(--border);
+             border-radius:980px;white-space:nowrap;
+             transition:color 0.2s,border-color 0.2s,background 0.2s}
+  .nav-login:hover{color:var(--white);border-color:rgba(252,115,66,0.5);
+                   background:rgba(252,115,66,0.08)}
 
   /* ── Tarjetas: el hover premia la exploración sin distraer ── */
   .founder{transition:border-color 0.25s, transform 0.25s}
@@ -117,7 +130,7 @@
            transition:background 0.2s, transform 0.15s, box-shadow 0.2s}
   .cta-btn:hover{background:#d95b28;transform:translateY(-1px);
                  box-shadow:0 4px 24px rgba(252,115,66,0.5)}
-  .cta-btn:focus-visible,.brand-back:focus-visible,.brand:focus-visible{
+  .cta-btn:focus-visible,.nav-link:focus-visible,.nav-login:focus-visible,.brand:focus-visible{
     outline:2px solid var(--orange);outline-offset:3px}
 
   /* ── Revelado al hacer scroll, igual que en la home ── */
@@ -134,7 +147,7 @@
   @media(max-width:720px){
     .founders{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr;gap:1.75rem 1rem}
-    .brand-back{display:none}
+    .nav-center{display:none}
     .story p{text-align:left}
   }
 </style>
@@ -143,7 +156,11 @@
 <header class="topbar">
   <div class="shell topbar-in">
     <a class="brand" href="/"><img src="../images/logo.svg" alt="NEWAVƎ" width="110" height="29" /></a>
-    <a class="brand-back" href="/">← Volver al inicio</a>
+    <nav class="nav-center">
+      <a href="/" class="nav-link">Inicio</a>
+      <a href="/nosotros/" class="nav-link is-active" aria-current="page">Quiénes somos</a>
+    </nav>
+    <a href="https://www.skool.com/login?ref=newave" target="_blank" rel="noopener" class="nav-login">Iniciar sesión</a>
   </div>
 
 <script>
