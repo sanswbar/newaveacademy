@@ -149,11 +149,24 @@
     .founder:hover{transform:none}
   }
 
+  /* Mismos cortes que la home: 768px achica la barra, 420px el logo. */
+  @media(max-width:768px){
+    .topbar{padding:0 1.25rem;height:54px}
+    body{padding-top:54px}
+    .nav-center{gap:1rem}
+    .nav-link{font-size:0.62rem;letter-spacing:0.05em}
+    .nav-login{font-size:0.7rem;padding:0.34rem 0.7rem}
+    /* Igual que en la home: en móvil solo se ve el enlace a la otra página. */
+    .nav-link.is-active{display:none}
+  }
+  @media(max-width:420px){
+    .logo-img{height:18px}
+    .nav-center{gap:0.8rem}
+    .nav-link{font-size:0.58rem;letter-spacing:0.03em}
+  }
   @media(max-width:720px){
     .founders{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr;gap:1.75rem 1rem}
-    .nav-center{display:none}
-    .logo-img{height:18px}
     .story p{text-align:left}
   }
 </style>
@@ -165,9 +178,9 @@
     </a>
     <nav class="nav-center">
       <a href="/" class="nav-link">Inicio</a>
-      <a href="/nosotros/" class="nav-link is-active" aria-current="page">Quiénes somos</a>
+      <a href="/nosotros/" class="nav-link is-active" aria-current="page">Nosotros</a>
     </nav>
-    <a href="https://www.skool.com/login?ref=newave" target="_blank" rel="noopener" class="nav-login">Iniciar sesión</a>
+    <a href="https://www.skool.com/login?ref=newave" target="_blank" rel="noopener" class="nav-login">Log in</a>
 </header>
 
 <script>
