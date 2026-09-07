@@ -172,7 +172,11 @@
     .nav-link{font-size:0.58rem;letter-spacing:0.03em}
   }
   @media(max-width:720px){
+    /* En una sola columna Santiago va primero: es quien lleva el crecimiento y
+       quien más aparece en los anuncios. En escritorio el orden no cambia. */
     .founders{grid-template-columns:1fr}
+    .founder:nth-child(1){order:2}
+    .founder:nth-child(2){order:1}
     .stats{grid-template-columns:1fr 1fr;gap:1.75rem 1rem}
     .story p{text-align:left}
   }
