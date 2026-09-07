@@ -160,16 +160,20 @@
   @media(max-width:768px){
     .topbar{padding:0 1.25rem;height:54px}
     body{padding-top:54px}
-    .nav-center{gap:1rem}
-    .nav-link{font-size:0.62rem;letter-spacing:0.05em}
+    /* Igual que en la home: el enlace se va junto al botón de acceso y toma
+       forma de botón; suelto a media barra no se leía como clickeable. */
+    .nav-center{position:static;transform:none;margin-left:auto;margin-right:0.6rem}
+    .nav-link{font-size:0.7rem;letter-spacing:0.05em;color:var(--muted);
+              padding:0.34rem 0.7rem;border:1px solid var(--border);
+              border-radius:980px;border-bottom-color:var(--border)}
+    .nav-link:hover{border-color:rgba(252,115,66,0.5)}
     .nav-login{font-size:0.7rem;padding:0.34rem 0.7rem}
-    /* Igual que en la home: en móvil solo se ve el enlace a la otra página. */
     .nav-link.is-active{display:none}
   }
   @media(max-width:420px){
     .logo-img{height:18px}
-    .nav-center{gap:0.8rem}
-    .nav-link{font-size:0.58rem;letter-spacing:0.03em}
+    .nav-link{font-size:0.66rem;padding:0.32rem 0.6rem}
+    .nav-center{margin-right:0.45rem}
   }
   @media(max-width:720px){
     /* En una sola columna Santiago va primero: es quien lleva el crecimiento y

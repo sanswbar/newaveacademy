@@ -771,11 +771,20 @@ a   { text-decoration: none; color: inherit; }
 
   /* Nav */
   .nav { padding: 0 1.25rem; height: 54px; }
-  .nav-center { gap: 1rem; }
-  .nav-link { font-size: 0.62rem; letter-spacing: 0.05em; }
+  /* En móvil el enlace deja de estar centrado y se pone junto al botón de
+     acceso: suelto a media barra se leía como etiqueta, no como algo en lo
+     que se puede dar click. Se oculta el de la página actual. */
+  .nav-center {
+    position: static; transform: none;
+    margin-left: auto; margin-right: 0.6rem;
+  }
+  .nav-link {
+    font-size: 0.7rem; letter-spacing: 0.05em; color: var(--muted);
+    padding: 0.34rem 0.7rem; border: 1px solid var(--border);
+    border-radius: 980px; border-bottom-color: var(--border);
+  }
+  .nav-link:hover { border-color: rgba(252,115,66,0.5); }
   .nav-login { font-size: 0.7rem; padding: 0.34rem 0.7rem; }
-  /* En móvil no cabe todo: se oculta el enlace de la página actual y queda
-     solo el que lleva a la otra. */
   .nav-link.is-active { display: none; }
 
   /* Hero */
@@ -934,8 +943,8 @@ a   { text-decoration: none; color: inherit; }
 @media (max-width: 420px) {
   .hero h1 { font-size: clamp(1.85rem, 9vw, 2.2rem); }
   .logo-img { height: 18px; }
-  .nav-center { gap: 0.8rem; }
-  .nav-link { font-size: 0.58rem; letter-spacing: 0.03em; }
+  .nav-link { font-size: 0.66rem; padding: 0.32rem 0.6rem; }
+  .nav-center { margin-right: 0.45rem; }
   .why-grid { grid-template-columns: 1fr; }
   .logras-grid { grid-template-columns: 1fr; }
   .tcard { flex: 0 0 88vw; }
