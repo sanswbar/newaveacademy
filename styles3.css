@@ -120,6 +120,17 @@ a   { text-decoration: none; color: inherit; }
 .mono-tag.dark { color: rgba(232,231,231,0.55); }
 
 /* ── NAV ── */
+/* Enlace de acceso para quien ya es miembro: la plataforma vive en Skool, así
+   que apunta ahí. Si ya hay sesión entra directo; si no, Skool pide correo y
+   contraseña. */
+.nav-login {
+  font-size: 0.85rem; font-weight: 600; color: var(--muted);
+  padding: 0.45rem 0.95rem; border: 1px solid var(--border);
+  border-radius: 980px; transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.nav-login:hover { color: var(--white); border-color: rgba(252,115,66,0.5); background: rgba(252,115,66,0.08); }
+.nav-login:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
