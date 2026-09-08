@@ -800,26 +800,32 @@
       </div>
     </div>
 
-    <!-- ── Paso 6: Interés en IA ──
-         Define la recomendación del paso 8: quien la quiere aprender va a
-         VIP, que es el único plan que la incluye. Ver planRecomendado(). -->
+    <!-- ── Paso 6: Uso de IA ──
+         Es una pregunta de perfil, no de compra: NO decide el plan
+         sugerido. Se guarda en la columna K del sheet. Antes preguntaba
+         por interés y el 100% decía que sí, así que todos caían en VIP y
+         la sugerencia dejaba de significar algo. -->
     <div class="step" id="step-6">
       <div class="step-eyebrow">Paso 6 de 8</div>
-      <h2 class="step-title">¿Te interesa aprender a usar Inteligencia Artificial aplicada a tu carrera?</h2>
-      <p class="step-sub">La IA está cambiando cómo trabajamos. Queremos saber qué tanto te interesa.</p>
+      <h2 class="step-title">¿Qué tanto usas la Inteligencia Artificial en tu trabajo?</h2>
+      <p class="step-sub">Nos ayuda a entender mejor tu perfil.</p>
 
       <div class="options" id="opts-ia">
-        <div class="opt" data-val="Quiero aprender" onclick="selectOpt('ia', this)">
+        <div class="opt" data-val="Todos los dias" onclick="selectOpt('ia', this)">
           <div class="opt-radio"></div>
-          <div class="opt-text">Sí, quiero aprender a usarla</div>
+          <div class="opt-text">Todos los días, ya es parte de cómo trabajo</div>
         </div>
-        <div class="opt" data-val="Ya la uso" onclick="selectOpt('ia', this)">
+        <div class="opt" data-val="La he usado" onclick="selectOpt('ia', this)">
           <div class="opt-radio"></div>
-          <div class="opt-text">Ya la uso y quiero sacarle más provecho</div>
+          <div class="opt-text">La he usado, pero no de forma constante</div>
         </div>
-        <div class="opt" data-val="No es prioridad" onclick="selectOpt('ia', this)">
+        <div class="opt" data-val="Casi nada" onclick="selectOpt('ia', this)">
           <div class="opt-radio"></div>
-          <div class="opt-text">Por ahora no es una prioridad</div>
+          <div class="opt-text">Casi nada, apenas la estoy explorando</div>
+        </div>
+        <div class="opt" data-val="Nada" onclick="selectOpt('ia', this)">
+          <div class="opt-radio"></div>
+          <div class="opt-text">Nada</div>
         </div>
       </div>
       <div class="field-error" id="err-ia" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
@@ -1163,15 +1169,16 @@
     gtag('event', 'form_step_view', { step: 1 });
   }
 
-  // ── Recomendación de plan (paso 8) ──
-  // VIP es el único plan que incluye la sección de IA, así que quien la
-  // quiere aprender va ahí sin importar lo demás. Si no le interesa, decide
-  // el nivel de acompañamiento: a su ritmo es Standard, lo demás Premium.
+  // ── Sugerencia de plan (paso 8) ──
+  // Depende solo del nivel de acompañamiento, que es lo que separa a los tres
+  // planes. La pregunta de IA quedó fuera a propósito: casi todos contestaban
+  // que les interesa, así que todos terminaban en VIP y la sugerencia parecía
+  // un empujón al plan más caro en vez de una lectura de sus respuestas.
   // Solo pinta la tarjeta: NO la preselecciona, el usuario tiene que elegir.
   function planRecomendado() {
-    if (answers.ia === 'Quiero aprender' || answers.ia === 'Ya la uso') return 'vip';
     if (answers.acompanamiento === 'Metodologia a mi ritmo') return 'standard';
-    if (answers.acompanamiento) return 'premium';
+    if (answers.acompanamiento === 'Revision de documentos') return 'premium';
+    if (answers.acompanamiento === 'Uno a uno') return 'vip';
     return null;
   }
 
