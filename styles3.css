@@ -308,6 +308,11 @@ a   { text-decoration: none; color: inherit; }
   max-width: 800px; line-height: 1.5;
   margin-bottom: 2.5rem; text-align: center;
 }
+/* Dónde vive el programa, debajo del CTA. Va aquí y no arriba porque en el
+   hero la marca de Skool sin contexto agarra en frío: después del botón se
+   lee como el detalle que es. Mismo tratamiento que en la página de gracias. */
+.hero-plataforma { font-size: 0.82rem; color: rgba(232,231,231,0.5); display: inline-flex; align-items: center; gap: 0.3rem; justify-content: center; margin: -0.5rem 0 1.5rem; }
+
 .hero-actions { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; justify-content: center; margin-bottom: 1.5rem; }
 .hero-link-secondary {
   font-family: var(--mono);
@@ -794,11 +799,12 @@ a   { text-decoration: none; color: inherit; }
 
   /* Hero */
   .hero { padding: 5rem 1.25rem 2.5rem; text-align: center; }
-  .hero h1 { font-size: clamp(1.9rem, 8vw, 2.5rem); letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1.5rem; }
-  .hero-sub { font-size: 0.95rem; color: rgba(232,231,231,0.85); margin-bottom: 1rem; text-align: center; }
-  .hero-trial { font-size: 0.82rem; color: rgba(232,231,231,0.55); margin-bottom: 2.25rem; }
+  .hero h1 { font-size: clamp(1.9rem, 8vw, 2.5rem); letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1.75rem; }
+  .hero-sub { font-size: 0.95rem; color: rgba(232,231,231,0.85); margin-bottom: 1.25rem; text-align: center; }
+  .hero-trial { font-size: 0.82rem; color: rgba(232,231,231,0.55); margin-bottom: 2.5rem; }
   .hero-eyebrow { font-size: 0.6rem; margin-bottom: 1.5rem; }
-  .hero-actions { flex-direction: column !important; gap: 0.75rem !important; align-items: stretch !important; width: 100% !important; max-width: 280px !important; margin: 0 auto 2.25rem !important; }
+  .hero-actions { flex-direction: column !important; gap: 0.75rem !important; align-items: stretch !important; width: 100% !important; max-width: 280px !important; margin: 0 auto 1rem !important; }
+  .hero-plataforma { margin: 0 0 2.5rem; }
   .hero-actions .btn-primary,
   .hero-actions .btn-orange,
   .hero-actions .btn-secondary { display: block !important; width: 100% !important; padding: 0.8rem 1.25rem !important; font-size: 0.875rem !important; border-radius: 980px !important; text-align: center !important; box-sizing: border-box !important; }
