@@ -1225,7 +1225,11 @@
   }
 
   async function submitForm() {
-    if (!validateStep(6)) return;
+    // El número tiene que ser el del paso de planes: es lo único que valida
+    // que hayan elegido uno. Al agregar pasos hay que actualizarlo aquí
+    // también, si no el botón deja pasar sin selección y la inversión llega
+    // vacía al sheet.
+    if (!validateStep(TOTAL_STEPS)) return;
 
     const btn = document.getElementById('btnSubmit');
     const textoOriginal = btn.textContent;
