@@ -683,15 +683,11 @@ a   { text-decoration: none; color: inherit; }
 .cta-section p { font-size: 0.95rem; color: rgba(232,231,231,0.75); max-width: 480px; line-height: 1.75; }
 .cta-note { font-family: var(--mono); font-size: 0.68rem; color: var(--subtle); letter-spacing: 0.06em; }
 
-/* El programa vive en Skool. Se dice aquí, junto al CTA, porque de la landing
-   se salta al formulario y de ahí a Skool: si nunca vieron la marca, el
-   aterrizaje se siente como salirse del sitio. El logo va en SVG inline y con
-   el viewBox recortado a la caja real de los glifos, para que se siente en la
-   misma línea base que el texto. */
-.cta-skool { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 0.5rem; font-size: 0.8rem; color: rgba(232,231,231,0.55); }
-.cta-skool .skoolLogo { display: inline-block; }
-.cta-skool .skoolLogo svg { height: 0.85em; width: auto; display: block; }
-
+/* El logo de Skool, inline dentro del texto. Va en SVG y no como archivo para
+   no meter otra request en el hero, y con el viewBox recortado a la caja real
+   de los glifos para que se siente en la misma línea base que el texto. */
+.skoolLogo { display: inline-block; }
+.skoolLogo svg { height: 0.72em; width: auto; display: block; }
 /* ── VER PLANES ── */
 .how-cta { text-align: center; margin-top: 2.5rem; }
 .btn-ver-planes {
