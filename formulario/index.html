@@ -335,7 +335,7 @@
        .selected, que es la clase que guarda la respuesta. */
     .opt.recommended {
       position: relative;
-      border-color: rgba(252,115,66,0.45);
+      border-color: rgba(252,115,66,0.28);
       padding-top: 1.35rem;
       margin-top: 0.5rem;
     }
@@ -347,14 +347,14 @@
       left: 1rem;
       transform: translateY(-50%);
       font-size: 0.62rem;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       line-height: 1;
       white-space: nowrap;
-      color: rgba(252,115,66,0.9);
+      color: rgba(255,255,255,0.45);
       background: var(--bg-2);
-      border: 1px solid rgba(252,115,66,0.3);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 980px;
       padding: 0.32rem 0.65rem;
     }
@@ -861,12 +861,12 @@
     <div class="step" id="step-8">
       <div class="step-eyebrow">Paso 8 de 8</div>
       <h2 class="step-title">Gracias por llenar nuestro formulario.</h2>
-      <p class="step-sub" id="planesSub">Según tus respuestas, este es el plan que te recomendamos.</p>
+      <p class="step-sub" id="planesSub">Por tus respuestas, este es el que más se acerca a lo que buscas.</p>
       <p class="step-sub"><strong style="color:var(--white);font-size:1.05rem">Todos incluyen 7 días de prueba gratis.</strong></p>
 
       <div class="options" id="opts-inversion">
         <div class="opt" id="plan-standard" data-val="100-150 usd" data-track="low" onclick="selectOpt('inversion', this)">
-          <div class="rec-badge">Recomendado para ti</div>
+          <div class="rec-badge">Sugerido</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
             <div class="opt-head">Standard</div>
@@ -880,7 +880,7 @@
           </div>
         </div>
         <div class="opt" id="plan-premium" data-val="150-200 usd" data-track="low" onclick="selectOpt('inversion', this)">
-          <div class="rec-badge">Recomendado para ti</div>
+          <div class="rec-badge">Sugerido</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
             <div class="opt-head">Premium</div>
@@ -894,7 +894,7 @@
           </div>
         </div>
         <div class="opt" id="plan-vip" data-val="200-300 usd" data-track="low" onclick="selectOpt('inversion', this)">
-          <div class="rec-badge">Recomendado para ti</div>
+          <div class="rec-badge">Sugerido</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
             <div class="opt-head">VIP</div>
@@ -938,7 +938,7 @@
 
     <a id="lowPlanBtn" href="https://www.skool.com/newave/plans" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:block;text-decoration:none;margin-top:0"></a>
 
-    <p class="lowPasos">Entra a <span class="skoolLogo" aria-label="Skool"><svg viewBox="0 15 193 44" role="img" aria-label="Skool"><text x="0" y="58" font-family="Arial Black, Arial, sans-serif" font-size="66" font-weight="900"><tspan fill="#2C3E9E">s</tspan><tspan fill="#C64B33">k</tspan><tspan fill="#DBB162">o</tspan><tspan fill="#84B6E3">o</tspan><tspan fill="#C64B33">l</tspan></text></svg></span>, elige tu plan y crea tu cuenta.</p>
+    <p class="lowPasos">Te llevamos a <span class="skoolLogo" aria-label="Skool"><svg viewBox="0 15 193 44" role="img" aria-label="Skool"><text x="0" y="58" font-family="Arial Black, Arial, sans-serif" font-size="66" font-weight="900"><tspan fill="#2C3E9E">s</tspan><tspan fill="#C64B33">k</tspan><tspan fill="#DBB162">o</tspan><tspan fill="#84B6E3">o</tspan><tspan fill="#C64B33">l</tspan></text></svg></span>. Ahí eliges tu plan y creas tu cuenta.</p>
 
     <p style="font-size:0.95rem;color:rgba(255,255,255,0.75);text-align:center;margin:0.9rem 0 0">Nos vemos dentro.</p>
 
@@ -1186,7 +1186,7 @@
     if (plan) {
       const el = document.getElementById('plan-' + plan);
       if (el) el.classList.add('recommended');
-      if (sub) sub.textContent = 'Según tus respuestas, este es el plan que te recomendamos.';
+      if (sub) sub.textContent = 'Por tus respuestas, este es el que más se acerca a lo que buscas.';
     } else if (sub) {
       // Red de seguridad: no debería pasar porque los pasos 5 y 6 son
       // obligatorios, pero si alguien llega sin respuestas no se le miente
