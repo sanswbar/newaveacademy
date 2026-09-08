@@ -861,7 +861,7 @@
     <div class="step" id="step-8">
       <div class="step-eyebrow">Paso 8 de 8</div>
       <h2 class="step-title">Gracias por llenar nuestro formulario.</h2>
-      <p class="step-sub" id="planesSub">Por tus respuestas, este es el que más se acerca a lo que buscas.</p>
+      <p class="step-sub" id="planesSub">En base a tus respuestas, este es el plan que te sugerimos.</p>
       <p class="step-sub"><strong style="color:var(--white);font-size:1.05rem">Todos incluyen 7 días de prueba gratis.</strong></p>
 
       <div class="options" id="opts-inversion">
@@ -1186,7 +1186,7 @@
     if (plan) {
       const el = document.getElementById('plan-' + plan);
       if (el) el.classList.add('recommended');
-      if (sub) sub.textContent = 'Por tus respuestas, este es el que más se acerca a lo que buscas.';
+      if (sub) sub.textContent = 'En base a tus respuestas, este es el plan que te sugerimos.';
     } else if (sub) {
       // Red de seguridad: no debería pasar porque los pasos 5 y 6 son
       // obligatorios, pero si alguien llega sin respuestas no se le miente
