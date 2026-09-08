@@ -509,7 +509,15 @@
     /* ── Page thanks ── */
     /* Qué pasa al llegar a Skool. Va debajo del botón, no arriba: arriba
        frena, abajo prepara a quien ya decidió. */
-    .lowPasos { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-align: center; margin: 0.75rem auto 0; max-width: 380px; line-height: 1.5; }
+    /* El logo de Skool dentro de la frase. Va inline y no como archivo para
+       no depender de otra request en la pantalla donde se decide la
+       conversión. La gente aterriza en una plataforma que no conoce y ahí se
+       cae la mayoría de los clicks; verlo aquí hace que el salto se sienta
+       continuo en vez de un sitio ajeno. */
+    .skoolLogo { display: inline-block; }
+    .skoolLogo svg { height: 0.78em; width: auto; display: block; }
+
+    .lowPasos { font-size: 0.9rem; color: rgba(255,255,255,0.7); text-align: center; margin: 0.9rem auto 0; max-width: 380px; line-height: 1.5; }
     .thanks-videos-wrap { width: 100%; max-width: 520px; margin: 0 auto 2rem; padding: 0 1rem; box-sizing: border-box; }
     .thanks-videos-tag { font-family: 'DM Mono','Courier New',monospace; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase; text-align: center; margin-bottom: 0.75rem; }
     .thanks-videos-title { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.02em; text-align: center; margin-bottom: 1.25rem; line-height: 1.2; }
@@ -930,7 +938,7 @@
 
     <a id="lowPlanBtn" href="https://www.skool.com/newave/plans" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:block;text-decoration:none;margin-top:0"></a>
 
-    <p class="lowPasos">Creas tu cuenta, eliges tu plan y empiezas. No se cobra nada durante los primeros 7 días.</p>
+    <p class="lowPasos">Entra a <span class="skoolLogo" aria-label="Skool"><svg viewBox="0 15 193 44" role="img" aria-label="Skool"><text x="0" y="58" font-family="Arial Black, Arial, sans-serif" font-size="66" font-weight="900"><tspan fill="#2C3E9E">s</tspan><tspan fill="#C64B33">k</tspan><tspan fill="#DBB162">o</tspan><tspan fill="#84B6E3">o</tspan><tspan fill="#C64B33">l</tspan></text></svg></span>, elige tu plan y crea tu cuenta.</p>
 
     <p style="font-size:0.95rem;color:rgba(255,255,255,0.75);text-align:center;margin:0.9rem 0 0">Nos vemos dentro.</p>
 
