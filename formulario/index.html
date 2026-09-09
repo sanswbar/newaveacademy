@@ -29,6 +29,21 @@
         } catch (err) {
           console.error('gtag no cargó:', err);
         }
+
+        // GTM (GTM-WNMFCN55). Va con su snippet propio para que dataLayer y
+        // gtm.start queden como el contenedor los espera. Diferido por el
+        // mismo motivo que gtag: en 4G desde el WebView de Instagram, pedirlo
+        // antes de pintar dejaba la página en blanco, y aquí es donde se
+        // registra el lead.
+        try {
+          window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          var g = document.createElement('script');
+          g.async = true;
+          g.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WNMFCN55';
+          document.head.appendChild(g);
+        } catch (err) {
+          console.error('GTM no cargó:', err);
+        }
       }
       if (document.readyState === 'complete') cargarGtag();
       else window.addEventListener('load', cargarGtag);
@@ -656,6 +671,9 @@
   </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNMFCN55" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 <div class="shell" id="app">
 
