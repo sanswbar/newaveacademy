@@ -352,7 +352,7 @@
        NO preselecciona (eso lo hace .selected) y las otras dos siguen igual de
        clickeables. Convive con .recommended, que marca el sugerido según las
        respuestas y puede caer en cualquiera de los tres. */
-    #plan-anual { border-color: rgba(252,115,66,0.5); background: rgba(252,115,66,0.04); }
+    #plan-premium { border-color: rgba(252,115,66,0.5); background: rgba(252,115,66,0.04); }
 
     .opt.recommended {
       position: relative;
@@ -896,27 +896,35 @@
       <p class="step-sub"><strong style="color:var(--white);font-size:1.05rem">Todos incluyen 7 días de prueba gratis.</strong></p>
 
       <div class="options" id="opts-inversion">
-        <div class="opt" id="plan-mensual" data-val="Mensual 49" data-track="low" onclick="selectOpt('inversion', this)">
+        <div class="opt" id="plan-standard" data-val="Mensual 49" data-track="low" onclick="selectOpt('inversion', this)">
           <div class="rec-badge">Sugerido</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
-            <div class="opt-head">Mensual</div>
+            <div class="opt-head">Standard (Mensual)</div>
             <ul class="opt-features">
-              <li>Metodología completa, vacantes semanales y Q&amp;A en vivo</li>
+              <li>7 días de prueba gratis</li>
+              <li>Programa paso a paso para conseguir tu trabajo remoto</li>
+              <li>Plantillas de CV, Cover Letter y LinkedIn</li>
+              <li>Comunidad para hacer networking</li>
+              <li>Bolsas de trabajo con vacantes remotas en dólares</li>
             </ul>
             <div class="opt-price">$49 USD/mes <span class="opt-cancel">· Cancela cuando quieras</span></div>
           </div>
         </div>
-        <div class="opt" id="plan-anual" data-val="Anual 199" data-track="low" onclick="selectOpt('inversion', this)">
+        <div class="opt" id="plan-premium" data-val="Anual 199" data-track="low" onclick="selectOpt('inversion', this)">
           <div class="rec-badge">Sugerido</div>
           <div class="opt-radio"></div>
           <div class="opt-text">
-            <div class="opt-head">Anual <span class="opt-badge">Recomendado</span></div>
+            <div class="opt-head">Premium (Anual) <span class="opt-badge">Recomendado</span></div>
             <ul class="opt-features">
-              <li>+ Revisión personalizada de CV, Cover Letter y LinkedIn</li>
-              <li>Ahorra 66%</li>
+              <li>7 días de prueba gratis</li>
+              <li>Todo del Plan Standard +</li>
+              <li>Revisión personalizada de CV, Cover Letter y LinkedIn</li>
+              <li>Sesiones semanales de Q&amp;A para seguimiento de procesos</li>
+              <li>Estrategia de aplicaciones, entrevistas y negociación</li>
+              <li>Certificaciones para fortalecer tu perfil profesional</li>
             </ul>
-            <div class="opt-price">$199 USD/año <span class="opt-cancel">· 7 días de prueba</span></div>
+            <div class="opt-price">$199 USD/año <span class="opt-cancel">· Ahorra 66%</span></div>
           </div>
         </div>
         <div class="opt" id="plan-vip" data-val="VIP 499" data-track="low" onclick="selectOpt('inversion', this)">
@@ -925,11 +933,14 @@
           <div class="opt-text">
             <div class="opt-head">VIP <span class="opt-badge">Cupo limitado</span></div>
             <ul class="opt-features">
-              <li>+ Sesión 1:1 con un Career Coach</li>
-              <li>Recomendación directa con empresas que contratan remoto</li>
-              <li>Revisión de documentos ilimitada</li>
+              <li>7 días de prueba gratis</li>
+              <li>Todo lo del plan Premium +</li>
+              <li>Sesión 1:1 con un Career Coach</li>
+              <li>Vacantes seleccionadas para tu perfil cada semana</li>
+              <li>Acceso prioritario por DM al equipo</li>
+              <li>IA aplicada a tu búsqueda y carrera profesional</li>
             </ul>
-            <div class="opt-price">$499 USD/año <span class="opt-cancel">· 7 días de prueba</span></div>
+            <div class="opt-price">$499 USD/año</div>
           </div>
         </div>
       </div>
@@ -1193,14 +1204,14 @@
   // un empujón al plan más caro en vez de una lectura de sus respuestas.
   // Solo pinta la tarjeta: NO la preselecciona, el usuario tiene que elegir.
   function planRecomendado() {
-    if (answers.acompanamiento === 'Metodologia a mi ritmo') return 'mensual';
-    if (answers.acompanamiento === 'Revision de documentos') return 'anual';
+    if (answers.acompanamiento === 'Metodologia a mi ritmo') return 'standard';
+    if (answers.acompanamiento === 'Revision de documentos') return 'premium';
     if (answers.acompanamiento === 'Uno a uno') return 'vip';
     return null;
   }
 
   function pintarRecomendacion() {
-    ['mensual', 'anual', 'vip'].forEach(function (nombre) {
+    ['standard', 'premium', 'vip'].forEach(function (nombre) {
       const el = document.getElementById('plan-' + nombre);
       if (el) el.classList.remove('recommended');
     });
@@ -1536,9 +1547,9 @@
 
       const listo = answers.compromiso === 'Listo para tomar accion';
       const planMap = {
-        'Mensual 49': { nombre: 'Plan Mensual' },
-        'Anual 199':  { nombre: 'Plan Anual'   },
-        'VIP 499':    { nombre: 'Plan VIP'     },
+        'Mensual 49': { nombre: 'Plan Standard' },
+        'Anual 199':  { nombre: 'Plan Premium'  },
+        'VIP 499':    { nombre: 'Plan VIP'      },
       };
       const plan = planMap[answers.inversion] || { nombre: '' };
       document.getElementById('lowPlanNombre').textContent = plan.nombre;
