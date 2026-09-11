@@ -1130,7 +1130,8 @@ function sendEmail5(nombre, correo) {
   <p style="margin:0 0 16px">Trabajar remoto.<br>Ganar en dólares.<br>Tener más libertad.</p>
   <p style="margin:0 0 16px">Esa razón sigue ahí.</p>
   <p style="margin:0 0 16px">La pregunta es si vas a hacer algo al respecto o lo vas a dejar pasar otra vez.</p>
-  <p style="margin:0 0 16px">Newave sigue abierto para ti. 7 días gratis, sin compromiso. Lo único que tienes que hacer es entrar.</p>
+  <p style="margin:0 0 16px">Newave sigue abierto para ti. Empiezas por $49 al mes con 7 días gratis, sin compromiso.</p>
+  <p style="margin:0 0 16px">Y si vas en serio, el plan anual es el que elige la mayoría: $199 al año, ahorras 66%.</p>
   <p style="margin:0 0 16px"><a href="${utmUrl5}">Entrar a Newave</a></p>
   <p style="margin:0 0 16px">Si decides que no es tu momento, lo entiendo.</p>
   <p style="margin:0 0 16px">Pero si tu meta sigue siendo trabajar remoto para una empresa internacional, este es tu mejor camino.</p>
