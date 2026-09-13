@@ -1176,6 +1176,109 @@ function sendOnboarding1(nombre, correo) {
   GmailApp.sendEmail(correo, subject, '', { name: FROM_NAME, replyTo: FROM_EMAIL, htmlBody: html });
 }
 
+
+// ─── SINCRONIZAR TRIALS DESDE SKOOL ───────────────────────────────────────
+//
+// Skool no tiene webhooks de salida ni API pública, así que no hay forma de
+// que avise solo cuando alguien abre trial. Esto es lo más cerca: se pega el
+// export de miembros en una hoja aparte y el script cruza por correo.
+//
+// CÓMO USARLO:
+//   1. En Skool: Members → Export → descarga el CSV
+//   2. En este spreadsheet, crear (o vaciar) una hoja llamada "Skool"
+//   3. Pegar el CSV completo ahí, con encabezados
+//   4. Menú "NEWAVE" → "Sincronizar trials de Skool"
+//
+// Marca "trial" solo en filas que no lo tengan ya, así que es seguro correrlo
+// las veces que sea. Al escribir en la columna de Estatus NO dispara onEdit
+// —los cambios por script no lo disparan—, así que el onboarding y el aviso
+// de Slack se encolan a mano aquí.
+
+const HOJA_SKOOL = 'Skool';
+
+function onOpen() {
+  SpreadsheetApp.getUi()
+    .createMenu('NEWAVE')
+    .addItem('Sincronizar trials de Skool', 'sincronizarTrialsSkool')
+    .addToUi();
+}
+
+function sincronizarTrialsSkool() {
+  const ui = SpreadsheetApp.getUi();
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const hojaSkool = ss.getSheetByName(HOJA_SKOOL);
+
+  if (!hojaSkool) {
+    ui.alert('Falta la hoja "' + HOJA_SKOOL + '".\n\n' +
+             'Créala y pega ahí el export de miembros de Skool (con encabezados).');
+    return;
+  }
+
+  // ── Leer los correos del export ──
+  const datosSkool = hojaSkool.getDataRange().getValues();
+  if (datosSkool.length < 2) {
+    ui.alert('La hoja "' + HOJA_SKOOL + '" está vacía.');
+    return;
+  }
+
+  // La columna del correo se busca por nombre: Skool cambia el orden entre
+  // exports y fijar un número la rompería en silencio.
+  const encabezados = datosSkool[0].map(function (h) {
+    return (h || '').toString().toLowerCase().trim();
+  });
+  let colCorreo = encabezados.indexOf('email');
+  if (colCorreo === -1) {
+    colCorreo = encabezados.findIndex(function (h) { return h.indexOf('email') !== -1; });
+  }
+  if (colCorreo === -1) {
+    ui.alert('No encontré una columna de email en la hoja "' + HOJA_SKOOL + '".\n\n' +
+             'Encabezados encontrados: ' + encabezados.join(', '));
+    return;
+  }
+
+  const correosSkool = {};
+  for (let i = 1; i < datosSkool.length; i++) {
+    const c = (datosSkool[i][colCorreo] || '').toString().trim().toLowerCase();
+    if (c) correosSkool[c] = true;
+  }
+
+  // ── Cruzar contra los registros ──
+  const sheet = getSheet(SHEET_NAME);
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) { ui.alert('No hay registros.'); return; }
+
+  const registros = sheet.getRange(2, 1, lastRow - 1, COL_ESTATUS).getValues();
+  const marcadas = [];
+
+  for (let i = 0; i < registros.length; i++) {
+    const correo = (registros[i][COL_CORREO - 1] || '').toString().trim().toLowerCase();
+    if (!correo || !correosSkool[correo]) continue;
+
+    const estatus = (registros[i][COL_ESTATUS - 1] || '').toString().toLowerCase();
+    if (estatus.indexOf('trial') !== -1 || estatus.indexOf('pago') !== -1) continue;
+
+    marcadas.push(i + 2);
+  }
+
+  if (marcadas.length === 0) {
+    ui.alert('Todo al día: ningún trial nuevo por marcar.\n\n' +
+             'Correos en el export de Skool: ' + Object.keys(correosSkool).length);
+    return;
+  }
+
+  // ── Marcar ──
+  // Escribir por script no dispara onEdit, así que el onboarding y el aviso de
+  // Slack —que normalmente salen de ahí— se encolan a mano.
+  marcadas.forEach(function (fila) {
+    sheet.getRange(fila, COL_ESTATUS).setValue('trial');
+    try { queueOnboarding(sheet, fila); } catch (err) { Logger.log('onboarding fila ' + fila + ': ' + err); }
+    try { queueSlack(sheet, fila); }      catch (err) { Logger.log('slack fila ' + fila + ': ' + err); }
+  });
+
+  ui.alert('Listo.\n\n' + marcadas.length + ' trial(es) marcado(s).\n' +
+           'Filas: ' + marcadas.join(', '));
+}
+
 // ─── SHEET SETUP ──────────────────────────────────────────────────────────
 
 function getSheet(name) {
