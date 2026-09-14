@@ -690,7 +690,7 @@
   <!-- Progress -->
   <div class="progress-wrap" id="progressWrap">
     <div class="progress-label">
-      <span id="progressText">Paso 1 de 8</span>
+      <span id="progressText">Paso 1 de 5</span>
       <span id="progressPct">0%</span>
     </div>
     <div class="progress-bar">
@@ -703,7 +703,7 @@
 
     <!-- ── Paso 1: Datos personales ── -->
     <div class="step active" id="step-1">
-      <div class="step-eyebrow">Paso 1 de 8</div>
+      <div class="step-eyebrow">Paso 1 de 5</div>
       <h2 class="step-title">Cuéntanos sobre ti</h2>
       <p class="step-sub">Necesitamos algunos datos básicos para poder ayudarte mejor.</p>
 
@@ -732,7 +732,7 @@
 
     <!-- ── Paso 2: Nivel de inglés ── -->
     <div class="step" id="step-2">
-      <div class="step-eyebrow">Paso 2 de 8</div>
+      <div class="step-eyebrow">Paso 2 de 5</div>
       <h2 class="step-title">¿Cuál es tu nivel de inglés?</h2>
       <p class="step-sub">El inglés es clave para trabajar con empresas internacionales.</p>
 
@@ -762,27 +762,9 @@
       </div>
     </div>
 
-    <!-- ── Paso 3: Trabajo actual ── -->
-    <div class="step" id="step-3">
-      <div class="step-eyebrow">Paso 3 de 8</div>
-      <h2 class="step-title">¿En qué empresa trabajas y qué puesto tienes?</h2>
-      <p class="step-sub">Cuéntanos sobre tu situación profesional actual. Newave funciona para cualquier perfil, no solo tech.</p>
-
-      <div class="field">
-        <label for="trabajo">Empresa y puesto actual *</label>
-        <textarea id="trabajo" placeholder="Ej: Trabajo en una agencia como ejecutiva de marketing. Llevo 2 años en el puesto..."></textarea>
-        <div class="field-error" id="err-trabajo">Por favor cuéntanos sobre tu trabajo actual.</div>
-      </div>
-
-      <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(3)">← Atrás</button>
-        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(3)">Continuar →</button>
-      </div>
-    </div>
-
     <!-- ── Paso 4: Razón del cambio ── -->
-    <div class="step" id="step-4">
-      <div class="step-eyebrow">Paso 4 de 8</div>
+    <div class="step" id="step-3">
+      <div class="step-eyebrow">Paso 3 de 5</div>
       <h2 class="step-title">¿Por qué quieres hacer un cambio en tu vida profesional?</h2>
       <p class="step-sub">Cuéntanos cuál es tu motivación principal.</p>
 
@@ -793,14 +775,14 @@
       </div>
 
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(4)">← Atrás</button>
-        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(4)">Continuar →</button>
+        <button class="btn-back" onclick="prevStep(3)">← Atrás</button>
+        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(3)">Continuar →</button>
       </div>
     </div>
 
     <!-- ── Paso 5: Nivel de acompañamiento ── -->
-    <div class="step" id="step-5">
-      <div class="step-eyebrow">Paso 5 de 8</div>
+    <div class="step" id="step-4">
+      <div class="step-eyebrow">Paso 4 de 5</div>
       <h2 class="step-title">¿Qué nivel de acompañamiento buscas?</h2>
       <p class="step-sub">Queremos entender cuánto apoyo quieres durante tu proceso.</p>
 
@@ -821,8 +803,8 @@
       <div class="field-error" id="err-acompanamiento" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
 
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(5)">← Atrás</button>
-        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(5)">Continuar →</button>
+        <button class="btn-back" onclick="prevStep(4)">← Atrás</button>
+        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(4)">Continuar →</button>
       </div>
     </div>
 
@@ -831,68 +813,9 @@
          sugerido. Se guarda en la columna K del sheet. Antes preguntaba
          por interés y el 100% decía que sí, así que todos caían en VIP y
          la sugerencia dejaba de significar algo. -->
-    <div class="step" id="step-6">
-      <div class="step-eyebrow">Paso 6 de 8</div>
-      <h2 class="step-title">¿Qué tanto usas la Inteligencia Artificial en tu trabajo?</h2>
-      <p class="step-sub">Nos ayuda a entender mejor tu perfil.</p>
-
-      <div class="options" id="opts-ia">
-        <div class="opt" data-val="Todos los dias" onclick="selectOpt('ia', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">Todos los días, ya es parte de cómo trabajo</div>
-        </div>
-        <div class="opt" data-val="La he usado" onclick="selectOpt('ia', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">La he usado, pero no de forma constante</div>
-        </div>
-        <div class="opt" data-val="Casi nada" onclick="selectOpt('ia', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">Casi nada, apenas la estoy explorando</div>
-        </div>
-        <div class="opt" data-val="Nada" onclick="selectOpt('ia', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">Nada</div>
-        </div>
-      </div>
-      <div class="field-error" id="err-ia" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
-
-      <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(6)">← Atrás</button>
-        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(6)">Continuar →</button>
-      </div>
-    </div>
-
-    <!-- ── Paso 7: Nivel de compromiso ── -->
-    <div class="step" id="step-7">
-      <div class="step-eyebrow">Paso 7 de 8</div>
-      <h2 class="step-title">¿Cuál es tu nivel de compromiso en este momento?</h2>
-      <p class="step-sub">No hay respuesta incorrecta, solo queremos entender dónde estás para acompañarte de la mejor forma.</p>
-
-      <div class="options" id="opts-compromiso">
-        <div class="opt" data-val="Listo para tomar accion" onclick="selectOpt('compromiso', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">Estoy listo/a para tomar acción e invertir en un programa que sí me ayude a lograr mis objetivos profesionales.</div>
-        </div>
-        <div class="opt" data-val="Interesado en conocer" onclick="selectOpt('compromiso', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">Estoy interesado/a en saber del programa para tener claridad y, si es lo que busco, tomar acción.</div>
-        </div>
-        <div class="opt" data-val="Buscando, no listo aun" onclick="selectOpt('compromiso', this)">
-          <div class="opt-radio"></div>
-          <div class="opt-text">Actualmente estoy en un periodo de búsqueda y no estoy listo/a para tomar acción, pero me gustaría saber lo que hacen para tenerlo en cuenta en un futuro.</div>
-        </div>
-      </div>
-      <div class="field-error" id="err-compromiso" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
-
-      <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(7)">← Atrás</button>
-        <button class="btn-primary" style="width:auto;margin-top:0" onclick="nextStep(7)">Continuar →</button>
-      </div>
-    </div>
-
     <!-- ── Paso 8: Inversión ── -->
-    <div class="step" id="step-8">
-      <div class="step-eyebrow">Paso 8 de 8</div>
+    <div class="step" id="step-5">
+      <div class="step-eyebrow">Paso 5 de 5</div>
       <h2 class="step-title">Gracias por llenar nuestro formulario.</h2>
       <p class="step-sub" id="planesSub">Con base en tus respuestas, este es el plan que te sugerimos.</p>
       <p class="step-sub"><strong style="color:var(--white);font-size:1.05rem">Todos incluyen 7 días de prueba gratis.</strong></p>
@@ -951,7 +874,7 @@
       <div class="field-error" id="err-inversion" style="margin-top:0.5rem">Por favor selecciona una opción.</div>
 
       <div class="nav-row">
-        <button class="btn-back" onclick="prevStep(8)">← Atrás</button>
+        <button class="btn-back" onclick="prevStep(5)">← Atrás</button>
         <button class="btn-primary" style="width:auto;margin-top:0" id="btnSubmit" onclick="submitForm()">Comenzar prueba gratis →</button>
       </div>
     </div>
@@ -1083,11 +1006,11 @@
   // ── State ──
   const answers = {
     nombre: '', correo: '', whatsapp: '', linkedin: '',
-    ingles: '', experiencia: '', area: '', trabajo: '', razon: '', compromiso: '', acompanamiento: '', ia: '', inversion: '',
+    ingles: '', experiencia: '', area: '', razon: '', acompanamiento: '', inversion: '',
     track: '' // 'disqualified' | 'low' | 'high'
   };
 
-  const TOTAL_STEPS = 8;
+  const TOTAL_STEPS = 5;
 
   // ── Google Apps Script URL ──
   // Pega aquí la URL de tu Google Apps Script desplegado:
@@ -1162,33 +1085,17 @@
     }
 
     if (step === 3) {
-      const t = document.getElementById('trabajo').value.trim();
-      if (!t) { setErr('err-trabajo', true); document.getElementById('trabajo').classList.add('error'); ok = false; }
-      else    { setErr('err-trabajo', false); document.getElementById('trabajo').classList.remove('error'); answers.trabajo = t; }
-    }
-
-    if (step === 4) {
       const r = document.getElementById('razon').value.trim();
       if (!r) { setErr('err-razon', true); document.getElementById('razon').classList.add('error'); ok = false; }
       else    { setErr('err-razon', false); document.getElementById('razon').classList.remove('error'); answers.razon = r; }
     }
 
-    if (step === 7) {
-      if (!answers.compromiso) { setErr('err-compromiso', true); ok = false; }
-      else setErr('err-compromiso', false);
-    }
-
-    if (step === 5) {
+    if (step === 4) {
       if (!answers.acompanamiento) { setErr('err-acompanamiento', true); ok = false; }
       else setErr('err-acompanamiento', false);
     }
 
-    if (step === 6) {
-      if (!answers.ia) { setErr('err-ia', true); ok = false; }
-      else setErr('err-ia', false);
-    }
-
-    if (step === 8) {
+    if (step === 5) {
       if (!answers.inversion) { setErr('err-inversion', true); ok = false; }
     }
 
@@ -1241,7 +1148,7 @@
     if (el) el.classList.add('active');
     currentStep = n;
     updateProgress(n);
-    if (n === 8) pintarRecomendacion();
+    if (n === TOTAL_STEPS) pintarRecomendacion();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     if (typeof gtag === 'function') {
@@ -1293,7 +1200,7 @@
     // ya pasó una vez (30 jul 2026) y perdimos leads reales por esto.
     try {
       if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', { compromiso: answers.compromiso, inversion: answers.inversion, ia: answers.ia, plan_recomendado: planRecomendado() || '' });
+        gtag('event', 'form_submit', { inversion: answers.inversion, plan_recomendado: planRecomendado() || '' });
       }
     } catch (err) {
       console.error('GA4 form_submit falló:', err);
@@ -1327,7 +1234,7 @@
         }
         fbq('track', 'CompleteRegistration', {
           content_name: 'Formulario Newave',
-          status: answers.compromiso === 'Listo para tomar accion'
+          status: true
         }, { eventID: eventId });
       }
     } catch (err) {
@@ -1394,7 +1301,8 @@
       fbc: leerCookie('_fbc'),
       fbp: leerCookie('_fbp'),
       content_name: 'Formulario Newave',
-      status: answers.compromiso === 'Listo para tomar accion',
+      // Sin la pregunta de compromiso, todos entran a la misma cadena.
+      status: true,
     };
 
     fetch('/api/meta-capi', {
@@ -1438,15 +1346,12 @@
       whatsapp:   answers.whatsapp,
       linkedin:   document.getElementById('linkedin').value.trim(),
       ingles:     answers.ingles,
-      trabajo:    answers.trabajo,
       razon:      answers.razon,
-      compromiso: answers.compromiso,
       inversion:  answers.inversion,
       // Esta columna guardaba el track (siempre 'low' desde que el flujo
       // high-ticket se retiró). Ahora guarda el interés en IA, que sí varía
       // y es lo que se quiere medir. El endpoint de métricas segmenta por
       // esta columna, así que ahora segmenta por IA.
-      track:      answers.ia,
       acompanamiento: answers.acompanamiento,
       // Google agrega ?gclid=... a cada clic de sus anuncios. Si viene, el
       // lead llegó por Google Ads; si no, por Meta, orgánico o directo.
@@ -1549,7 +1454,6 @@
       const nombre = answers.nombre.split(' ')[0];
       document.getElementById('lowNombre').textContent = nombre;
 
-      const listo = answers.compromiso === 'Listo para tomar accion';
       const planMap = {
         'Mensual 49': { nombre: 'Plan Standard' },
         'Anual 199':  { nombre: 'Plan Premium'  },
@@ -1558,22 +1462,14 @@
       const plan = planMap[answers.inversion] || { nombre: '' };
       document.getElementById('lowPlanNombre').textContent = plan.nombre;
 
-      // Quien no se declaró listo llega igual a /plans, pero conviene decirle
-      // que puede entrar a mirar sin pagar todavía.
-      const intro = document.getElementById('lowIntro');
-      if (intro && !listo) {
-        intro.textContent = 'Te invitamos a conocer el programa por 7 días. Si no es para ti, cancelas.';
-      }
-
       // Todos van a /plans: ahí es donde se activa la prueba gratis. Mandar a
-      // /about a quien ya llenó los 6 pasos lo obligaba a empezar de cero, y
-      // esa página no permite iniciar el trial. El copy sí cambia según el
-      // nivel de compromiso, el destino no.
+      // /about lo obligaría a empezar de cero y esa página no permite iniciar
+      // el trial.
       const btn = document.getElementById('lowPlanBtn');
       btn.textContent = 'Comenzar prueba gratis →';
       btn.href = 'https://www.skool.com/newave/plans';
       btn.addEventListener('click', function() {
-        if (window.clarity) clarity('event', listo ? 'click_unirme_ahora' : 'click_conocer_programa');
+        if (window.clarity) clarity('event', 'click_unirme_ahora');
         registrarClickPlan();
       }, { once: true });
       btn.style.display = 'block';

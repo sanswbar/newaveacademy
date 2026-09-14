@@ -166,6 +166,9 @@ function doGet(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
 
+    // Desde el 14 sep 2026 el formulario ya no pregunta por compromiso ni por
+    // trabajo actual (se acortó de 8 pasos a 5), así que estos llegan vacíos.
+    // Las columnas se conservan por el histórico y por si vuelven.
     const compromiso = e.parameter.compromiso || '';
     // Cambio 3 ago 2026: los correos van a TODOS los niveles de compromiso,
     // incluido "Buscando, no listo aun". Razón: son ~7% de los leads (31 de
