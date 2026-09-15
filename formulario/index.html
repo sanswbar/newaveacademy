@@ -888,14 +888,19 @@
       </svg>
     </div>
 
-    <h2 class="result-title">Bienvenido/a, <span id="lowNombre"></span>. Elegiste <span id="lowPlanNombre"></span>.</h2>
+    <h2 class="result-title">Bienvenido/a a NEWAVE, <span id="lowNombre"></span></h2>
+
+    <div id="lowPlanBox" style="margin-bottom:2rem;padding:1rem 1.25rem;border:1.5px solid rgba(252,115,66,0.4);border-radius:14px;background:rgba(252,115,66,0.06);">
+      <p style="margin:0 0 0.25rem;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FC7342;">Elegiste el</p>
+      <p id="lowPlanNombre" style="margin:0;font-size:1.1rem;font-weight:700;color:var(--white)"></p>
+    </div>
 
 
-    <p id="lowIntro" style="font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1.5rem;text-align:center">Te llevamos a activar tu prueba de 7 días.</p>
+    <p id="lowIntro" style="font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1.5rem;text-align:center">Estamos listos para ayudarte a tomar el control de tu carrera.</p>
 
     <a id="lowPlanBtn" href="https://www.skool.com/newave/plans" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:block;text-decoration:none;margin-top:0"></a>
 
-    <p class="lowPasos">En <span class="skoolLogo" aria-label="Skool"><svg viewBox="0 15 193 44" role="img" aria-label="Skool"><text x="0" y="58" font-family="Arial Black, Arial, sans-serif" font-size="66" font-weight="900"><tspan fill="#2C3E9E">s</tspan><tspan fill="#C64B33">k</tspan><tspan fill="#DBB162">o</tspan><tspan fill="#84B6E3">o</tspan><tspan fill="#C64B33">l</tspan></text></svg></span> eliges tu plan y creas tu cuenta.</p>
+    <p class="lowPasos">Te llevamos a <span class="skoolLogo" aria-label="Skool"><svg viewBox="0 15 193 44" role="img" aria-label="Skool"><text x="0" y="58" font-family="Arial Black, Arial, sans-serif" font-size="66" font-weight="900"><tspan fill="#2C3E9E">s</tspan><tspan fill="#C64B33">k</tspan><tspan fill="#DBB162">o</tspan><tspan fill="#84B6E3">o</tspan><tspan fill="#C64B33">l</tspan></text></svg></span>. Ahí eliges tu plan y creas tu cuenta.</p>
 
     <p style="font-size:0.95rem;color:rgba(255,255,255,0.75);text-align:center;margin:2rem 0 0">Nos vemos dentro.</p>
 
@@ -1450,9 +1455,9 @@
       document.getElementById('lowNombre').textContent = nombre;
 
       const planMap = {
-        'Mensual 49': { nombre: 'Standard ($49/mes)' },
-        'Anual 199':  { nombre: 'Premium ($199/año)' },
-        'VIP 499':    { nombre: 'VIP ($499/año)'     },
+        'Mensual 49': { nombre: 'Plan Standard' },
+        'Anual 199':  { nombre: 'Plan Premium'  },
+        'VIP 499':    { nombre: 'Plan VIP'      },
       };
       const plan = planMap[answers.inversion] || { nombre: '' };
       document.getElementById('lowPlanNombre').textContent = plan.nombre;
