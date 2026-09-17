@@ -96,6 +96,30 @@
       // se quedó colgado en 4G, el tracking igual entra a los 4 segundos.
       setTimeout(cargarTracking, 4000);
     })();
+
+    // ─────────────────────────────────────────────────────────────────────
+    // ORIGEN DEL LEAD (17 sep 2026)
+    //
+    // Los anuncios de Meta llegan a esta página con ?utm_content=<adset>
+    // El formulario vive en /formulario/ y los CTA navegan ahí SIN arrastrar
+    // la query, así que el origen se perdería en ese click. Guardarlo aquí, en
+    // sessionStorage, lo conserva: las dos páginas comparten origen
+    // (https://www.newaveacademy.com), así que el formulario lo puede leer.
+    //
+    // No toca la red ni bloquea nada. Si sessionStorage falla (modo privado,
+    // WebView de Instagram), no pasa nada: se guarda lo que se pueda y el
+    // lead se registra igual, solo sin origen.
+    (function guardarOrigen() {
+      try {
+        var q = new URLSearchParams(location.search);
+        ['utm_content', 'fbclid'].forEach(function (k) {
+          var v = q.get(k);
+          if (v) sessionStorage.setItem('nw_' + k, v);
+        });
+      } catch (err) {
+        // Sin origen se vive; sin landing no.
+      }
+    })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=2100703077340387&ev=PageView&noscript=1"

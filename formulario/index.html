@@ -1337,6 +1337,30 @@
     }
   }
 
+  // De qué adset vino el lead. Los anuncios de Meta llegan a la landing con
+  // ?utm_content=<nombre del adset>, y ahí se guarda en sessionStorage
+  // (ver index.html). Aquí solo se recuperan, porque el CTA de la landing
+  // navega a esta página sin arrastrar la query.
+  //
+  // También lee de la URL por si alguien llega directo al formulario desde
+  // un anuncio. Mismo patrón que obtenerGclid(): try/catch porque
+  // sessionStorage truena en modo privado y en WebViews.
+  function obtenerOrigen() {
+    const campos = ['utm_content', 'fbclid'];
+    const out = {};
+    try {
+      const q = new URLSearchParams(location.search);
+      campos.forEach(function (k) {
+        const enUrl = q.get(k);
+        if (enUrl) sessionStorage.setItem('nw_' + k, enUrl);
+        out[k] = enUrl || sessionStorage.getItem('nw_' + k) || '';
+      });
+    } catch (err) {
+      campos.forEach(function (k) { out[k] = ''; });
+    }
+    return out;
+  }
+
   function sendToSheets() {
     if (APPS_SCRIPT_URL === 'TU_APPS_SCRIPT_URL_AQUI') return;
 
@@ -1355,7 +1379,10 @@
       acompanamiento: answers.acompanamiento,
       // Google agrega ?gclid=... a cada clic de sus anuncios. Si viene, el
       // lead llegó por Google Ads; si no, por Meta, orgánico o directo.
-      gclid:      obtenerGclid()
+      gclid:      obtenerGclid(),
+      // De qué anuncio vino. Si llegó por orgánico o por un link directo,
+      // estos van vacíos — y esa ausencia también es dato.
+      ...obtenerOrigen()
     });
 
     const url = APPS_SCRIPT_URL + '?' + params.toString();

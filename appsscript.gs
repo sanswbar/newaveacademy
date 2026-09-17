@@ -35,6 +35,13 @@ const COL_CORREO_AL_CONVERTIR = 15;
 // están hardcodeadas por número y meter una en medio rompería el registro.
 const COL_FUENTE = 16;
 
+// Origen del lead (17 sep 2026). Van en 17-20, después de TODO lo que ya
+// existe, a propósito: las columnas 12-16 están hardcodeadas por número y
+// cualquier inserción antes de la 16 las recorre y rompe el registro de
+// clicks. Aquí no estorban a nadie.
+const COL_ADSET  = 17; // Column Q — nombre del adset (utm_content)
+const COL_FBCLID = 18; // Column R
+
 // Columnas que lee la notificación de Slack. No están hardcodeadas en ningún
 // otro lado, pero se declaran aquí para no repetir números mágicos.
 const COL_LINKEDIN = 5;
@@ -153,6 +160,17 @@ function doGet(e) {
         // Si se metiera en el array caería en la 13 y pisaría el click.
         const gclid = (e.parameter.gclid || '').toString().trim();
         if (gclid) sheet.getRange(lastRow, COL_FUENTE).setValue('Google Ads');
+
+        // El origen se escribe aparte del array `row` por el mismo motivo que
+        // la fuente: meterlo en el array correría las columnas 13-16 y pisaría
+        // el click. Cada campo va a su columna fija; si viene vacío no se
+        // escribe nada y la celda queda en blanco.
+        const origen = {};
+        origen[COL_ADSET]  = (e.parameter.utm_content || '').toString().trim();
+        origen[COL_FBCLID] = (e.parameter.fbclid      || '').toString().trim();
+        for (const col in origen) {
+          if (origen[col]) sheet.getRange(lastRow, Number(col)).setValue(origen[col]);
+        }
       }
     } finally {
       lock.releaseLock();
@@ -1300,6 +1318,7 @@ function getSheet(name) {
       'Nivel de compromiso', 'Capacidad de inversión',
       'Interés en IA', 'Nivel de acompañamiento', 'Estatus', 'Click a Skool (Si /No) ',
       'En que correo convirtieron', 'Fuente',
+      'Adset', 'fbclid',
     ];
     const headerRow = sheet.getRange(1, 1, 1, headers.length);
     headerRow.setValues([headers]);
