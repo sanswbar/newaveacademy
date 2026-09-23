@@ -1301,40 +1301,9 @@ a   { text-decoration: none; color: inherit; }
 }
 
 /* ── FAQ ── */
-/* ── GARANTÍA NEWAVE — tarjeta plegada dentro de .modulos-section.
-   El título es el botón del acordeón; reutiliza .faq-trigger/.faq-body/.faq-icon y su JS. ── */
-.garantia-card {
-  max-width: var(--max);
-  margin: 2.5rem auto 0;
-  padding: 1.1rem clamp(1.25rem, 4vw, 1.75rem) 0;
-  background: var(--bg-2);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--r);
-  text-align: left;
-  scroll-margin-top: 5.5rem;
-}
-.garantia-card p { text-align: left; }
-.garantia-card > .mono-tag { margin-bottom: 0; font-size: 0.72rem; }
-.garantia-title { margin: 0; }
-.garantia-title .faq-trigger {
-  font-size: clamp(1.05rem, 2vw, 1.2rem); font-weight: 700; letter-spacing: -0.02em;
-  line-height: 1.25; padding: 0.3rem 0 0.9rem; min-height: 44px;
-}
-.garantia-card .faq-icon { width: 28px; height: 28px; font-size: 0.9rem; }
-.garantia-card .faq-body-inner { padding: 0 0 1.25rem; font-size: 0.9rem; }
-.garantia-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.55; margin: 0 0 0.65rem; }
-.garantia-resumen { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.01em; color: var(--white); line-height: 1.6; margin: 0 0 0.55rem; }
-.garantia-nota { font-size: 0.74rem; color: var(--subtle); line-height: 1.5; margin: 0 0 1rem; }
-.garantia-req-label { font-size: 0.7rem; margin: 0 0 0.5rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
-.garantia-lista { list-style: disc; padding-left: 1.25rem; margin: 0 0 1rem; display: grid; gap: 0.35rem; font-size: 0.86rem; }
-.garantia-lista li { text-align: left; }
-.garantia-link { color: var(--orange); font-weight: 600; font-size: 0.86rem; }
-.garantia-link:hover, .garantia-link:focus-visible { text-decoration: underline; }
-.garantia-card .faq-trigger:focus-visible,
-.garantia-link:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
-@media (max-width: 768px) {
-  .garantia-card { margin-top: 2rem; padding-top: 0.9rem; }
-}
+/* ── Link naranja usado en las respuestas del FAQ sobre la Garantía Newave ── */
+.garantia-link { color: var(--orange); font-weight: 600; }
+.garantia-link:hover, .garantia-link:focus-visible { text-decoration: underline; outline-offset: 3px; }
 
 .faq-section {
   padding: var(--section) clamp(1.25rem, 5vw, 2.5rem);
