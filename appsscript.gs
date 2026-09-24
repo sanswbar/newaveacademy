@@ -113,6 +113,15 @@ function doGet(e) {
 
     const nombre   = e.parameter.nombre   || '';
     const correo   = e.parameter.correo   || '';
+
+    // Sin correo no hay lead. Esto frena a crawlers, previsualizaciones
+    // de link y pruebas manuales que abrían la URL sin datos y dejaban
+    // filas vacías con "Registrado".
+    if (!correo) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ status: 'error', message: 'Falta correo' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
     const whatsapp = e.parameter.whatsapp || '';
 
     const row = [
@@ -443,29 +452,46 @@ function onEdit(e) {
 // ─── ONBOARDING: correo para quien ya entró al trial ──────────────────────
 //
 // Distinto de la secuencia de 5 correos (`seq_`), que es para leads que NO
-// entraron. Este arranca cuando se marca "Trial" en la columna L y busca una
-// sola cosa: que la persona se presente en la comunidad y conteste el DM de
-// Jaime, porque de ahí él la encamina. Firmado por Jaime, que es quien da el
-// seguimiento dentro de la plataforma.
+// entraron. Esta arranca cuando se marca "Trial" en la columna M y acompaña a
+// la persona durante los 7 días del trial. Firmada por Jaime, que es quien da
+// el seguimiento dentro de la plataforma.
 //
-// Empieza con UN correo a propósito. Si funciona, agregar un segundo es
-// copiar el bloque de sendOnboarding1 y añadir la entrada al mapa de delays.
+// El problema que ataca: la gente entra al trial y nunca empieza. Por eso cada
+// correo empuja al siguiente tramo del classroom, siempre planteado como
+// pregunta con dos salidas ("si ya lo hiciste" / "si todavía no"), porque no
+// hay forma de saber en qué módulo va cada quien — Skool no expone el progreso.
+//
+// Tono: la persona ya pagó y ya está dentro. No hay que convencerla de nada.
+// Nada de advertencias, de contar días que quedan, ni de sentencias sobre
+// quién lo logra y quién no.
 const ONBOARDING_DELAYS = {
-  1: 60 * 60 * 1000,   // 1 h después de marcar el trial
+  1: 60 * 60 * 1000,             // 1 h — bienvenida
+  2: 2 * 24 * 60 * 60 * 1000,    // día 2 — documentos
+  3: 4 * 24 * 60 * 60 * 1000,    // día 4 — dónde buscar y cómo aplicar
+  4: 6 * 24 * 60 * 60 * 1000,    // día 6 — entrevistas y negociación
 };
 
 const POST_BIENVENIDA_URL = 'https://www.skool.com/newave/welcome-introduce-yourself-share-a-pic-of-your-workspace';
 
-// Encola el correo de onboarding para la fila marcada como trial.
+// Módulos del classroom a los que apunta cada correo de onboarding.
+//
+// Todas traen ya su query string (`?md=`), así que el UTM se pega con & y no
+// con ? — igual que en sendOnboarding1.
+const URL_REVISION_DOCS = 'https://www.skool.com/newave/classroom/5ff70dd7?md=aeea8585097e4ffe8d0a24bc391cbc3c';  // Revisión de Documentos
+const URL_MODULO_2      = 'https://www.skool.com/newave/classroom/a87910ba?md=a2d9e8dc519646478194ad10556e97c8';  // Construye tu Marca Profesional
+const URL_MODULO_3      = 'https://www.skool.com/newave/classroom/36e24f16?md=01757a6ff7434bdba8d9e966ebd70456';  // Encuentra el Trabajo Ideal
+const URL_MODULO_5      = 'https://www.skool.com/newave/classroom/7b0175e9?md=cd26f7a036b345a68a3343727fd60d36';  // Domina las Entrevistas
+
+// Encola la cadena de onboarding para la fila marcada como trial.
 //
 // Idempotente: la marca `onb_hecho_<fila>` evita que re-editar la celda de
-// estatus vuelva a encolar y la persona reciba el correo dos veces. La marca
+// estatus vuelva a encolar y la persona reciba los correos dos veces. La marca
 // NO se borra al enviarse, justamente para que siga bloqueando reenvíos.
 //
 // Nota sobre triggers simples: onEdit no puede llamar a GmailApp (requiere
 // autorización). Por eso aquí solo se escribe en Script Properties, que sí
 // está permitido, y processQueue —que corre con un trigger instalable— es
-// quien manda el correo.
+// quien manda los correos.
 function queueOnboarding(sheet, fila) {
   try {
     const props = PropertiesService.getScriptProperties();
@@ -477,13 +503,15 @@ function queueOnboarding(sheet, fila) {
     if (!correo) return;
 
     const now = Date.now();
-    props.setProperty('onb_' + fila + '_1', JSON.stringify({
-      emailNum: 1,
-      nombre:   nombre,
-      correo:   correo,
-      row:      fila,
-      dueAt:    now + ONBOARDING_DELAYS[1],
-    }));
+    for (let n = 1; n <= 4; n++) {
+      props.setProperty('onb_' + fila + '_' + n, JSON.stringify({
+        emailNum: n,
+        nombre:   nombre,
+        correo:   correo,
+        row:      fila,
+        dueAt:    now + ONBOARDING_DELAYS[n],
+      }));
+    }
     props.setProperty(marca, String(now));
   } catch (err) {
     // Nunca romper la edición del sheet por esto
@@ -712,7 +740,9 @@ function processQueue() {
   // Cola de onboarding (quien ya entró al trial). Comparte el tope de
   // MAX_POR_CORRIDA con la secuencia normal para no golpear la cuota de Gmail
   // en una sola pasada.
-  const sendersOnb = { 1: sendOnboarding1 };
+  const sendersOnb = {
+    1: sendOnboarding1, 2: sendOnboarding2, 3: sendOnboarding3, 4: sendOnboarding4,
+  };
 
   for (const key in allProps) {
     if (sinCuotaGmail) break;
@@ -730,6 +760,22 @@ function processQueue() {
     if (now < data.dueAt) continue; // aún no toca
 
     if (!data.correo || !sendersOnb[data.emailNum]) {
+      props.deleteProperty(key);
+      continue;
+    }
+
+    // Si ya no dice trial ni pago, la persona canceló entre el encolado y hoy:
+    // se descarta el resto de la cadena. Skool no avisa de las cancelaciones
+    // (no tiene webhooks), así que esto depende de que el estatus se actualice
+    // a mano en el sheet — pero cuando pasa, evita seguirle escribiendo a
+    // alguien que ya se fue.
+    //
+    // Se busca la fila por correo y no se usa `data.row`: insertar o borrar
+    // filas en el sheet mueve las de abajo y el número guardado al encolar
+    // apuntaría a otra persona. Mismo criterio que el loop de `seq_`.
+    const filaOnb = buscarFilaPorCorreo(sheet, data.correo);
+    if (data.emailNum !== 1 && filaOnb && !isTrialOrPaid(sheet, filaOnb)) {
+      Logger.log('[onboarding] descartado correo ' + data.emailNum + ' a ' + data.correo + ': ya no es trial');
       props.deleteProperty(key);
       continue;
     }
@@ -1187,10 +1233,90 @@ function sendOnboarding1(nombre, correo) {
   <p style="margin:0 0 16px">Cuéntanos de dónde eres, a qué te dedicas y qué quieres conseguir con un trabajo remoto.</p>
   <p style="margin:0 0 16px"><a href="${POST_BIENVENIDA_URL}">Presentarme</a></p>
   <p style="margin:0 0 8px"><strong>2. Empieza hoy el Módulo 1.</strong></p>
-  <p style="margin:0 0 16px">Es muy importante que empieces. No lo dejes para después porque probablemente no regreses.</p>
+  <p style="margin:0 0 16px">Si puedes, ábrelo hoy. Es corto y te da el mapa de todo lo demás.</p>
   <p style="margin:0 0 16px"><a href="${urlModulo}">Ir al Módulo 1</a></p>
   <p style="margin:0 0 16px">Todo lo que necesitas para conseguir tu trabajo remoto está dentro de Newave. Solo tienes que seguir el curso y aplicar lo que vas aprendiendo.</p>
   <p style="margin:0 0 16px">Nos vemos dentro.</p>
+  <p style="margin:0">Jaime</p>
+</div>`;
+
+  GmailApp.sendEmail(correo, subject, '', { name: FROM_NAME, replyTo: FROM_EMAIL, htmlBody: html });
+}
+
+// ─── ONBOARDING 2 — día 2: documentos ─────────────────────────────────────
+
+function sendOnboarding2(nombre, correo) {
+  const firstName = nombre.split(' ')[0] || '';
+  const subject = firstName
+    ? ('¿Ya tienes tus documentos, ' + firstName + '?')
+    : '¿Ya tienes tus documentos?';
+  // Dos links: el Módulo 2 es donde se construyen los documentos y Revisión de
+  // Documentos donde se suben. Cubren los dos caminos del correo.
+  const urlModulo2 = URL_MODULO_2      + '&utm_source=email&utm_medium=onboarding&utm_campaign=onb2';
+  const urlDocs    = URL_REVISION_DOCS + '&utm_source=email&utm_medium=onboarding&utm_campaign=onb2';
+
+  const html = `
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;">
+  <p style="margin:0 0 16px">${firstName ? firstName + ', ¿ya' : '¿Ya'} tienes listos tu CV, LinkedIn y Cover Letter?</p>
+  <p style="margin:0 0 16px">Si sí, perfecto. Sigue avanzando.</p>
+  <p style="margin:0 0 16px">Si todavía estás trabajando en ellos, enfócate en terminarlos antes de empezar a mandar aplicaciones.</p>
+  <p style="margin:0 0 16px">Tus documentos son la base de tu búsqueda y dentro de Newave tienes todo lo necesario para construirlos paso a paso.</p>
+  <p style="margin:0 0 16px"><a href="${urlModulo2}">Ir al Módulo 2</a></p>
+  <p style="margin:0 0 16px">Y recuerda:</p>
+  <p style="margin:0 0 16px">Si tienes Premium, puedes subirlos a Revisión de Documentos para que los revisemos personalmente.</p>
+  <p style="margin:0 0 16px"><a href="${urlDocs}">Subir mis documentos</a></p>
+  <p style="margin:0 0 16px">Si tienes dudas, todos los martes tenemos Q&amp;A en vivo. Tráelas y las vemos juntos.</p>
+  <p style="margin:0 0 16px">Sigue avanzando.</p>
+  <p style="margin:0">Jaime</p>
+</div>`;
+
+  GmailApp.sendEmail(correo, subject, '', { name: FROM_NAME, replyTo: FROM_EMAIL, htmlBody: html });
+}
+
+// ─── ONBOARDING 3 — día 4: dónde buscar y cómo aplicar ────────────────────
+
+function sendOnboarding3(nombre, correo) {
+  const firstName = nombre.split(' ')[0] || '';
+  const subject = firstName
+    ? ('¿Ya sabes dónde buscar, ' + firstName + '?')
+    : '¿Ya sabes dónde buscar?';
+  const urlModulo3 = URL_MODULO_3 + '&utm_source=email&utm_medium=onboarding&utm_campaign=onb3';
+
+  const html = `
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;">
+  <p style="margin:0 0 16px">${firstName ? firstName + ', ¿ya' : '¿Ya'} sabes dónde estás buscando tus vacantes?</p>
+  <p style="margin:0 0 16px">Si ya tienes tus bolsas de trabajo identificadas, perfecto. Sigue aplicando.</p>
+  <p style="margin:0 0 16px">Si todavía no, vale la pena que veas el Módulo 3 antes de seguir mandando aplicaciones.</p>
+  <p style="margin:0 0 16px">La mayoría de la gente busca en los mismos tres lugares que todo el mundo. Hay muchas más bolsas de trabajo remoto de las que parece, y ahí la competencia es distinta.</p>
+  <p style="margin:0 0 16px">Y en el Módulo 4 está la otra mitad: cómo mandar una aplicación que sí te conteste.</p>
+  <p style="margin:0 0 16px"><a href="${urlModulo3}">Ver dónde buscar</a></p>
+  <p style="margin:0 0 16px">Si tienes dudas, todos los martes tenemos Q&amp;A en vivo. Tráelas y las vemos juntos.</p>
+  <p style="margin:0 0 16px">Sigue avanzando.</p>
+  <p style="margin:0">Jaime</p>
+</div>`;
+
+  GmailApp.sendEmail(correo, subject, '', { name: FROM_NAME, replyTo: FROM_EMAIL, htmlBody: html });
+}
+
+// ─── ONBOARDING 4 — día 6: entrevistas y negociación ──────────────────────
+
+function sendOnboarding4(nombre, correo) {
+  const firstName = nombre.split(' ')[0] || '';
+  const subject = firstName
+    ? ('Lo que sigue después de aplicar, ' + firstName)
+    : 'Lo que sigue después de aplicar';
+  const urlModulo5 = URL_MODULO_5 + '&utm_source=email&utm_medium=onboarding&utm_campaign=onb4';
+
+  const html = `
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#222222;">
+  <p style="margin:0 0 16px">${firstName ? firstName + ', ¿ya' : '¿Ya'} empezaste a mandar aplicaciones?</p>
+  <p style="margin:0 0 16px">Si ya te están contestando, es momento de preparar las entrevistas. Está todo en el Módulo 5: qué te van a preguntar y cómo contestar sin sonar ensayado.</p>
+  <p style="margin:0 0 16px">Si todavía no llegas ahí, no hay prisa. Cada quien lleva su ritmo y el contenido no se va a ningún lado.</p>
+  <p style="margin:0 0 16px">Pero échale un ojo al Módulo 6 cuando puedas, aunque sea antes de tiempo.</p>
+  <p style="margin:0 0 16px">Es la parte de negociación: cuánto pedir y cómo pedirlo. Es la que más gente se salta y la que más dinero deja sobre la mesa.</p>
+  <p style="margin:0 0 16px"><a href="${urlModulo5}">Ver el Módulo 5</a></p>
+  <p style="margin:0 0 16px">Si tienes dudas, todos los martes tenemos Q&amp;A en vivo. Tráelas y las vemos juntos.</p>
+  <p style="margin:0 0 16px">Sigue avanzando.</p>
   <p style="margin:0">Jaime</p>
 </div>`;
 
